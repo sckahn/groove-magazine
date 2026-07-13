@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>GROOVE — 기사 목록</title>
+<meta name="description" content="비바체가 쓰는 음악 매거진.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{
+  --bg:#0D0F16; --surface:#181B26; --ink:#F0EDE4; --muted:#A8A69C; --faint:#6E6D66;
+  --accent:#E8455F; --border:#2A2E3B;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; word-break:keep-all}
+.wrap{max-width:720px; margin:0 auto; padding:64px 24px 96px}
+header{display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:20px}
+.masthead{font-weight:800; font-size:22px; letter-spacing:-.02em}
+.masthead em{font-style:normal; color:var(--accent)}
+header .by{font-family:var(--mono); font-size:12px; color:var(--faint); letter-spacing:.08em}
+.sec{display:flex; align-items:center; gap:10px; margin:44px 0 16px; font-size:16px; font-weight:800; letter-spacing:-.01em}
+.sec::before{content:""; width:14px; height:3px; background:var(--accent); border-radius:2px}
+.sec:first-of-type{margin-top:36px}
+.list{display:flex; flex-direction:column; gap:14px}
+.item{display:flex; gap:18px; align-items:center; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; transition:border-color .2s, transform .2s}
+.item:hover{border-color:var(--accent); transform:translateY(-1px)}
+.thumbs{display:grid; grid-template-columns:repeat(2,1fr); gap:3px; flex:none}
+.thumbs img{width:34px; height:34px; object-fit:cover; border-radius:4px; display:block}
+.item .t{font-size:17px; font-weight:700; letter-spacing:-.01em; line-height:1.35}
+.clubtile{width:71px; height:71px; flex:none; display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.14em; color:#FFDCEA;
+  background:radial-gradient(circle at 50% 30%, #1B1936, #0C0B18); border:1px solid #2E2B4E; border-radius:8px;
+  text-shadow:0 0 6px #FF4D8D, 0 0 14px #FF4D8D}
+.item .d{display:block; font-size:13.5px; color:var(--muted); line-height:1.55; margin-top:6px}
+footer{margin-top:64px; font-family:var(--mono); font-size:12px; color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="masthead">GROOVE<em>.</em></div>
+    <div class="by">글 비바체</div>
+  </header>
+
+  <div class="sec">한국인디의 새로운 물결</div>
+  <div class="list">
+    <a class="item" href="articles/korean-indie-new-wave.html">
+      <span class="thumbs">
+        <img src="articles/covers/a2.jpg" alt=""><img src="articles/covers/a5.jpg" alt="">
+        <img src="articles/covers/b1.jpg" alt=""><img src="articles/covers/b6.jpg" alt="">
+      </span>
+      <span>
+        <span class="t">비바체가 골라본 2020년대 한국인디</span>
+        <span class="d">유행이 아니라 고유한 결로 골랐다 — 지금 한국 인디를 설명하는 열두 장의 앨범.</span>
+      </span>
+    </a>
+  </div>
+
+  <div class="sec">A에서 C까지, 무대는 전유물이 아니다</div>
+  <div class="list">
+    <a class="item" href="articles/arise.html">
+      <span class="thumbs">
+        <img src="articles/covers/arise/03.jpg" alt=""><img src="articles/covers/arise/05.jpg" alt="">
+        <img src="articles/covers/arise/07.jpg" alt=""><img src="articles/covers/arise/12.jpg" alt="">
+      </span>
+      <span>
+        <span class="t">Ⅰ. Arise - 60's to 80's</span>
+        <span class="d">록은 태어날 때부터 저항이었다 — 개막을 알린 열두 곡.</span>
+      </span>
+    </a>
+    <a class="item" href="articles/blooming.html">
+      <span class="thumbs">
+        <img src="articles/covers/blooming/03.jpg" alt=""><img src="articles/covers/blooming/04.jpg" alt="">
+        <img src="articles/covers/blooming/09.jpg" alt=""><img src="articles/covers/blooming/10.jpg" alt="">
+      </span>
+      <span>
+        <span class="t">Ⅱ. Blooming - 80's to 90's</span>
+        <span class="d">장르가 갈라지고 목소리가 늘어난 만개의 시절, 열한 곡.</span>
+      </span>
+    </a>
+    <a class="item" href="articles/crown.html">
+      <span class="thumbs">
+        <img src="articles/covers/crown/04.jpg" alt=""><img src="articles/covers/crown/11.jpg" alt="">
+        <img src="articles/covers/crown/13.jpg" alt=""><img src="articles/covers/crown/22.jpg" alt="">
+      </span>
+      <span>
+        <span class="t">Ⅲ. Crown - 21C</span>
+        <span class="d">21세기의 무대에서 왕관을 쓴 이들 — 대관식의 스물네 곡.</span>
+      </span>
+    </a>
+  </div>
+
+  <div class="sec">전설이 시작된 클럽들</div>
+  <div class="list">
+    <a class="item" href="articles/clubs.html">
+      <span class="thumbs">
+        <img src="articles/covers/clubs/06.jpg" alt=""><img src="articles/covers/clubs/03.jpg" alt="">
+        <img src="articles/covers/clubs/07.jpg" alt=""><img src="articles/covers/clubs/05.jpg" alt="">
+      </span>
+      <span>
+        <span class="t">해외편</span>
+        <span class="d">캐번의 점심 공연부터 르 팔라스의 새벽까지, 전설이 태어난 일곱 개의 무대.</span>
+      </span>
+    </a>
+    <a class="item" href="articles/clubs-kr.html">
+      <span class="thumbs">
+        <img src="articles/covers/clubs-kr/02.jpg" alt=""><img src="articles/covers/clubs-kr/13.jpg" alt="">
+        <img src="articles/covers/clubs-kr/04.jpg" alt=""><img src="articles/covers/clubs-kr/16.jpg" alt="">
+      </span>
+      <span>
+        <span class="t">국내편</span>
+        <span class="d">이태원 문나이트에서 부산 오방가르드까지, 우리 음악이 자란 열아홉 곳.</span>
+      </span>
+    </a>
+  </div>
+
+  <footer>GROOVE — 비바체의 음악 노트</footer>
+</div>
+</body>
+</html>

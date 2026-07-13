@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>록 3부작 Ⅱ · Blooming - 80's to 90's — GROOVE Special</title>
+<meta name="description" content="록 3부작 Ⅱ · Blooming - 80's to 90's — GROOVE Special Feature.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Nanum+Myeongjo:wght@700;800&display=swap');
+
+:root{ --su:min(1vh,.5625vw);
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Menlo","Cascadia Mono","Consolas",monospace;
+  --serif:"Playfair Display","Iowan Old Style",Georgia,"Times New Roman","AppleMyungjo","Nanum Myeongjo","Batang",바탕,serif;
+  --bg:#0D0F16; --bg2:#12141d; --surface:#181B26; --surface2:#20242f;
+  --ink:#F0EDE4; --muted:#A8A69C; --faint:#6E6D66;
+  --accent:#E8455F; --accent2:#FF7A8C; --accent-soft:rgba(232,69,95,.14);
+  --gold:#D9A84E; --good:#46C08A;
+  --border:#2A2E3B; --border2:#3d425255; --grid:rgba(255,255,255,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--grid) 1px,transparent 1px); background-size:30px 30px;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.deck{position:fixed; inset:0; overflow:hidden; z-index:1}
+@media(min-width:769px){
+  .deck{max-width:calc(100vh*16/9); max-height:calc(100vw*9/16); margin:auto}
+}
+.slide{
+  position:absolute; inset:0; padding:calc(6.5*var(--su)) calc(8*var(--su)) calc(6*var(--su));
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  opacity:0; pointer-events:none; overflow:hidden; transform-origin:50% 50%;
+}
+.slide > *{margin-inline:auto}
+.slide.active{opacity:1; z-index:2; pointer-events:auto; animation:camIn .8s cubic-bezier(.25,.72,.3,1) both}
+.slide.leaving{z-index:1; pointer-events:none; animation:camOut .8s cubic-bezier(.4,.08,.5,1) both}
+.deck.camback .slide.active{animation-name:camInBack}
+.deck.camback .slide.leaving{animation-name:camOutBack}
+@keyframes camIn{from{opacity:0; transform:translateX(16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOut{from{opacity:1; transform:none} to{opacity:0; transform:translateX(-12vw) scale(.955)}}
+@keyframes camInBack{from{opacity:0; transform:translateX(-16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOutBack{from{opacity:1; transform:none} to{opacity:0; transform:translateX(12vw) scale(.955)}}
+.slide.leaving .r{opacity:1!important; transform:none!important; filter:none!important; animation:none!important}
+.slide::before{content:""; position:absolute; top:-30%; left:50%; transform:translateX(-50%);
+  width:80%; height:60%; background:radial-gradient(ellipse at center,var(--accent-soft),transparent 70%);
+  opacity:.5; pointer-events:none; z-index:0}
+.slide::after{content:""; position:absolute; right:-15%; bottom:-25%; width:60%; height:55%;
+  background:radial-gradient(ellipse at center,rgba(217,168,78,.08),transparent 70%); pointer-events:none; z-index:0}
+.slide > *{position:relative; z-index:1}
+
+/* ---- reveal ---- */
+.r{opacity:0; transform:translateY(calc(2.6*var(--su)))}
+.slide.active .r{animation:riseGlow .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--i,0)*95ms + 140ms)}
+@keyframes riseGlow{
+  0%{opacity:0; transform:translateY(calc(2.8*var(--su))); filter:blur(6px)}
+  60%{filter:blur(0)}
+  100%{opacity:1; transform:none; filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;animation:none!important}
+  .slide{transform:none!important} .slide.active{animation:none; opacity:1} .slide.leaving{animation:none; opacity:0}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono); font-size:calc(1.7*var(--su)); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); display:inline-flex; align-items:center; justify-content:center; gap:calc(1.1*var(--su)); margin-bottom:calc(2.4*var(--su))}
+.eyebrow::before{content:""; width:calc(3.4*var(--su)); height:2px; background:var(--accent)}
+h1{font-size:calc(8.2*var(--su)); line-height:1.06; letter-spacing:-.038em; font-weight:800; text-wrap:balance; text-shadow:0 calc(.4*var(--su)) calc(3*var(--su)) rgba(0,0,0,.45)}
+h1 em, .serif{font-family:var(--serif); font-style:italic; font-weight:700}
+h1 .acc,b.acc{color:var(--accent)}
+h2{font-size:calc(5.2*var(--su)); line-height:1.08; letter-spacing:-.018em; font-weight:700; text-wrap:balance}
+.lede{font-size:calc(2.6*var(--su)); color:var(--muted); max-width:56ch; line-height:1.65; margin-top:calc(2.6*var(--su))}
+.lede b{color:var(--ink); font-weight:600}
+.big{font-size:calc(6*var(--su)); line-height:1.14; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+.big b{color:var(--accent)}
+.kicker{font-family:var(--mono); font-size:calc(1.6*var(--su)); color:var(--faint); letter-spacing:.08em}
+
+/* ---- cover (minimal) ---- */
+.cover-min{font-size:calc(5.6*var(--su)); font-weight:800; letter-spacing:-.04em; line-height:1.25; color:var(--ink); text-shadow:none; margin-top:calc(1.6*var(--su))}
+.cover-lede{font-size:calc(2.2*var(--su)); color:var(--muted); line-height:1.7; max-width:58ch; margin-top:calc(2*var(--su))}
+.cover-lede b{color:var(--ink)}
+.cover-sub{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.12em; color:var(--faint); margin-top:calc(.6*var(--su))}
+.artstrip{display:flex; gap:calc(1.2*var(--su)); justify-content:center; margin-top:calc(3*var(--su)); margin-bottom:calc(2*var(--su)); flex-wrap:wrap; max-width:calc(70*var(--su))}
+.artstrip img{width:calc(10.5*var(--su)); height:calc(10.5*var(--su)); border-radius:calc(.5*var(--su)); object-fit:cover}
+
+/* ---- brandbar / badge ---- */
+.brandbar{display:flex; align-items:center; justify-content:center; gap:calc(1.6*var(--su)); margin-bottom:calc(3*var(--su))}
+.logo{width:calc(5*var(--su));height:calc(5*var(--su));border-radius:50%;background:conic-gradient(from 40deg,#1a1a1f,#33333c,#1a1a1f,#33333c,#1a1a1f);
+  display:grid;place-items:center;position:relative;box-shadow:0 0 0 2px var(--accent)}
+.logo::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--accent)}
+.badge{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.08em; color:var(--muted);
+  border:1px solid var(--border2); border-radius:999px; padding:calc(.7*var(--su)) calc(1.6*var(--su)); background:var(--surface)}
+.dot{width:calc(1*var(--su));height:calc(1*var(--su));border-radius:50%;background:var(--good);display:inline-block;margin-right:calc(.8*var(--su));
+  box-shadow:0 0 0 0 rgba(70,192,138,.5); animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 calc(1.4*var(--su)) rgba(70,192,138,0)}100%{box-shadow:0 0 0 0 rgba(70,192,138,0)}}
+
+/* ---- stats ---- */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:calc(2*var(--su)); margin-top:calc(4*var(--su)); width:100%; max-width:110ch}
+.stat{background:var(--surface); border:1px solid var(--border); border-radius:calc(1.6*var(--su)); padding:calc(3*var(--su)); display:flex; flex-direction:column; justify-content:center}
+.stat .n{font-family:var(--mono); font-size:calc(5.6*var(--su)); font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.stat.acc .n{color:var(--accent)}
+.stat .l{font-size:calc(1.7*var(--su)); color:var(--muted); margin-top:calc(.8*var(--su))}
+
+/* ---- track slide (editorial) ---- */
+.track{display:grid; grid-template-columns:.92fr 1.08fr; gap:calc(7*var(--su)); align-items:center; width:100%; max-width:134ch; text-align:left}
+.tk-l{display:flex; flex-direction:column; align-items:center; gap:calc(2.4*var(--su))}
+.sleeve{position:relative; width:calc(40*var(--su)); height:calc(31*var(--su)); flex:none}
+.discwrap{position:absolute; right:0; top:50%; transform:translateY(-50%); width:calc(27*var(--su)); height:calc(27*var(--su))}
+.sleeve .art{position:absolute; left:0; top:50%; transform:translateY(-50%); width:calc(30*var(--su)); height:calc(30*var(--su));
+  object-fit:cover; border-radius:calc(.4*var(--su));
+  box-shadow:calc(1*var(--su)) calc(1.6*var(--su)) calc(5*var(--su)) rgba(0,0,0,.65)}
+.disc{width:100%; height:100%; border-radius:50%; position:relative; flex:none;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.08), transparent 40%),
+    repeating-radial-gradient(circle, #16161b 0, #16161b 2px, #1e1e25 3px, #16161b 4px);
+  box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(1*var(--su)) rgba(255,255,255,.05);
+  animation:spin33 14s linear infinite}
+.slide.leaving .disc{animation-play-state:paused}
+@keyframes spin33{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.disc{animation:none}}
+.disc .label{position:absolute; inset:31%; border-radius:50%; background:var(--tc,var(--accent));
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.disc .label::after{content:""; position:absolute; inset:45.5%; border-radius:50%; background:var(--bg); box-shadow:0 0 0 2px rgba(0,0,0,.3)}
+.tk-r{min-width:0}
+.tk-no{font-family:var(--mono); font-size:calc(1.6*var(--su)); letter-spacing:.24em; color:var(--faint); margin-bottom:calc(2*var(--su))}
+.tk-no b{color:var(--accent); font-size:calc(2.2*var(--su))}
+.tk-artist{font-family:var(--mono); font-size:calc(1.9*var(--su)); color:var(--muted); font-weight:600; letter-spacing:.22em; text-transform:uppercase}
+.tk-album{font-family:"Nanum Myeongjo",var(--serif); font-size:calc(5.4*var(--su)); font-weight:800; letter-spacing:-.02em; line-height:1.22; margin-top:calc(1.2*var(--su)); text-wrap:balance}
+.tk-album em{font-family:var(--serif); font-style:italic; font-weight:700}
+.rule{width:calc(5.5*var(--su)); height:2px; background:var(--accent); margin-top:calc(2.6*var(--su))}
+.tk-metaline{font-family:var(--mono); font-size:calc(1.7*var(--su)); color:var(--faint); letter-spacing:.06em; margin-top:calc(1.6*var(--su))}
+.tk-body{font-size:calc(2.55*var(--su)); color:var(--muted); line-height:1.75; margin-top:calc(2.6*var(--su)); max-width:60ch}
+.tk-body b{color:var(--ink); font-weight:600}
+
+/* ---- closing ---- */
+.close-list{display:flex;flex-direction:column;gap:calc(3*var(--su));margin-top:calc(4.5*var(--su));max-width:66ch; text-align:left}
+.cl{display:flex;align-items:flex-start;gap:calc(2*var(--su));font-size:calc(2.5*var(--su));color:var(--muted); line-height:1.5}
+.cl .k{font-family:var(--mono);color:var(--accent);font-weight:700;font-size:calc(1.9*var(--su));margin-top:calc(.5*var(--su)); white-space:nowrap}
+.cl b{color:var(--ink)}
+
+
+/* ---- listen ---- */
+.pl-btn{display:inline-flex; align-items:center; gap:calc(1*var(--su)); font-family:var(--mono); font-size:calc(1.7*var(--su)); font-weight:700;
+  color:#1DB954; border:1.5px solid #1DB954; border-radius:999px; padding:calc(1.1*var(--su)) calc(2.6*var(--su));
+  text-decoration:none; margin-top:calc(4*var(--su)); transition:background .2s, color .2s}
+.pl-btn:hover{background:#1DB954; color:#0D0F16}
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(5*var(--su)); letter-spacing:-.02em}
+.listen{display:grid; grid-template-columns:1fr 1fr; gap:calc(1.1*var(--su)) calc(2.2*var(--su)); width:100%; max-width:122ch; margin-top:calc(3*var(--su)); text-align:left}
+.ls{display:flex; align-items:center; gap:calc(1.4*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su)); padding:calc(1*var(--su)) calc(1.5*var(--su)); transition:border-color .2s, transform .2s}
+.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img{width:calc(4.6*var(--su)); height:calc(4.6*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln{font-family:var(--mono); color:var(--faint); font-size:calc(1.5*var(--su)); flex:none}
+.ls .lt{font-size:calc(2*var(--su)); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1}
+.ls .sv{font-family:var(--mono); font-size:calc(1.5*var(--su)); flex:none}
+.ls .sv.sp{color:#1DB954}
+.ls .sv.am{color:var(--muted)}
+.listen.dense{gap:calc(.65*var(--su)) calc(1.8*var(--su)); margin-top:calc(2*var(--su))}
+.listen.dense .ls{padding:calc(.5*var(--su)) calc(1.2*var(--su)); border-radius:calc(.7*var(--su))}
+.listen.dense .ls img{width:calc(2.9*var(--su)); height:calc(2.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.8*var(--su))}
+.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:calc(1.2*var(--su))}
+
+
+.tk-fn{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); line-height:1.65; margin-top:calc(2*var(--su)); max-width:60ch}
+.ast{color:var(--accent); font-weight:700}
+
+/* ---- chrome ---- */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;z-index:21;transition:width .4s;box-shadow:0 0 calc(1.2*var(--su)) var(--accent)}
+.chrome{position:fixed; inset:auto 0 0 0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:calc(2*var(--su)) calc(3*var(--su)); pointer-events:none}
+.counter{font-family:var(--mono);font-size:calc(1.5*var(--su));color:var(--faint)}
+.dots{display:flex;gap:calc(.9*var(--su));pointer-events:auto;flex-wrap:wrap;justify-content:center;max-width:60vw}
+.dots button{width:calc(1.1*var(--su));height:calc(1.1*var(--su));min-width:7px;min-height:7px;border-radius:50%;border:0;background:var(--border2);cursor:pointer;padding:0;transition:.3s}
+.dots button.on{background:var(--accent);transform:scale(1.3);box-shadow:0 0 calc(1*var(--su)) var(--accent)}
+.hint{font-family:var(--mono);font-size:calc(1.35*var(--su));color:var(--faint)}
+kbd{font-family:var(--mono);background:var(--surface2);border:1px solid var(--border2);border-radius:calc(.5*var(--su));padding:calc(.2*var(--su)) calc(.8*var(--su));font-size:calc(1.2*var(--su))}
+#fx{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.9}
+
+@media(max-width:768px){
+  :root{--su:1.05vh}
+  .kicker{font-size:3vw}
+  .cover-min{font-size:8.6vw}
+  .cover-lede{font-size:3.9vw; max-width:88vw}
+  .cover-sub{font-size:2.9vw; letter-spacing:.06em}
+  .artstrip{max-width:92vw; gap:1.6vw}
+  .artstrip img{width:13.5vw; height:13.5vw}
+  .tk-no{font-size:3vw} .tk-no b{font-size:4vw}
+  .tk-artist{font-size:3.4vw}
+  .tk-album{font-size:8vw}
+  .tk-metaline{font-size:3.1vw}
+  .listen-h{font-size:8vw}
+  .pl-btn{font-size:3.6vw; padding:2vw 6vw}
+  .listen,.listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:58vh; overflow-y:auto; gap:2vw}
+  .ls,.listen.dense .ls{padding:2.4vw 3.2vw}
+  .ls img,.listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt,.listen.dense .ls .lt{font-size:3.9vw; white-space:normal}
+  .ls .ln,.ls .sv,.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:2.9vw}
+
+  h1{font-size:9vw} h2{font-size:6.4vw} .big{font-size:7vw} .cover-min{font-size:6.4vw}
+    .quote{font-size:6.4vw}
+  .slide{padding:9vw 6vw}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .track{grid-template-columns:1fr; gap:5vw}
+  .listen{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:62vh; overflow-y:auto}
+  .tk-l{flex-direction:row; justify-content:flex-start; gap:5vw}
+  .sleeve{width:52vw; height:40vw}
+  .sleeve .art{width:38vw; height:38vw}
+  .discwrap{width:34vw; height:34vw}
+  .tk-body{font-size:4.2vw}
+  .tk-fn{font-size:2.9vw}
+  .hint{display:none}
+}
+
+/* ==== unified listen layout ==== */
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(4.6*var(--su)); letter-spacing:-.02em}
+.listen, .listen.dense{display:grid; grid-template-columns:1fr 1fr; gap:calc(1*var(--su)) calc(2*var(--su)); width:100%; max-width:126ch; margin-top:calc(3.6*var(--su)); text-align:left; max-height:none; overflow:visible}
+.ls, .listen.dense .ls{display:flex; align-items:center; gap:calc(1.5*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su));
+  padding:calc(1*var(--su)) calc(1.7*var(--su)); min-height:calc(6*var(--su)); transition:border-color .2s, transform .2s}
+a.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img, .listen.dense .ls img{width:calc(4.3*var(--su)); height:calc(4.3*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln, .listen.dense .ls .ln{font-family:var(--mono); font-size:calc(1.5*var(--su)); color:var(--faint); flex:none; min-width:calc(2.8*var(--su))}
+.ls .lt, .listen.dense .ls .lt{font-size:calc(1.95*var(--su)); font-weight:700; color:var(--ink); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:1.45}
+.ls .lt .song{color:var(--muted); font-weight:500}
+.ls .sv, .listen.dense .ls .sv{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); flex:none; letter-spacing:.04em}
+.ls .sv.sp{color:#1DB954}
+.listen.dense{gap:calc(.7*var(--su)) calc(1.8*var(--su))}
+.listen.dense .ls{padding:calc(.65*var(--su)) calc(1.4*var(--su)); min-height:calc(4.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.7*var(--su))}
+.listen.dense .ls .ln, .listen.dense .ls .sv{font-size:calc(1.3*var(--su))}
+@media(max-width:768px){
+  .listen, .listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:56vh; overflow-y:auto; gap:2vw}
+  .ls, .listen.dense .ls{padding:2.6vw 3.4vw; min-height:0; gap:3vw}
+  .ls img, .listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt, .listen.dense .ls .lt{font-size:4vw; white-space:normal}
+  .ls .ln, .ls .sv, .listen.dense .ls .ln, .listen.dense .ls .sv{font-size:2.9vw}
+  .slide{overflow-y:auto; justify-content:flex-start; padding-top:16vw; padding-bottom:22vw}
+  .slide::-webkit-scrollbar{display:none}
+  .track{grid-template-columns:minmax(0,1fr) !important}
+  .tk-l{flex-direction:column !important; align-items:center; gap:3vw; width:100%}
+  .tk-r{min-width:0; max-width:100%}
+  .tk-body, .tk-fn, .tk-metaline, .tk-album{max-width:100%}
+  .listen, .listen.dense{margin-top:6vw}
+  .pl-btn{margin-top:8vw; margin-bottom:2vw}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<canvas id="fx"></canvas>
+
+<div class="deck" id="deck">
+
+<!-- COVER -->
+<section class="slide">
+  <p class="kicker r">GROOVE · 록 3부작 · 만개</p>
+  <h1 class="cover-min r" style="--i:1">Ⅱ. Blooming - 80's to 90's</h1>
+  <p class="cover-lede r" style="--i:2">침묵을 요구받던 목소리들이 마이크를 잡았다. 2부는 분노와 저항이 주류 라디오를 뚫고 만개한 90년대 — 록의 무게중심이 옮겨지던 시절의 기록이다.</p>
+  <div class="artstrip r" style="--i:3"><img src="covers/blooming/01.jpg" alt=""><img src="covers/blooming/02.jpg" alt=""><img src="covers/blooming/03.jpg" alt=""><img src="covers/blooming/04.jpg" alt=""><img src="covers/blooming/05.jpg" alt=""><img src="covers/blooming/06.jpg" alt=""><img src="covers/blooming/07.jpg" alt=""><img src="covers/blooming/08.jpg" alt=""><img src="covers/blooming/09.jpg" alt=""><img src="covers/blooming/10.jpg" alt=""><img src="covers/blooming/11.jpg" alt=""></div>
+  <p class="cover-sub r" style="--i:4">록 3부작 제2부 — 1980s&ndash;90s · 11곡 · 글 비바체</p>
+</section>
+
+<!-- 01 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#E8455F"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/01.jpg" alt="4 Non Blondes — What&#x27;s Up?">
+      </div>
+      <div class="kicker">RELEASED · 1992</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>01</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">4 Non Blondes</p>
+      <div class="tk-album r" style="--i:2">What&#x27;s Up?</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1992 · Bigger, Better, Faster, More! · Rock</div>
+      <p class="tk-body r" style="--i:4">샌프란시스코의 4 논 블론디스는 이 한 곡으로 영원해졌다. 린다 페리가 목청 전부를 걸고 부르는 &lsquo;What&rsquo;s going on&rsquo;은 30년이 지나도 떼창을 부른다. 페리는 이후 프로듀서로 전향해 핑크와 크리스티나 아길레라의 명곡들을 썼다 — 90년대 록의 목소리가 2000년대 팝의 설계자가 된 셈이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#D9A84E"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/02.jpg" alt="The Cardigans — Lovefool">
+      </div>
+      <div class="kicker">RELEASED · 1996</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>02</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">The Cardigans</p>
+      <div class="tk-album r" style="--i:2">Lovefool</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1996 · First Band on the Moon · Pop</div>
+      <p class="tk-body r" style="--i:4">스웨덴 카디건스의 니나 페르손은 달콤한 척하는 목소리로 처절한 가사를 부른다 — &lsquo;사랑해줘, 사랑하는 척이라도 해줘&rsquo;. 바즈 루어만의 &lsquo;로미오+줄리엣&rsquo;에 실리며 세계적인 히트가 됐다. 설탕 코팅 안에 쓴맛을 숨기는 이 이중성이 카디건스의 결이고, 이 곡은 그 정점이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#8E7DF7"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/03.jpg" alt="Garbage — Only Happy When It Rains">
+      </div>
+      <div class="kicker">RELEASED · 1995</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>03</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">Garbage</p>
+      <div class="tk-album r" style="--i:2">Only Happy When It Rains</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 · Garbage · Rock</div>
+      <p class="tk-body r" style="--i:4">너바나 &lsquo;Nevermind&rsquo;의 프로듀서 부치 빅이 밴드를 만들며 스코틀랜드의 셜리 맨슨을 목소리로 앉혔다. 90년대의 우울을 셀로판지로 포장한 곡 — 그런지의 자기연민을 비웃으면서, 동시에 그 우울을 가장 매력적으로 팔았다. 셜리 맨슨은 불행을 매력으로 바꾸는 법을 아는 보컬이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#46C08A"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/04.jpg" alt="No Doubt — Just a Girl">
+      </div>
+      <div class="kicker">RELEASED · 1995</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>04</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">No Doubt</p>
+      <div class="tk-album r" style="--i:2">Just a Girl</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 · Tragic Kingdom · Pop</div>
+      <p class="tk-body r" style="--i:4">운전도 밤 외출도 허락받아야 했던 일상에서 나온 가사다. &lsquo;그냥 여자애일 뿐&rsquo;이라는 제목부터 반어법 — 그웬 스테파니가 일부러 얄밉게 부를수록 가사의 날은 서슬퍼래진다. 스카 펑크<span class="ast">*</span>의 튀는 리듬에 실린 저항이라 더 오래 남았고, 노 다웃을 세계로 끌어올린 곡이다.</p>
+      <p class="tk-fn r" style="--i:5">* 스카 펑크 — 자메이카 스카의 엇박 리듬과 펑크를 결합한 장르.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#5B8DEF"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/05.jpg" alt="Skunk Anansie — Weak">
+      </div>
+      <div class="kicker">RELEASED · 1995</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>05</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">Skunk Anansie</p>
+      <div class="tk-album r" style="--i:2">Weak</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 · Paranoid &amp; Sunburnt · Rock</div>
+      <p class="tk-body r" style="--i:4">브릿팝이 지배하던 90년대 영국에서 스컹크 아난시는 이단이었다 — 삭발한 흑인 여성 스킨이 이끄는 하드록 밴드. 이 곡에서 스킨의 목소리는 속삭임에서 포효로 단숨에 넘어간다. 그 순간 &lsquo;약함&rsquo;이라는 제목이 반전이 된다. 약함을 고백하는 소리가 가장 강한 소리일 수 있다는 것.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#FF9A57"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/06.jpg" alt="L7 — Pretend We&#x27;re Dead">
+      </div>
+      <div class="kicker">RELEASED · 1992</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>06</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">L7</p>
+      <div class="tk-album r" style="--i:2">Pretend We&#x27;re Dead</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1992 · Bricks Are Heavy · Hard Rock</div>
+      <p class="tk-body r" style="--i:4">LA의 L7은 그런지의 한복판에 있던 밴드이자, 임신중지권을 위한 콘서트 &lsquo;Rock for Choice&rsquo;를 만든 장본인들이다. 무심하게 던지는 후렴 — &lsquo;죽은 척이나 하자&rsquo; — 이 어떤 절규보다 세다. 정치적 무관심을 비꼬는 가사를 가장 태연한 목소리로 부르는 것, 그게 L7의 방식이었다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#3E7C6E"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/07.jpg" alt="Alanis Morissette — You Oughta Know">
+      </div>
+      <div class="kicker">RELEASED · 1995</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>07</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">Alanis Morissette</p>
+      <div class="tk-album r" style="--i:2">You Oughta Know</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 · Jagged Little Pill · Rock</div>
+      <p class="tk-body r" style="--i:4">댄스팝 아이돌이었던 캐나다의 앨라니스 모리셋이 LA로 건너가 전혀 다른 사람으로 돌아왔다. 배신한 연인을 향한 분노를 이렇게 구체적으로, 정확하게 발음한 곡은 그전까지 라디오에 없었다. 수록 앨범 &lsquo;Jagged Little Pill&rsquo;은 3300만 장이 팔리고 그래미 올해의 앨범을 받았다 — 분노는 시장성이 없다는 통념을 숫자로 부쉈다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#A34FDE"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/08.jpg" alt="PJ Harvey — Down by the Water">
+      </div>
+      <div class="kicker">RELEASED · 1995</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>08</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">PJ Harvey</p>
+      <div class="tk-album r" style="--i:2">Down by the Water</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 · To Bring You My Love · Rock</div>
+      <p class="tk-body r" style="--i:4">PJ 하비는 블루스를 괴담으로 바꾼다. 딸을 물에 빠뜨린 인물의 이야기를 1인칭으로 부르는 이 곡은 낮게 읊조리는 후렴이 제일 무섭다. 통념이 기대하는 목소리를 매번 배반하는 페르소나 전략으로 록 서사의 폭을 넓혔고, 머큐리 프라이즈<span class="ast">*</span>를 두 번 받은 유일한 아티스트가 됐다.</p>
+      <p class="tk-fn r" style="--i:5">* 머큐리 프라이즈 — 매년 영국·아일랜드 최고의 앨범 한 장에 주는 상.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#C9A227"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/09.jpg" alt="Hole — Violet">
+      </div>
+      <div class="kicker">RELEASED · 1994</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>09</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">Hole</p>
+      <div class="tk-album r" style="--i:2">Violet</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1994 · Live Through This · Alternative</div>
+      <p class="tk-body r" style="--i:4">코트니 러브의 가장 좋은 순간. 조용한 벌스와 폭발하는 후렴 — &lsquo;가져가, 다 가져가&rsquo;라고 외치는데 그건 항복이 아니라 도발이다. 앨범 &lsquo;Live Through This&rsquo;는 커트 코베인의 죽음 일주일 뒤에 나왔고, 러브는 온갖 조롱을 맞으며 무대에 계속 섰다. 그 사실까지 포함해서 들어야 하는 곡이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#FF6B4A"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/10.jpg" alt="Bikini Kill — Rebel Girl">
+      </div>
+      <div class="kicker">RELEASED · 1993</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>10</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">Bikini Kill</p>
+      <div class="tk-album r" style="--i:2">Rebel Girl</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1993 · Pussy Whipped · Alternative</div>
+      <p class="tk-body r" style="--i:4">올림피아에서 시작된 라이엇 걸<span class="ast">*</span> 운동의 국가(國歌). 캐슬린 해나는 공연장 맨 앞줄을 여성들에게 내주었고 — &lsquo;Girls to the front&rsquo; — 팬진으로 선언문을 돌렸다. 조악한 녹음도 이 곡의 기세를 못 가둔다. 동경과 연대를 록이 이렇게 크게 외친 적이 없었고, 이후의 모든 관련 담론이 이 곡을 통과한다.</p>
+      <p class="tk-fn r" style="--i:5">* 라이엇 걸(Riot Grrrl) — 1990년대 초 미국 북서부에서 시작된 페미니스트 펑크 운동.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#E8A0B4"><div class="label"></div></div></div>
+        <img class="art" src="covers/blooming/11.jpg" alt="The Cranberries — Zombie">
+      </div>
+      <div class="kicker">RELEASED · 1994</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>11</b> / 11</div>
+      <p class="tk-artist r" style="--i:1">The Cranberries</p>
+      <div class="tk-album r" style="--i:2">Zombie</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1994 · No Need To Argue · Rock</div>
+      <p class="tk-body r" style="--i:4">1993년 워링턴 IRA<span class="ast">*</span> 폭탄 테러로 아이 둘이 목숨을 잃자, 돌로레스 오리어던이 그 분노로 쓴 곡이다. 포크 팝 밴드였던 크랜베리스가 디스토션을 켜고 6분을 밀어붙였다. 요들이 섞인 오리어던의 절규는 흉내가 불가능하다 — 분노를 이렇게 아름답게, 이렇게 크게 부른 반전(反戰) 록은 드물다.</p>
+      <p class="tk-fn r" style="--i:5">* IRA — 아일랜드 통일을 내걸고 무장 투쟁을 벌인 조직.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN -->
+<section class="slide">
+  <p class="kicker r">Listen</p>
+  <h2 class="listen-h r" style="--i:1">들으러 가기</h2>
+  <a class="pl-btn r" style="--i:2" href="https://open.spotify.com/playlist/4v1HJBgk7eUfVexMqapnet" target="_blank" rel="noopener">&#9654; 플레이리스트 재생 — Spotify</a>
+  <div class="listen r" style="--i:3">
+    <div class="ls"><img src="covers/blooming/01.jpg" alt=""><span class="ln">01</span><span class="lt"><b>4 Non Blondes</b><span class="song"> — What&#x27;s Up?</span></span><span class="sv am">1992</span></div>
+    <div class="ls"><img src="covers/blooming/02.jpg" alt=""><span class="ln">02</span><span class="lt"><b>The Cardigans</b><span class="song"> — Lovefool</span></span><span class="sv am">1996</span></div>
+    <div class="ls"><img src="covers/blooming/03.jpg" alt=""><span class="ln">03</span><span class="lt"><b>Garbage</b><span class="song"> — Only Happy When It Rains</span></span><span class="sv am">1995</span></div>
+    <div class="ls"><img src="covers/blooming/04.jpg" alt=""><span class="ln">04</span><span class="lt"><b>No Doubt</b><span class="song"> — Just a Girl</span></span><span class="sv am">1995</span></div>
+    <div class="ls"><img src="covers/blooming/05.jpg" alt=""><span class="ln">05</span><span class="lt"><b>Skunk Anansie</b><span class="song"> — Weak</span></span><span class="sv am">1995</span></div>
+    <div class="ls"><img src="covers/blooming/06.jpg" alt=""><span class="ln">06</span><span class="lt"><b>L7</b><span class="song"> — Pretend We&#x27;re Dead</span></span><span class="sv am">1992</span></div>
+    <div class="ls"><img src="covers/blooming/07.jpg" alt=""><span class="ln">07</span><span class="lt"><b>Alanis Morissette</b><span class="song"> — You Oughta Know</span></span><span class="sv am">1995</span></div>
+    <div class="ls"><img src="covers/blooming/08.jpg" alt=""><span class="ln">08</span><span class="lt"><b>PJ Harvey</b><span class="song"> — Down by the Water</span></span><span class="sv am">1995</span></div>
+    <div class="ls"><img src="covers/blooming/09.jpg" alt=""><span class="ln">09</span><span class="lt"><b>Hole</b><span class="song"> — Violet</span></span><span class="sv am">1994</span></div>
+    <div class="ls"><img src="covers/blooming/10.jpg" alt=""><span class="ln">10</span><span class="lt"><b>Bikini Kill</b><span class="song"> — Rebel Girl</span></span><span class="sv am">1993</span></div>
+    <div class="ls"><img src="covers/blooming/11.jpg" alt=""><span class="ln">11</span><span class="lt"><b>The Cranberries</b><span class="song"> — Zombie</span></span><span class="sv am">1994</span></div>
+  </div>
+</section>
+
+</div>
+
+<div class="chrome">
+  <span class="counter"><span id="cur">1</span> / <span id="tot">0</span></span>
+  <div class="dots" id="dots"></div>
+  <span class="hint"><kbd>←</kbd><kbd>→</kbd> 또는 화면 좌/우 클릭 · 앨범 넘기기</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  var prog=document.getElementById('prog'), cur=document.getElementById('cur');
+  document.getElementById('tot').textContent=n;
+  var dots=document.getElementById('dots');
+  slides.forEach(function(_,k){var b=document.createElement('button');b.onclick=function(){go(k)};dots.appendChild(b)});
+  var dotEls=[].slice.call(dots.children);
+
+  /* ambient particle field */
+  (function particles(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c=document.getElementById('fx'), x=c.getContext('2d'), W,H,ps=[];
+    function size(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+    size(); addEventListener('resize',size);
+    var N=Math.min(56, Math.round(innerWidth/26));
+    var cols=['232,69,95','217,168,78','255,255,255'];
+    for(var k=0;k<N;k++){ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,
+      s:Math.random()*.28+.06, sway:Math.random()*Math.PI*2, sw:Math.random()*.01+.003,
+      a:Math.random()*.45+.12, col:cols[Math.random()<.68?0:(Math.random()<.6?1:2)]});}
+    function tick(){ x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
+      for(var j=0;j<ps.length;j++){var p=ps[j]; p.y-=p.s; p.sway+=p.sw; p.x+=Math.sin(p.sway)*.25;
+        if(p.y< -6){p.y=H+6; p.x=Math.random()*W;}
+        var tw=p.a*(0.6+0.4*Math.sin(p.sway*2));
+        x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle='rgba('+p.col+','+tw.toFixed(2)+')'; x.fill(); }
+      requestAnimationFrame(tick); }
+    tick();
+  })();
+
+  var deck=document.getElementById('deck');
+  function go(k){
+    var prev=i; i=(k+n)%n;
+    if(prev!==i){
+      deck.classList.toggle('camback', i<prev);
+      var old=slides[prev];
+      old.classList.remove('active'); old.classList.add('leaving');
+      setTimeout(function(){ old.classList.remove('leaving'); }, 1300);
+    }
+    var s=slides[i];
+    slides.forEach(function(x,idx){ if(idx!==i && idx!==prev) x.classList.remove('active','leaving'); });
+    s.classList.remove('leaving'); void s.offsetWidth; s.classList.add('active');
+    prog.style.width=((i+1)/n*100)+'%';
+    cur.textContent=i+1;
+    dotEls.forEach(function(d,x){d.classList.toggle('on',x===i)});
+  }
+  function next(){go(i+1)} function prev(){go(i-1)} window.__deckGo=go;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next()}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+    else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(n-1)}
+  });
+  deck.addEventListener('click',function(e){
+    if(e.target.closest('.dots')||e.target.closest('a')||e.target.closest('[data-go]'))return;
+    var x=e.clientX, w=window.innerWidth; if(x<w*0.32)prev(); else if(x>w*0.68)next();
+  });
+  document.addEventListener('click',function(e){
+    var g=e.target.closest('[data-go]'); if(g){ e.preventDefault(); go(+g.getAttribute('data-go')); }
+  });
+  var sx=0;
+  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
+  go(0);
+})();
+</script>
+
+<!-- ISSUE NAV -->
+<style>
+#nav-btn{position:fixed;top:16px;left:16px;z-index:1000;width:44px;height:44px;border:none;
+  border-radius:12px;background:rgba(24,27,38,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#F0EDE4;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.45);transition:background .2s,transform .2s}
+#nav-btn:hover{background:rgba(32,36,47,.95);transform:translateY(-1px)}
+#nav-btn svg{width:50%;height:50%}
+#nav-back{position:fixed;inset:0;z-index:999;background:rgba(4,6,12,.55);opacity:0;visibility:hidden;transition:opacity .25s}
+#nav-back.open{opacity:1;visibility:visible}
+#nav-panel{position:fixed;top:0;left:0;z-index:1001;height:100%;width:320px;max-width:84vw;
+  background:linear-gradient(180deg,#12141d,#181B26);border-right:1px solid #2A2E3B;box-shadow:10px 0 40px rgba(0,0,0,.55);
+  transform:translateX(-101%);transition:transform .3s cubic-bezier(.3,.72,.2,1);display:flex;flex-direction:column}
+#nav-panel.open{transform:none}
+#nav-panel .nv-head{padding:22px 24px 14px;border-bottom:1px solid #2A2E3B;position:relative}
+#nav-panel .nv-ey{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.16em;color:#E8455F;text-transform:uppercase}
+#nav-panel .nv-ttl{font:800 18px/1.25 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;color:#F0EDE4;margin-top:6px}
+#nav-x{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:rgba(255,255,255,.06);border-radius:8px;
+  color:#A8A69C;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
+#nav-x:hover{background:rgba(255,255,255,.12);color:#fff}
+#nav-list{overflow-y:auto;flex:1;padding:10px 12px 18px}
+.nv-item{display:flex;gap:12px;align-items:center;text-decoration:none;color:#C7CBD8;
+  font:600 15px/1.35 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  padding:12px;border-radius:11px;transition:background .15s,color .15s}
+.nv-item:hover{background:rgba(232,69,95,.13);color:#fff}
+.nv-item.on{background:rgba(232,69,95,.2);color:#fff}
+.nv-item .nv-n{font:700 12px/1 "JetBrains Mono",monospace;color:#E8455F;min-width:26px;text-align:right}
+.nv-item .nv-sub{display:block;font:500 11.5px/1.3 "JetBrains Mono",monospace;color:#6E6D66;margin-top:3px}
+.nv-item.on .nv-sub{color:#d9a0aa}
+@media(prefers-reduced-motion:reduce){#nav-panel,#nav-back{transition:none}}
+</style>
+<button id="nav-btn" aria-label="다른 호 보기" title="다른 호 보기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<div id="nav-back"></div>
+<nav id="nav-panel" aria-label="호수 목차">
+  <div class="nv-head">
+    <div class="nv-ey">GROOVE Magazine</div>
+    <div class="nv-ttl">다른 호 보기</div>
+    <button id="nav-x" aria-label="닫기">&times;</button>
+  </div>
+  <div id="nav-list">
+    <a class="nv-item" data-slug="index" href="../index.html"><span class="nv-n">&#8962;</span><span>기사 목록<span class="nv-sub">GROOVE — 비바체의 음악 노트</span></span></a>
+    <a class="nv-item" data-slug="korean-indie-new-wave" href="korean-indie-new-wave.html"><span class="nv-n">01</span><span>비바체가 골라본 2020년대 한국인디<span class="nv-sub">앨범 12장 · 2026.07</span></span></a>
+    <a class="nv-item" data-slug="arise" href="arise.html"><span class="nv-n">&#8544;</span><span>Arise - 60's to 80's<span class="nv-sub">록 3부작 · 개막 · 12곡</span></span></a>
+    <a class="nv-item" data-slug="blooming" href="blooming.html"><span class="nv-n">&#8545;</span><span>Blooming - 80's to 90's<span class="nv-sub">록 3부작 · 만개 · 11곡</span></span></a>
+    <a class="nv-item" data-slug="crown" href="crown.html"><span class="nv-n">&#8546;</span><span>Crown - 21C<span class="nv-sub">록 3부작 · 대관식 · 24곡</span></span></a>
+    <a class="nv-item" data-slug="clubs" href="clubs.html"><span class="nv-n">02</span><span>전설이 시작된 클럽들 — 해외편<span class="nv-sub">클럽 연대기 · 7곳</span></span></a>
+    <a class="nv-item" data-slug="clubs-kr" href="clubs-kr.html"><span class="nv-n">03</span><span>전설이 시작된 클럽들 — 국내편<span class="nv-sub">클럽 연대기 · 19곳</span></span></a>
+  </div>
+</nav>
+<script>
+(function(){
+  var panel=document.getElementById('nav-panel'),back=document.getElementById('nav-back'),
+      btn=document.getElementById('nav-btn'),open=false;
+  var cur=(location.pathname.split('/').pop()||'').replace('.html','');
+  document.querySelectorAll('.nv-item').forEach(function(a){
+    if(a.getAttribute('data-slug')===cur) a.classList.add('on');
+  });
+  function openMenu(){open=true;panel.classList.add('open');back.classList.add('open');}
+  function close(){open=false;panel.classList.remove('open');back.classList.remove('open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();open?close():openMenu();});
+  document.getElementById('nav-x').addEventListener('click',function(e){e.stopPropagation();close();});
+  back.addEventListener('click',close);
+  panel.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close();},true);
+})();
+</script>
+</body>
+</html>

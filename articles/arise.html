@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>록 3부작 Ⅰ · Arise - 60's to 80's — GROOVE Special</title>
+<meta name="description" content="록 3부작 Ⅰ · Arise - 60's to 80's — GROOVE Special Feature.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Nanum+Myeongjo:wght@700;800&display=swap');
+
+:root{ --su:min(1vh,.5625vw);
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Menlo","Cascadia Mono","Consolas",monospace;
+  --serif:"Playfair Display","Iowan Old Style",Georgia,"Times New Roman","AppleMyungjo","Nanum Myeongjo","Batang",바탕,serif;
+  --bg:#0D0F16; --bg2:#12141d; --surface:#181B26; --surface2:#20242f;
+  --ink:#F0EDE4; --muted:#A8A69C; --faint:#6E6D66;
+  --accent:#E8455F; --accent2:#FF7A8C; --accent-soft:rgba(232,69,95,.14);
+  --gold:#D9A84E; --good:#46C08A;
+  --border:#2A2E3B; --border2:#3d425255; --grid:rgba(255,255,255,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--grid) 1px,transparent 1px); background-size:30px 30px;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.deck{position:fixed; inset:0; overflow:hidden; z-index:1}
+@media(min-width:769px){
+  .deck{max-width:calc(100vh*16/9); max-height:calc(100vw*9/16); margin:auto}
+}
+.slide{
+  position:absolute; inset:0; padding:calc(6.5*var(--su)) calc(8*var(--su)) calc(6*var(--su));
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  opacity:0; pointer-events:none; overflow:hidden; transform-origin:50% 50%;
+}
+.slide > *{margin-inline:auto}
+.slide.active{opacity:1; z-index:2; pointer-events:auto; animation:camIn .8s cubic-bezier(.25,.72,.3,1) both}
+.slide.leaving{z-index:1; pointer-events:none; animation:camOut .8s cubic-bezier(.4,.08,.5,1) both}
+.deck.camback .slide.active{animation-name:camInBack}
+.deck.camback .slide.leaving{animation-name:camOutBack}
+@keyframes camIn{from{opacity:0; transform:translateX(16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOut{from{opacity:1; transform:none} to{opacity:0; transform:translateX(-12vw) scale(.955)}}
+@keyframes camInBack{from{opacity:0; transform:translateX(-16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOutBack{from{opacity:1; transform:none} to{opacity:0; transform:translateX(12vw) scale(.955)}}
+.slide.leaving .r{opacity:1!important; transform:none!important; filter:none!important; animation:none!important}
+.slide::before{content:""; position:absolute; top:-30%; left:50%; transform:translateX(-50%);
+  width:80%; height:60%; background:radial-gradient(ellipse at center,var(--accent-soft),transparent 70%);
+  opacity:.5; pointer-events:none; z-index:0}
+.slide::after{content:""; position:absolute; right:-15%; bottom:-25%; width:60%; height:55%;
+  background:radial-gradient(ellipse at center,rgba(217,168,78,.08),transparent 70%); pointer-events:none; z-index:0}
+.slide > *{position:relative; z-index:1}
+
+/* ---- reveal ---- */
+.r{opacity:0; transform:translateY(calc(2.6*var(--su)))}
+.slide.active .r{animation:riseGlow .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--i,0)*95ms + 140ms)}
+@keyframes riseGlow{
+  0%{opacity:0; transform:translateY(calc(2.8*var(--su))); filter:blur(6px)}
+  60%{filter:blur(0)}
+  100%{opacity:1; transform:none; filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;animation:none!important}
+  .slide{transform:none!important} .slide.active{animation:none; opacity:1} .slide.leaving{animation:none; opacity:0}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono); font-size:calc(1.7*var(--su)); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); display:inline-flex; align-items:center; justify-content:center; gap:calc(1.1*var(--su)); margin-bottom:calc(2.4*var(--su))}
+.eyebrow::before{content:""; width:calc(3.4*var(--su)); height:2px; background:var(--accent)}
+h1{font-size:calc(8.2*var(--su)); line-height:1.06; letter-spacing:-.038em; font-weight:800; text-wrap:balance; text-shadow:0 calc(.4*var(--su)) calc(3*var(--su)) rgba(0,0,0,.45)}
+h1 em, .serif{font-family:var(--serif); font-style:italic; font-weight:700}
+h1 .acc,b.acc{color:var(--accent)}
+h2{font-size:calc(5.2*var(--su)); line-height:1.08; letter-spacing:-.018em; font-weight:700; text-wrap:balance}
+.lede{font-size:calc(2.6*var(--su)); color:var(--muted); max-width:56ch; line-height:1.65; margin-top:calc(2.6*var(--su))}
+.lede b{color:var(--ink); font-weight:600}
+.big{font-size:calc(6*var(--su)); line-height:1.14; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+.big b{color:var(--accent)}
+.kicker{font-family:var(--mono); font-size:calc(1.6*var(--su)); color:var(--faint); letter-spacing:.08em}
+
+/* ---- cover (minimal) ---- */
+.cover-min{font-size:calc(5.6*var(--su)); font-weight:800; letter-spacing:-.04em; line-height:1.25; color:var(--ink); text-shadow:none; margin-top:calc(1.6*var(--su))}
+.cover-lede{font-size:calc(2.2*var(--su)); color:var(--muted); line-height:1.7; max-width:58ch; margin-top:calc(2*var(--su))}
+.cover-lede b{color:var(--ink)}
+.cover-sub{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.12em; color:var(--faint); margin-top:calc(.6*var(--su))}
+.artstrip{display:flex; gap:calc(1.2*var(--su)); justify-content:center; margin-top:calc(3*var(--su)); margin-bottom:calc(2*var(--su)); flex-wrap:wrap; max-width:calc(70*var(--su))}
+.artstrip img{width:calc(10.5*var(--su)); height:calc(10.5*var(--su)); border-radius:calc(.5*var(--su)); object-fit:cover}
+
+/* ---- brandbar / badge ---- */
+.brandbar{display:flex; align-items:center; justify-content:center; gap:calc(1.6*var(--su)); margin-bottom:calc(3*var(--su))}
+.logo{width:calc(5*var(--su));height:calc(5*var(--su));border-radius:50%;background:conic-gradient(from 40deg,#1a1a1f,#33333c,#1a1a1f,#33333c,#1a1a1f);
+  display:grid;place-items:center;position:relative;box-shadow:0 0 0 2px var(--accent)}
+.logo::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--accent)}
+.badge{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.08em; color:var(--muted);
+  border:1px solid var(--border2); border-radius:999px; padding:calc(.7*var(--su)) calc(1.6*var(--su)); background:var(--surface)}
+.dot{width:calc(1*var(--su));height:calc(1*var(--su));border-radius:50%;background:var(--good);display:inline-block;margin-right:calc(.8*var(--su));
+  box-shadow:0 0 0 0 rgba(70,192,138,.5); animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 calc(1.4*var(--su)) rgba(70,192,138,0)}100%{box-shadow:0 0 0 0 rgba(70,192,138,0)}}
+
+/* ---- stats ---- */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:calc(2*var(--su)); margin-top:calc(4*var(--su)); width:100%; max-width:110ch}
+.stat{background:var(--surface); border:1px solid var(--border); border-radius:calc(1.6*var(--su)); padding:calc(3*var(--su)); display:flex; flex-direction:column; justify-content:center}
+.stat .n{font-family:var(--mono); font-size:calc(5.6*var(--su)); font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.stat.acc .n{color:var(--accent)}
+.stat .l{font-size:calc(1.7*var(--su)); color:var(--muted); margin-top:calc(.8*var(--su))}
+
+/* ---- track slide (editorial) ---- */
+.track{display:grid; grid-template-columns:.92fr 1.08fr; gap:calc(7*var(--su)); align-items:center; width:100%; max-width:134ch; text-align:left}
+.tk-l{display:flex; flex-direction:column; align-items:center; gap:calc(2.4*var(--su))}
+.sleeve{position:relative; width:calc(40*var(--su)); height:calc(31*var(--su)); flex:none}
+.discwrap{position:absolute; right:0; top:50%; transform:translateY(-50%); width:calc(27*var(--su)); height:calc(27*var(--su))}
+.sleeve .art{position:absolute; left:0; top:50%; transform:translateY(-50%); width:calc(30*var(--su)); height:calc(30*var(--su));
+  object-fit:cover; border-radius:calc(.4*var(--su));
+  box-shadow:calc(1*var(--su)) calc(1.6*var(--su)) calc(5*var(--su)) rgba(0,0,0,.65)}
+.disc{width:100%; height:100%; border-radius:50%; position:relative; flex:none;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.08), transparent 40%),
+    repeating-radial-gradient(circle, #16161b 0, #16161b 2px, #1e1e25 3px, #16161b 4px);
+  box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(1*var(--su)) rgba(255,255,255,.05);
+  animation:spin33 14s linear infinite}
+.slide.leaving .disc{animation-play-state:paused}
+@keyframes spin33{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.disc{animation:none}}
+.disc .label{position:absolute; inset:31%; border-radius:50%; background:var(--tc,var(--accent));
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.disc .label::after{content:""; position:absolute; inset:45.5%; border-radius:50%; background:var(--bg); box-shadow:0 0 0 2px rgba(0,0,0,.3)}
+.tk-r{min-width:0}
+.tk-no{font-family:var(--mono); font-size:calc(1.6*var(--su)); letter-spacing:.24em; color:var(--faint); margin-bottom:calc(2*var(--su))}
+.tk-no b{color:var(--accent); font-size:calc(2.2*var(--su))}
+.tk-artist{font-family:var(--mono); font-size:calc(1.9*var(--su)); color:var(--muted); font-weight:600; letter-spacing:.22em; text-transform:uppercase}
+.tk-album{font-family:"Nanum Myeongjo",var(--serif); font-size:calc(5.4*var(--su)); font-weight:800; letter-spacing:-.02em; line-height:1.22; margin-top:calc(1.2*var(--su)); text-wrap:balance}
+.tk-album em{font-family:var(--serif); font-style:italic; font-weight:700}
+.rule{width:calc(5.5*var(--su)); height:2px; background:var(--accent); margin-top:calc(2.6*var(--su))}
+.tk-metaline{font-family:var(--mono); font-size:calc(1.7*var(--su)); color:var(--faint); letter-spacing:.06em; margin-top:calc(1.6*var(--su))}
+.tk-body{font-size:calc(2.55*var(--su)); color:var(--muted); line-height:1.75; margin-top:calc(2.6*var(--su)); max-width:60ch}
+.tk-body b{color:var(--ink); font-weight:600}
+
+/* ---- closing ---- */
+.close-list{display:flex;flex-direction:column;gap:calc(3*var(--su));margin-top:calc(4.5*var(--su));max-width:66ch; text-align:left}
+.cl{display:flex;align-items:flex-start;gap:calc(2*var(--su));font-size:calc(2.5*var(--su));color:var(--muted); line-height:1.5}
+.cl .k{font-family:var(--mono);color:var(--accent);font-weight:700;font-size:calc(1.9*var(--su));margin-top:calc(.5*var(--su)); white-space:nowrap}
+.cl b{color:var(--ink)}
+
+
+/* ---- listen ---- */
+.pl-btn{display:inline-flex; align-items:center; gap:calc(1*var(--su)); font-family:var(--mono); font-size:calc(1.7*var(--su)); font-weight:700;
+  color:#1DB954; border:1.5px solid #1DB954; border-radius:999px; padding:calc(1.1*var(--su)) calc(2.6*var(--su));
+  text-decoration:none; margin-top:calc(4*var(--su)); transition:background .2s, color .2s}
+.pl-btn:hover{background:#1DB954; color:#0D0F16}
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(5*var(--su)); letter-spacing:-.02em}
+.listen{display:grid; grid-template-columns:1fr 1fr; gap:calc(1.1*var(--su)) calc(2.2*var(--su)); width:100%; max-width:122ch; margin-top:calc(3*var(--su)); text-align:left}
+.ls{display:flex; align-items:center; gap:calc(1.4*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su)); padding:calc(1*var(--su)) calc(1.5*var(--su)); transition:border-color .2s, transform .2s}
+.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img{width:calc(4.6*var(--su)); height:calc(4.6*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln{font-family:var(--mono); color:var(--faint); font-size:calc(1.5*var(--su)); flex:none}
+.ls .lt{font-size:calc(2*var(--su)); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1}
+.ls .sv{font-family:var(--mono); font-size:calc(1.5*var(--su)); flex:none}
+.ls .sv.sp{color:#1DB954}
+.ls .sv.am{color:var(--muted)}
+.listen.dense{gap:calc(.65*var(--su)) calc(1.8*var(--su)); margin-top:calc(2*var(--su))}
+.listen.dense .ls{padding:calc(.5*var(--su)) calc(1.2*var(--su)); border-radius:calc(.7*var(--su))}
+.listen.dense .ls img{width:calc(2.9*var(--su)); height:calc(2.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.8*var(--su))}
+.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:calc(1.2*var(--su))}
+
+
+.tk-fn{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); line-height:1.65; margin-top:calc(2*var(--su)); max-width:60ch}
+.ast{color:var(--accent); font-weight:700}
+
+/* ---- chrome ---- */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;z-index:21;transition:width .4s;box-shadow:0 0 calc(1.2*var(--su)) var(--accent)}
+.chrome{position:fixed; inset:auto 0 0 0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:calc(2*var(--su)) calc(3*var(--su)); pointer-events:none}
+.counter{font-family:var(--mono);font-size:calc(1.5*var(--su));color:var(--faint)}
+.dots{display:flex;gap:calc(.9*var(--su));pointer-events:auto;flex-wrap:wrap;justify-content:center;max-width:60vw}
+.dots button{width:calc(1.1*var(--su));height:calc(1.1*var(--su));min-width:7px;min-height:7px;border-radius:50%;border:0;background:var(--border2);cursor:pointer;padding:0;transition:.3s}
+.dots button.on{background:var(--accent);transform:scale(1.3);box-shadow:0 0 calc(1*var(--su)) var(--accent)}
+.hint{font-family:var(--mono);font-size:calc(1.35*var(--su));color:var(--faint)}
+kbd{font-family:var(--mono);background:var(--surface2);border:1px solid var(--border2);border-radius:calc(.5*var(--su));padding:calc(.2*var(--su)) calc(.8*var(--su));font-size:calc(1.2*var(--su))}
+#fx{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.9}
+
+@media(max-width:768px){
+  :root{--su:1.05vh}
+  .kicker{font-size:3vw}
+  .cover-min{font-size:8.6vw}
+  .cover-lede{font-size:3.9vw; max-width:88vw}
+  .cover-sub{font-size:2.9vw; letter-spacing:.06em}
+  .artstrip{max-width:92vw; gap:1.6vw}
+  .artstrip img{width:13.5vw; height:13.5vw}
+  .tk-no{font-size:3vw} .tk-no b{font-size:4vw}
+  .tk-artist{font-size:3.4vw}
+  .tk-album{font-size:8vw}
+  .tk-metaline{font-size:3.1vw}
+  .listen-h{font-size:8vw}
+  .pl-btn{font-size:3.6vw; padding:2vw 6vw}
+  .listen,.listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:58vh; overflow-y:auto; gap:2vw}
+  .ls,.listen.dense .ls{padding:2.4vw 3.2vw}
+  .ls img,.listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt,.listen.dense .ls .lt{font-size:3.9vw; white-space:normal}
+  .ls .ln,.ls .sv,.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:2.9vw}
+
+  h1{font-size:9vw} h2{font-size:6.4vw} .big{font-size:7vw} .cover-min{font-size:6.4vw}
+    .quote{font-size:6.4vw}
+  .slide{padding:9vw 6vw}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .track{grid-template-columns:1fr; gap:5vw}
+  .listen{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:62vh; overflow-y:auto}
+  .tk-l{flex-direction:row; justify-content:flex-start; gap:5vw}
+  .sleeve{width:52vw; height:40vw}
+  .sleeve .art{width:38vw; height:38vw}
+  .discwrap{width:34vw; height:34vw}
+  .tk-body{font-size:4.2vw}
+  .tk-fn{font-size:2.9vw}
+  .hint{display:none}
+}
+
+/* ==== unified listen layout ==== */
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(4.6*var(--su)); letter-spacing:-.02em}
+.listen, .listen.dense{display:grid; grid-template-columns:1fr 1fr; gap:calc(1*var(--su)) calc(2*var(--su)); width:100%; max-width:126ch; margin-top:calc(3.6*var(--su)); text-align:left; max-height:none; overflow:visible}
+.ls, .listen.dense .ls{display:flex; align-items:center; gap:calc(1.5*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su));
+  padding:calc(1*var(--su)) calc(1.7*var(--su)); min-height:calc(6*var(--su)); transition:border-color .2s, transform .2s}
+a.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img, .listen.dense .ls img{width:calc(4.3*var(--su)); height:calc(4.3*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln, .listen.dense .ls .ln{font-family:var(--mono); font-size:calc(1.5*var(--su)); color:var(--faint); flex:none; min-width:calc(2.8*var(--su))}
+.ls .lt, .listen.dense .ls .lt{font-size:calc(1.95*var(--su)); font-weight:700; color:var(--ink); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:1.45}
+.ls .lt .song{color:var(--muted); font-weight:500}
+.ls .sv, .listen.dense .ls .sv{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); flex:none; letter-spacing:.04em}
+.ls .sv.sp{color:#1DB954}
+.listen.dense{gap:calc(.7*var(--su)) calc(1.8*var(--su))}
+.listen.dense .ls{padding:calc(.65*var(--su)) calc(1.4*var(--su)); min-height:calc(4.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.7*var(--su))}
+.listen.dense .ls .ln, .listen.dense .ls .sv{font-size:calc(1.3*var(--su))}
+@media(max-width:768px){
+  .listen, .listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:56vh; overflow-y:auto; gap:2vw}
+  .ls, .listen.dense .ls{padding:2.6vw 3.4vw; min-height:0; gap:3vw}
+  .ls img, .listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt, .listen.dense .ls .lt{font-size:4vw; white-space:normal}
+  .ls .ln, .ls .sv, .listen.dense .ls .ln, .listen.dense .ls .sv{font-size:2.9vw}
+  .slide{overflow-y:auto; justify-content:flex-start; padding-top:16vw; padding-bottom:22vw}
+  .slide::-webkit-scrollbar{display:none}
+  .track{grid-template-columns:minmax(0,1fr) !important}
+  .tk-l{flex-direction:column !important; align-items:center; gap:3vw; width:100%}
+  .tk-r{min-width:0; max-width:100%}
+  .tk-body, .tk-fn, .tk-metaline, .tk-album{max-width:100%}
+  .listen, .listen.dense{margin-top:6vw}
+  .pl-btn{margin-top:8vw; margin-bottom:2vw}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<canvas id="fx"></canvas>
+
+<div class="deck" id="deck">
+
+<!-- COVER -->
+<section class="slide">
+  <p class="kicker r">GROOVE · 록 3부작 · 개막</p>
+  <h1 class="cover-min r" style="--i:1">Ⅰ. Arise - 60's to 80's</h1>
+  <p class="cover-lede r" style="--i:2">록은 한 번도 남성의 전유물이었던 적이 없다. 1부는 그 사실을 무대 위에서 처음 증명한 목소리들 — 그리고 저항이 록의 장식이 아니라 본질임을 보여준 개막의 기록이다.</p>
+  <div class="artstrip r" style="--i:3"><img src="covers/arise/01.jpg" alt=""><img src="covers/arise/02.jpg" alt=""><img src="covers/arise/03.jpg" alt=""><img src="covers/arise/04.jpg" alt=""><img src="covers/arise/05.jpg" alt=""><img src="covers/arise/06.jpg" alt=""><img src="covers/arise/07.jpg" alt=""><img src="covers/arise/08.jpg" alt=""><img src="covers/arise/09.jpg" alt=""><img src="covers/arise/10.jpg" alt=""><img src="covers/arise/11.jpg" alt=""><img src="covers/arise/12.jpg" alt=""></div>
+  <p class="cover-sub r" style="--i:4">록 3부작 제1부 — 1960s&ndash;80s · 12곡 · 글 비바체</p>
+</section>
+
+<!-- 01 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#E8455F"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/01.jpg" alt="Fleetwood Mac — Rhiannon">
+      </div>
+      <div class="kicker">RELEASED · 1975</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>01</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Fleetwood Mac</p>
+      <div class="tk-album r" style="--i:2">Rhiannon</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1975 · Fleetwood Mac · Pop</div>
+      <p class="tk-body r" style="--i:4">스티비 닉스가 린지 버킹엄과 함께 플리트우드 맥에 합류하며 가져온 곡으로, 웨일스 전설 속 존재 &lsquo;리아논&rsquo;을 노래한다. 블루스 밴드였던 플리트우드 맥이 팝의 제국으로 바뀌는 전환점이 정확히 여기다. 스티비 닉스의 목소리는 주술에 가깝다 — 록에서 &lsquo;신비&rsquo;가 하나의 창법이 될 수 있음을 증명했고, 이후 수많은 후배들이 이 창법을 물려받았다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#D9A84E"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/02.jpg" alt="Suzi Quatro — Can the Can">
+      </div>
+      <div class="kicker">RELEASED · 1973</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>02</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Suzi Quatro</p>
+      <div class="tk-album r" style="--i:2">Can the Can</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1973 · Suzi Quatro · Rock</div>
+      <p class="tk-body r" style="--i:4">디트로이트 출신의 수지 콰트로는 영국으로 건너가 이 곡으로 UK 차트 1위를 찍었다. 가죽 점프수트를 입고 베이스를 연주하며 노래하는 프런트 — 1973년에 이 조합은 전례가 없었다. 글램 록<span class="ast">*</span>의 쿵쾅거리는 비트 위에서 내지르는 목소리는 지금 들어도 사납다. 조안 제트가 평생의 우상으로 꼽는 이름이고, 이 곡이 없었으면 러너웨이즈도 없었다.</p>
+      <p class="tk-fn r" style="--i:5">* 글램 록 — 1970년대 초 영국에서 유행한, 반짝이 의상과 단순하고 쿵쾅대는 비트의 록.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#8E7DF7"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/03.jpg" alt="Big Brother &amp; The Holding Company &amp; Janis Joplin — Piece of My Heart">
+      </div>
+      <div class="kicker">RELEASED · 1968</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>03</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Big Brother &amp; The Holding Company &amp; Janis Joplin</p>
+      <div class="tk-album r" style="--i:2">Piece of My Heart</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1968 · Cheap Thrills · Rock</div>
+      <p class="tk-body r" style="--i:4">원곡은 에르마 프랭클린의 소울 넘버지만, 재니스 조플린이 빅 브라더 앤 더 홀딩 컴퍼니와 부른 이 버전이 역사가 됐다. 목이 찢어지는데 그게 기교다 — 텍사스 촌뜨기 취급을 받던 사람이 샌프란시스코 사이키델리아의 한복판에서 심장을 조각내며 불렀다. 발매 이듬해 우드스톡, 2년 뒤 스물일곱의 죽음. 이 4분 안에 그 모든 게 이미 들어 있다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#46C08A"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/04.jpg" alt="Patti Smith Group — Because the Night">
+      </div>
+      <div class="kicker">RELEASED · 1977</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>04</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Patti Smith Group</p>
+      <div class="tk-album r" style="--i:2">Because the Night</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1977 · Easter · Rock</div>
+      <p class="tk-body r" style="--i:4">뉴욕 펑크의 대모이자 시인인 패티 스미스가, 브루스 스프링스틴이 쓰다 만 곡을 받아 가사를 완성했다. CBGB<span class="ast">*</span>의 시 낭송에서 출발한 사람이 빌보드 13위까지 올라간 순간 — 펑크 진영에서 나온 최초의 본격 히트곡이다. 시인이 록을 하면 이렇게 된다. 욕망을 이렇게 당당하게 발음한 록 보컬은 그전까지 없었다.</p>
+      <p class="tk-fn r" style="--i:5">* CBGB — 1973년 뉴욕 바워리에 문을 연 클럽. 펑크와 뉴웨이브의 산실.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#5B8DEF"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/05.jpg" alt="Blondie — Heart of Glass">
+      </div>
+      <div class="kicker">RELEASED · 1978</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>05</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Blondie</p>
+      <div class="tk-album r" style="--i:2">Heart of Glass</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1978 · Parallel Lines · Pop</div>
+      <p class="tk-body r" style="--i:4">CBGB<span class="ast">*</span>에서 출발한 펑크 밴드가 디스코 비트를 가져다 붙이자 순수주의자들은 배신이라 했고, 차트는 미국 1위로 답했다. 데비 해리는 차갑게, 거의 무표정하게 부르는데 곡은 미러볼처럼 반짝인다 — 그 온도차가 이 곡의 전부다. 장르의 경계를 겁내지 않는 태도야말로 펑크라는 걸 블론디가 증명했다.</p>
+      <p class="tk-fn r" style="--i:5">* CBGB — 1973년 뉴욕 바워리에 문을 연 클럽. 펑크와 뉴웨이브의 산실.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#FF9A57"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/06.jpg" alt="Heart — Barracuda">
+      </div>
+      <div class="kicker">RELEASED · 1977</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>06</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Heart</p>
+      <div class="tk-album r" style="--i:2">Barracuda</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1977 · Little Queen · Rock</div>
+      <p class="tk-body r" style="--i:4">레코드사가 앨범을 팔겠다고 윌슨 자매의 관계를 성적 스캔들로 꾸며내자, 앤 윌슨이 그 분노를 그대로 가사에 옮겼다. 그 유명한 갤로핑 리프<span class="ast">*</span>는 업계를 향해 달려드는 상어다. 이 배경을 알고 들으면 &lsquo;바라쿠다&rsquo;라는 제목부터 후렴의 이빨까지 전부 다르게 들린다. 하드록 리프의 전당에 올라야 할 곡.</p>
+      <p class="tk-fn r" style="--i:5">* 갤로핑 리프 — 말이 내달리는 듯한 다가닥 리듬으로 반복되는 기타 악절.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#3E7C6E"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/07.jpg" alt="Joan Jett &amp; The Blackhearts — I Love Rock &#x27;N Roll">
+      </div>
+      <div class="kicker">RELEASED · 1981</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>07</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Joan Jett &amp; The Blackhearts</p>
+      <div class="tk-album r" style="--i:2">I Love Rock &#x27;N Roll</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1981 · I Love Rock &#x27;N&#x27; Roll · Rock</div>
+      <p class="tk-body r" style="--i:4">원곡은 영국 밴드 애로우스가 불렀지만 이 곡의 주인은 조안 제트다. 러너웨이즈 해체 후 메이저 레이블 스물세 곳에서 거절당하자 직접 레이블을 차렸고, 이 곡으로 빌보드 1위를 7주간 지켰다. 선언처럼 부르는 후렴 — 록은 내 것이라는. 주크박스에 동전을 넣는 가사가 이렇게 정치적으로 들리는 곡은 없다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#A34FDE"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/08.jpg" alt="Pat Benatar — Heartbreaker">
+      </div>
+      <div class="kicker">RELEASED · 1979</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>08</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Pat Benatar</p>
+      <div class="tk-album r" style="--i:2">Heartbreaker</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1979 · In the Heat of the Night · Rock</div>
+      <p class="tk-body r" style="--i:4">팻 베네타는 오페라를 꿈꾸며 성악으로 다진 목으로 하드록을 불렀다. 데뷔 앨범의 이 곡에서 이미 완성형이다 — 정확하게 조준된 고음이 이렇게 공격적일 수 있다. 이후 그래미 록 보컬 부문을 4년 연속 가져가며 MTV 시대가 열리자마자 그 화면의 주인 중 하나가 됐다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#C9A227"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/09.jpg" alt="Siouxsie &amp; The Banshees — Cities in Dust">
+      </div>
+      <div class="kicker">RELEASED · 1985</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>09</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Siouxsie &amp; The Banshees</p>
+      <div class="tk-album r" style="--i:2">Cities in Dust</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1985 · Tinderbox · Rock</div>
+      <p class="tk-body r" style="--i:4">섹스 피스톨스의 객석에서 출발한 수지 수는 포스트펑크와 고스의 원형을 만든 사람이다. 이 곡은 폼페이의 멸망을 신시사이저와 함께 춤곡으로 빚었다 — 재앙을 팝으로 번역하는 감각. 고스의 여왕이 어둠을 껴안은 채 차트로 걸어 나온 순간이고, 이후 수많은 밴드가 이 곡의 그림자 안에 있다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#FF6B4A"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/10.jpg" alt="Pretenders — Brass in Pocket">
+      </div>
+      <div class="kicker">RELEASED · 1979</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>10</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Pretenders</p>
+      <div class="tk-album r" style="--i:2">Brass in Pocket</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1979 · Pretenders · Rock</div>
+      <p class="tk-body r" style="--i:4">오하이오에서 런던으로 건너간 크리시 하인드는 작곡과 기타, 보컬, 밴드의 키까지 전부 쥔 최초 세대의 리더였다. 프리텐더스의 이 곡은 1980년대가 열리자마자 UK 1위를 가져갔다. &lsquo;나는 특별하다&rsquo;는 가사는 자랑이 아니라 사실 진술이다 — 그렇게 들리게 부르는 게 크리시 하인드의 능력이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#E8A0B4"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/11.jpg" alt="Jefferson Airplane — White Rabbit">
+      </div>
+      <div class="kicker">RELEASED · 1967</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>11</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">Jefferson Airplane</p>
+      <div class="tk-album r" style="--i:2">White Rabbit</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1967 · Surrealistic Pillow · Rock</div>
+      <p class="tk-body r" style="--i:4">그레이스 슬릭이 이전 밴드에서 가져온 자작곡으로, &lsquo;이상한 나라의 앨리스&rsquo;를 빌려 환각의 시대를 노래했다. 라벨의 볼레로처럼 한 번도 꺾이지 않고 상승만 하는 2분 30초 — 목소리가 커지는 만큼 토끼굴도 깊어진다. 1967년 &lsquo;사랑의 여름&rsquo;<span class="ast">*</span>의 사운드트랙이자, 사이키델리아의 정점에 선 것이 여성의 자작곡이었다는 기록.</p>
+      <p class="tk-fn r" style="--i:5">* 사랑의 여름(Summer of Love) — 1967년 샌프란시스코에 수십만 히피가 모여든 반문화의 정점.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#B08336"><div class="label"></div></div></div>
+        <img class="art" src="covers/arise/12.jpg" alt="The Runaways — Cherry Bomb">
+      </div>
+      <div class="kicker">RELEASED · 1976</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>12</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">The Runaways</p>
+      <div class="tk-album r" style="--i:2">Cherry Bomb</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1976 · The Runaways · Hard Rock</div>
+      <p class="tk-body r" style="--i:4">조안 제트, 셰리 커리, 리타 포드 — 전원 10대로 결성된 러너웨이즈의 데뷔 싱글. 오디션장에서 셰리 커리를 위해 즉석에서 만들어졌다는 일화가 있다. 업계는 이들을 노벨티로 소비하려 했지만 폭탄은 이미 던져졌다. 여기서 갈라진 계보가 조안 제트와 리타 포드로 이어져 80년대를 관통한다 — 개막의 마지막 곡으로 이만한 게 없다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN -->
+<section class="slide">
+  <p class="kicker r">Listen</p>
+  <h2 class="listen-h r" style="--i:1">들으러 가기</h2>
+  <a class="pl-btn r" style="--i:2" href="https://open.spotify.com/playlist/7h4B2zPuvYVwp8aJsPLn7s" target="_blank" rel="noopener">&#9654; 플레이리스트 재생 — Spotify</a>
+  <div class="listen r" style="--i:3">
+    <div class="ls"><img src="covers/arise/01.jpg" alt=""><span class="ln">01</span><span class="lt"><b>Fleetwood Mac</b><span class="song"> — Rhiannon</span></span><span class="sv am">1975</span></div>
+    <div class="ls"><img src="covers/arise/02.jpg" alt=""><span class="ln">02</span><span class="lt"><b>Suzi Quatro</b><span class="song"> — Can the Can</span></span><span class="sv am">1973</span></div>
+    <div class="ls"><img src="covers/arise/03.jpg" alt=""><span class="ln">03</span><span class="lt"><b>Big Brother &amp; The Holding Company &amp; Janis Joplin</b><span class="song"> — Piece of My Heart</span></span><span class="sv am">1968</span></div>
+    <div class="ls"><img src="covers/arise/04.jpg" alt=""><span class="ln">04</span><span class="lt"><b>Patti Smith Group</b><span class="song"> — Because the Night</span></span><span class="sv am">1977</span></div>
+    <div class="ls"><img src="covers/arise/05.jpg" alt=""><span class="ln">05</span><span class="lt"><b>Blondie</b><span class="song"> — Heart of Glass</span></span><span class="sv am">1978</span></div>
+    <div class="ls"><img src="covers/arise/06.jpg" alt=""><span class="ln">06</span><span class="lt"><b>Heart</b><span class="song"> — Barracuda</span></span><span class="sv am">1977</span></div>
+    <div class="ls"><img src="covers/arise/07.jpg" alt=""><span class="ln">07</span><span class="lt"><b>Joan Jett &amp; The Blackhearts</b><span class="song"> — I Love Rock &#x27;N Roll</span></span><span class="sv am">1981</span></div>
+    <div class="ls"><img src="covers/arise/08.jpg" alt=""><span class="ln">08</span><span class="lt"><b>Pat Benatar</b><span class="song"> — Heartbreaker</span></span><span class="sv am">1979</span></div>
+    <div class="ls"><img src="covers/arise/09.jpg" alt=""><span class="ln">09</span><span class="lt"><b>Siouxsie &amp; The Banshees</b><span class="song"> — Cities in Dust</span></span><span class="sv am">1985</span></div>
+    <div class="ls"><img src="covers/arise/10.jpg" alt=""><span class="ln">10</span><span class="lt"><b>Pretenders</b><span class="song"> — Brass in Pocket</span></span><span class="sv am">1979</span></div>
+    <div class="ls"><img src="covers/arise/11.jpg" alt=""><span class="ln">11</span><span class="lt"><b>Jefferson Airplane</b><span class="song"> — White Rabbit</span></span><span class="sv am">1967</span></div>
+    <div class="ls"><img src="covers/arise/12.jpg" alt=""><span class="ln">12</span><span class="lt"><b>The Runaways</b><span class="song"> — Cherry Bomb</span></span><span class="sv am">1976</span></div>
+  </div>
+</section>
+
+</div>
+
+<div class="chrome">
+  <span class="counter"><span id="cur">1</span> / <span id="tot">0</span></span>
+  <div class="dots" id="dots"></div>
+  <span class="hint"><kbd>←</kbd><kbd>→</kbd> 또는 화면 좌/우 클릭 · 앨범 넘기기</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  var prog=document.getElementById('prog'), cur=document.getElementById('cur');
+  document.getElementById('tot').textContent=n;
+  var dots=document.getElementById('dots');
+  slides.forEach(function(_,k){var b=document.createElement('button');b.onclick=function(){go(k)};dots.appendChild(b)});
+  var dotEls=[].slice.call(dots.children);
+
+  /* ambient particle field */
+  (function particles(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c=document.getElementById('fx'), x=c.getContext('2d'), W,H,ps=[];
+    function size(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+    size(); addEventListener('resize',size);
+    var N=Math.min(56, Math.round(innerWidth/26));
+    var cols=['232,69,95','217,168,78','255,255,255'];
+    for(var k=0;k<N;k++){ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,
+      s:Math.random()*.28+.06, sway:Math.random()*Math.PI*2, sw:Math.random()*.01+.003,
+      a:Math.random()*.45+.12, col:cols[Math.random()<.68?0:(Math.random()<.6?1:2)]});}
+    function tick(){ x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
+      for(var j=0;j<ps.length;j++){var p=ps[j]; p.y-=p.s; p.sway+=p.sw; p.x+=Math.sin(p.sway)*.25;
+        if(p.y< -6){p.y=H+6; p.x=Math.random()*W;}
+        var tw=p.a*(0.6+0.4*Math.sin(p.sway*2));
+        x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle='rgba('+p.col+','+tw.toFixed(2)+')'; x.fill(); }
+      requestAnimationFrame(tick); }
+    tick();
+  })();
+
+  var deck=document.getElementById('deck');
+  function go(k){
+    var prev=i; i=(k+n)%n;
+    if(prev!==i){
+      deck.classList.toggle('camback', i<prev);
+      var old=slides[prev];
+      old.classList.remove('active'); old.classList.add('leaving');
+      setTimeout(function(){ old.classList.remove('leaving'); }, 1300);
+    }
+    var s=slides[i];
+    slides.forEach(function(x,idx){ if(idx!==i && idx!==prev) x.classList.remove('active','leaving'); });
+    s.classList.remove('leaving'); void s.offsetWidth; s.classList.add('active');
+    prog.style.width=((i+1)/n*100)+'%';
+    cur.textContent=i+1;
+    dotEls.forEach(function(d,x){d.classList.toggle('on',x===i)});
+  }
+  function next(){go(i+1)} function prev(){go(i-1)} window.__deckGo=go;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next()}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+    else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(n-1)}
+  });
+  deck.addEventListener('click',function(e){
+    if(e.target.closest('.dots')||e.target.closest('a')||e.target.closest('[data-go]'))return;
+    var x=e.clientX, w=window.innerWidth; if(x<w*0.32)prev(); else if(x>w*0.68)next();
+  });
+  document.addEventListener('click',function(e){
+    var g=e.target.closest('[data-go]'); if(g){ e.preventDefault(); go(+g.getAttribute('data-go')); }
+  });
+  var sx=0;
+  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
+  go(0);
+})();
+</script>
+
+<!-- ISSUE NAV -->
+<style>
+#nav-btn{position:fixed;top:16px;left:16px;z-index:1000;width:44px;height:44px;border:none;
+  border-radius:12px;background:rgba(24,27,38,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#F0EDE4;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.45);transition:background .2s,transform .2s}
+#nav-btn:hover{background:rgba(32,36,47,.95);transform:translateY(-1px)}
+#nav-btn svg{width:50%;height:50%}
+#nav-back{position:fixed;inset:0;z-index:999;background:rgba(4,6,12,.55);opacity:0;visibility:hidden;transition:opacity .25s}
+#nav-back.open{opacity:1;visibility:visible}
+#nav-panel{position:fixed;top:0;left:0;z-index:1001;height:100%;width:320px;max-width:84vw;
+  background:linear-gradient(180deg,#12141d,#181B26);border-right:1px solid #2A2E3B;box-shadow:10px 0 40px rgba(0,0,0,.55);
+  transform:translateX(-101%);transition:transform .3s cubic-bezier(.3,.72,.2,1);display:flex;flex-direction:column}
+#nav-panel.open{transform:none}
+#nav-panel .nv-head{padding:22px 24px 14px;border-bottom:1px solid #2A2E3B;position:relative}
+#nav-panel .nv-ey{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.16em;color:#E8455F;text-transform:uppercase}
+#nav-panel .nv-ttl{font:800 18px/1.25 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;color:#F0EDE4;margin-top:6px}
+#nav-x{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:rgba(255,255,255,.06);border-radius:8px;
+  color:#A8A69C;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
+#nav-x:hover{background:rgba(255,255,255,.12);color:#fff}
+#nav-list{overflow-y:auto;flex:1;padding:10px 12px 18px}
+.nv-item{display:flex;gap:12px;align-items:center;text-decoration:none;color:#C7CBD8;
+  font:600 15px/1.35 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  padding:12px;border-radius:11px;transition:background .15s,color .15s}
+.nv-item:hover{background:rgba(232,69,95,.13);color:#fff}
+.nv-item.on{background:rgba(232,69,95,.2);color:#fff}
+.nv-item .nv-n{font:700 12px/1 "JetBrains Mono",monospace;color:#E8455F;min-width:26px;text-align:right}
+.nv-item .nv-sub{display:block;font:500 11.5px/1.3 "JetBrains Mono",monospace;color:#6E6D66;margin-top:3px}
+.nv-item.on .nv-sub{color:#d9a0aa}
+@media(prefers-reduced-motion:reduce){#nav-panel,#nav-back{transition:none}}
+</style>
+<button id="nav-btn" aria-label="다른 호 보기" title="다른 호 보기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<div id="nav-back"></div>
+<nav id="nav-panel" aria-label="호수 목차">
+  <div class="nv-head">
+    <div class="nv-ey">GROOVE Magazine</div>
+    <div class="nv-ttl">다른 호 보기</div>
+    <button id="nav-x" aria-label="닫기">&times;</button>
+  </div>
+  <div id="nav-list">
+    <a class="nv-item" data-slug="index" href="../index.html"><span class="nv-n">&#8962;</span><span>기사 목록<span class="nv-sub">GROOVE — 비바체의 음악 노트</span></span></a>
+    <a class="nv-item" data-slug="korean-indie-new-wave" href="korean-indie-new-wave.html"><span class="nv-n">01</span><span>비바체가 골라본 2020년대 한국인디<span class="nv-sub">앨범 12장 · 2026.07</span></span></a>
+    <a class="nv-item" data-slug="arise" href="arise.html"><span class="nv-n">&#8544;</span><span>Arise - 60's to 80's<span class="nv-sub">록 3부작 · 개막 · 12곡</span></span></a>
+    <a class="nv-item" data-slug="blooming" href="blooming.html"><span class="nv-n">&#8545;</span><span>Blooming - 80's to 90's<span class="nv-sub">록 3부작 · 만개 · 11곡</span></span></a>
+    <a class="nv-item" data-slug="crown" href="crown.html"><span class="nv-n">&#8546;</span><span>Crown - 21C<span class="nv-sub">록 3부작 · 대관식 · 24곡</span></span></a>
+    <a class="nv-item" data-slug="clubs" href="clubs.html"><span class="nv-n">02</span><span>전설이 시작된 클럽들 — 해외편<span class="nv-sub">클럽 연대기 · 7곳</span></span></a>
+    <a class="nv-item" data-slug="clubs-kr" href="clubs-kr.html"><span class="nv-n">03</span><span>전설이 시작된 클럽들 — 국내편<span class="nv-sub">클럽 연대기 · 19곳</span></span></a>
+  </div>
+</nav>
+<script>
+(function(){
+  var panel=document.getElementById('nav-panel'),back=document.getElementById('nav-back'),
+      btn=document.getElementById('nav-btn'),open=false;
+  var cur=(location.pathname.split('/').pop()||'').replace('.html','');
+  document.querySelectorAll('.nv-item').forEach(function(a){
+    if(a.getAttribute('data-slug')===cur) a.classList.add('on');
+  });
+  function openMenu(){open=true;panel.classList.add('open');back.classList.add('open');}
+  function close(){open=false;panel.classList.remove('open');back.classList.remove('open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();open?close():openMenu();});
+  document.getElementById('nav-x').addEventListener('click',function(e){e.stopPropagation();close();});
+  back.addEventListener('click',close);
+  panel.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close();},true);
+})();
+</script>
+</body>
+</html>

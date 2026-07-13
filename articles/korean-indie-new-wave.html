@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>비바체가 골라본 2020년대 한국인디 — GROOVE Special</title>
+<meta name="description" content="비바체가 골라본 2020년대 한국인디 — 열두 장의 앨범, GROOVE Special Feature.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Nanum+Myeongjo:wght@700;800&display=swap');
+
+:root{ --su:min(1vh,.5625vw);
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Menlo","Cascadia Mono","Consolas",monospace;
+  --serif:"Playfair Display","Iowan Old Style",Georgia,"Times New Roman","AppleMyungjo","Nanum Myeongjo","Batang",바탕,serif;
+  --bg:#0D0F16; --bg2:#12141d; --surface:#181B26; --surface2:#20242f;
+  --ink:#F0EDE4; --muted:#A8A69C; --faint:#6E6D66;
+  --accent:#E8455F; --accent2:#FF7A8C; --accent-soft:rgba(232,69,95,.14);
+  --gold:#D9A84E; --good:#46C08A;
+  --border:#2A2E3B; --border2:#3d425255; --grid:rgba(255,255,255,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--grid) 1px,transparent 1px); background-size:30px 30px;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.deck{position:fixed; inset:0; overflow:hidden; z-index:1}
+@media(min-width:769px){
+  .deck{max-width:calc(100vh*16/9); max-height:calc(100vw*9/16); margin:auto}
+}
+.slide{
+  position:absolute; inset:0; padding:calc(6.5*var(--su)) calc(8*var(--su)) calc(6*var(--su));
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  opacity:0; pointer-events:none; overflow:hidden; transform-origin:50% 50%;
+}
+.slide > *{margin-inline:auto}
+.slide.active{opacity:1; z-index:2; pointer-events:auto; animation:camIn .8s cubic-bezier(.25,.72,.3,1) both}
+.slide.leaving{z-index:1; pointer-events:none; animation:camOut .8s cubic-bezier(.4,.08,.5,1) both}
+.deck.camback .slide.active{animation-name:camInBack}
+.deck.camback .slide.leaving{animation-name:camOutBack}
+@keyframes camIn{from{opacity:0; transform:translateX(16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOut{from{opacity:1; transform:none} to{opacity:0; transform:translateX(-12vw) scale(.955)}}
+@keyframes camInBack{from{opacity:0; transform:translateX(-16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOutBack{from{opacity:1; transform:none} to{opacity:0; transform:translateX(12vw) scale(.955)}}
+.slide.leaving .r{opacity:1!important; transform:none!important; filter:none!important; animation:none!important}
+.slide::before{content:""; position:absolute; top:-30%; left:50%; transform:translateX(-50%);
+  width:80%; height:60%; background:radial-gradient(ellipse at center,var(--accent-soft),transparent 70%);
+  opacity:.5; pointer-events:none; z-index:0}
+.slide::after{content:""; position:absolute; right:-15%; bottom:-25%; width:60%; height:55%;
+  background:radial-gradient(ellipse at center,rgba(217,168,78,.08),transparent 70%); pointer-events:none; z-index:0}
+.slide > *{position:relative; z-index:1}
+
+/* ---- reveal ---- */
+.r{opacity:0; transform:translateY(calc(2.6*var(--su)))}
+.slide.active .r{animation:riseGlow .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--i,0)*95ms + 140ms)}
+@keyframes riseGlow{
+  0%{opacity:0; transform:translateY(calc(2.8*var(--su))); filter:blur(6px)}
+  60%{filter:blur(0)}
+  100%{opacity:1; transform:none; filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;animation:none!important}
+  .slide{transform:none!important} .slide.active{animation:none; opacity:1} .slide.leaving{animation:none; opacity:0}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono); font-size:calc(1.7*var(--su)); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); display:inline-flex; align-items:center; justify-content:center; gap:calc(1.1*var(--su)); margin-bottom:calc(2.4*var(--su))}
+.eyebrow::before{content:""; width:calc(3.4*var(--su)); height:2px; background:var(--accent)}
+h1{font-size:calc(8.2*var(--su)); line-height:1.06; letter-spacing:-.038em; font-weight:800; text-wrap:balance; text-shadow:0 calc(.4*var(--su)) calc(3*var(--su)) rgba(0,0,0,.45)}
+h1 em, .serif{font-family:var(--serif); font-style:italic; font-weight:700}
+h1 .acc,b.acc{color:var(--accent)}
+h2{font-size:calc(5.2*var(--su)); line-height:1.08; letter-spacing:-.018em; font-weight:700; text-wrap:balance}
+.lede{font-size:calc(2.6*var(--su)); color:var(--muted); max-width:56ch; line-height:1.65; margin-top:calc(2.6*var(--su))}
+.lede b{color:var(--ink); font-weight:600}
+.big{font-size:calc(6*var(--su)); line-height:1.14; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+.big b{color:var(--accent)}
+.kicker{font-family:var(--mono); font-size:calc(1.6*var(--su)); color:var(--faint); letter-spacing:.08em}
+
+/* ---- cover (minimal) ---- */
+.cover-min{font-size:calc(5.6*var(--su)); font-weight:800; letter-spacing:-.04em; line-height:1.25; color:var(--ink); text-shadow:none; margin-top:calc(1.6*var(--su))}
+.cover-sub{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.12em; color:var(--faint); margin-top:calc(.6*var(--su))}
+.artstrip{display:flex; gap:calc(1.2*var(--su)); justify-content:center; margin-top:calc(3*var(--su)); margin-bottom:calc(2*var(--su)); flex-wrap:wrap; max-width:calc(70*var(--su))}
+.artstrip img{width:calc(10.5*var(--su)); height:calc(10.5*var(--su)); border-radius:calc(.5*var(--su)); object-fit:cover}
+
+/* ---- brandbar / badge ---- */
+.brandbar{display:flex; align-items:center; justify-content:center; gap:calc(1.6*var(--su)); margin-bottom:calc(3*var(--su))}
+.logo{width:calc(5*var(--su));height:calc(5*var(--su));border-radius:50%;background:conic-gradient(from 40deg,#1a1a1f,#33333c,#1a1a1f,#33333c,#1a1a1f);
+  display:grid;place-items:center;position:relative;box-shadow:0 0 0 2px var(--accent)}
+.logo::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--accent)}
+.badge{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.08em; color:var(--muted);
+  border:1px solid var(--border2); border-radius:999px; padding:calc(.7*var(--su)) calc(1.6*var(--su)); background:var(--surface)}
+.dot{width:calc(1*var(--su));height:calc(1*var(--su));border-radius:50%;background:var(--good);display:inline-block;margin-right:calc(.8*var(--su));
+  box-shadow:0 0 0 0 rgba(70,192,138,.5); animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 calc(1.4*var(--su)) rgba(70,192,138,0)}100%{box-shadow:0 0 0 0 rgba(70,192,138,0)}}
+
+/* ---- stats ---- */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:calc(2*var(--su)); margin-top:calc(4*var(--su)); width:100%; max-width:110ch}
+.stat{background:var(--surface); border:1px solid var(--border); border-radius:calc(1.6*var(--su)); padding:calc(3*var(--su)); display:flex; flex-direction:column; justify-content:center}
+.stat .n{font-family:var(--mono); font-size:calc(5.6*var(--su)); font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.stat.acc .n{color:var(--accent)}
+.stat .l{font-size:calc(1.7*var(--su)); color:var(--muted); margin-top:calc(.8*var(--su))}
+
+/* ---- track slide (editorial) ---- */
+.track{display:grid; grid-template-columns:.92fr 1.08fr; gap:calc(7*var(--su)); align-items:center; width:100%; max-width:134ch; text-align:left}
+.tk-l{display:flex; flex-direction:column; align-items:center; gap:calc(2.4*var(--su))}
+.sleeve{position:relative; width:calc(40*var(--su)); height:calc(31*var(--su)); flex:none}
+.discwrap{position:absolute; right:0; top:50%; transform:translateY(-50%); width:calc(27*var(--su)); height:calc(27*var(--su))}
+.sleeve .art{position:absolute; left:0; top:50%; transform:translateY(-50%); width:calc(30*var(--su)); height:calc(30*var(--su));
+  object-fit:cover; border-radius:calc(.4*var(--su));
+  box-shadow:calc(1*var(--su)) calc(1.6*var(--su)) calc(5*var(--su)) rgba(0,0,0,.65)}
+.disc{width:100%; height:100%; border-radius:50%; position:relative; flex:none;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.08), transparent 40%),
+    repeating-radial-gradient(circle, #16161b 0, #16161b 2px, #1e1e25 3px, #16161b 4px);
+  box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(1*var(--su)) rgba(255,255,255,.05);
+  animation:spin33 14s linear infinite}
+.slide.leaving .disc{animation-play-state:paused}
+@keyframes spin33{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.disc{animation:none}}
+.disc .label{position:absolute; inset:31%; border-radius:50%; background:var(--tc,var(--accent));
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.disc .label::after{content:""; position:absolute; inset:45.5%; border-radius:50%; background:var(--bg); box-shadow:0 0 0 2px rgba(0,0,0,.3)}
+.tk-r{min-width:0}
+.tk-no{font-family:var(--mono); font-size:calc(1.6*var(--su)); letter-spacing:.24em; color:var(--faint); margin-bottom:calc(2*var(--su))}
+.tk-no b{color:var(--accent); font-size:calc(2.2*var(--su))}
+.tk-artist{font-family:var(--mono); font-size:calc(1.9*var(--su)); color:var(--muted); font-weight:600; letter-spacing:.22em; text-transform:uppercase}
+.tk-album{font-family:"Nanum Myeongjo",var(--serif); font-size:calc(5.4*var(--su)); font-weight:800; letter-spacing:-.02em; line-height:1.22; margin-top:calc(1.2*var(--su)); text-wrap:balance}
+.tk-album em{font-family:var(--serif); font-style:italic; font-weight:700}
+.rule{width:calc(5.5*var(--su)); height:2px; background:var(--accent); margin-top:calc(2.6*var(--su))}
+.tk-metaline{font-family:var(--mono); font-size:calc(1.7*var(--su)); color:var(--faint); letter-spacing:.06em; margin-top:calc(1.6*var(--su))}
+.tk-body{font-size:calc(2.55*var(--su)); color:var(--muted); line-height:1.75; margin-top:calc(2.6*var(--su)); max-width:60ch}
+.tk-body b{color:var(--ink); font-weight:600}
+
+/* ---- closing ---- */
+.close-list{display:flex;flex-direction:column;gap:calc(3*var(--su));margin-top:calc(4.5*var(--su));max-width:66ch; text-align:left}
+.cl{display:flex;align-items:flex-start;gap:calc(2*var(--su));font-size:calc(2.5*var(--su));color:var(--muted); line-height:1.5}
+.cl .k{font-family:var(--mono);color:var(--accent);font-weight:700;font-size:calc(1.9*var(--su));margin-top:calc(.5*var(--su)); white-space:nowrap}
+.cl b{color:var(--ink)}
+
+
+/* ---- listen ---- */
+.pl-btn{display:inline-flex; align-items:center; gap:calc(1*var(--su)); font-family:var(--mono); font-size:calc(1.7*var(--su)); font-weight:700;
+  color:#1DB954; border:1.5px solid #1DB954; border-radius:999px; padding:calc(1.1*var(--su)) calc(2.6*var(--su));
+  text-decoration:none; margin-top:calc(4*var(--su)); transition:background .2s, color .2s}
+.pl-btn:hover{background:#1DB954; color:#0D0F16}
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(5*var(--su)); letter-spacing:-.02em}
+.listen{display:grid; grid-template-columns:1fr 1fr; gap:calc(1.1*var(--su)) calc(2.2*var(--su)); width:100%; max-width:122ch; margin-top:calc(3*var(--su)); text-align:left}
+.ls{display:flex; align-items:center; gap:calc(1.4*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su)); padding:calc(1*var(--su)) calc(1.5*var(--su)); transition:border-color .2s, transform .2s}
+.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img{width:calc(4.6*var(--su)); height:calc(4.6*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln{font-family:var(--mono); color:var(--faint); font-size:calc(1.5*var(--su)); flex:none}
+.ls .lt{font-size:calc(2*var(--su)); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1}
+.ls .sv{font-family:var(--mono); font-size:calc(1.5*var(--su)); flex:none}
+.ls .sv.sp{color:#1DB954}
+.ls .sv.am{color:var(--muted)}
+
+.tk-fn{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); line-height:1.65; margin-top:calc(2*var(--su)); max-width:60ch}
+.ast{color:var(--accent); font-weight:700}
+
+/* ---- chrome ---- */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;z-index:21;transition:width .4s;box-shadow:0 0 calc(1.2*var(--su)) var(--accent)}
+.chrome{position:fixed; inset:auto 0 0 0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:calc(2*var(--su)) calc(3*var(--su)); pointer-events:none}
+.counter{font-family:var(--mono);font-size:calc(1.5*var(--su));color:var(--faint)}
+.dots{display:flex;gap:calc(.9*var(--su));pointer-events:auto;flex-wrap:wrap;justify-content:center;max-width:60vw}
+.dots button{width:calc(1.1*var(--su));height:calc(1.1*var(--su));min-width:7px;min-height:7px;border-radius:50%;border:0;background:var(--border2);cursor:pointer;padding:0;transition:.3s}
+.dots button.on{background:var(--accent);transform:scale(1.3);box-shadow:0 0 calc(1*var(--su)) var(--accent)}
+.hint{font-family:var(--mono);font-size:calc(1.35*var(--su));color:var(--faint)}
+kbd{font-family:var(--mono);background:var(--surface2);border:1px solid var(--border2);border-radius:calc(.5*var(--su));padding:calc(.2*var(--su)) calc(.8*var(--su));font-size:calc(1.2*var(--su))}
+#fx{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.9}
+
+@media(max-width:768px){
+  :root{--su:1.05vh}
+  .kicker{font-size:3vw}
+  .cover-min{font-size:8.6vw}
+  .cover-sub{font-size:2.9vw; letter-spacing:.06em}
+  .artstrip{max-width:92vw; gap:1.6vw}
+  .artstrip img{width:13.5vw; height:13.5vw}
+  .tk-no{font-size:3vw} .tk-no b{font-size:4vw}
+  .tk-artist{font-size:3.4vw}
+  .tk-album{font-size:8vw}
+  .tk-metaline{font-size:3.1vw}
+  .listen-h{font-size:8vw}
+  .pl-btn{font-size:3.6vw; padding:2vw 6vw}
+  .listen,.listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:58vh; overflow-y:auto; gap:2vw}
+  .ls,.listen.dense .ls{padding:2.4vw 3.2vw}
+  .ls img,.listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt,.listen.dense .ls .lt{font-size:3.9vw; white-space:normal}
+  .ls .ln,.ls .sv,.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:2.9vw}
+
+  h1{font-size:9vw} h2{font-size:6.4vw} .big{font-size:7vw} .cover-min{font-size:6.4vw}
+    .quote{font-size:6.4vw}
+  .slide{padding:9vw 6vw}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .track{grid-template-columns:1fr; gap:5vw}
+  .listen{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:62vh; overflow-y:auto}
+  .tk-l{flex-direction:row; justify-content:flex-start; gap:5vw}
+  .sleeve{width:52vw; height:40vw}
+  .sleeve .art{width:38vw; height:38vw}
+  .discwrap{width:34vw; height:34vw}
+  .tk-body{font-size:4.2vw}
+  .tk-fn{font-size:2.9vw}
+  .hint{display:none}
+}
+
+/* ==== unified listen layout ==== */
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(4.6*var(--su)); letter-spacing:-.02em}
+.listen, .listen.dense{display:grid; grid-template-columns:1fr 1fr; gap:calc(1*var(--su)) calc(2*var(--su)); width:100%; max-width:126ch; margin-top:calc(3.6*var(--su)); text-align:left; max-height:none; overflow:visible}
+.ls, .listen.dense .ls{display:flex; align-items:center; gap:calc(1.5*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su));
+  padding:calc(1*var(--su)) calc(1.7*var(--su)); min-height:calc(6*var(--su)); transition:border-color .2s, transform .2s}
+a.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img, .listen.dense .ls img{width:calc(4.3*var(--su)); height:calc(4.3*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln, .listen.dense .ls .ln{font-family:var(--mono); font-size:calc(1.5*var(--su)); color:var(--faint); flex:none; min-width:calc(2.8*var(--su))}
+.ls .lt, .listen.dense .ls .lt{font-size:calc(1.95*var(--su)); font-weight:700; color:var(--ink); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:1.45}
+.ls .lt .song{color:var(--muted); font-weight:500}
+.ls .sv, .listen.dense .ls .sv{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); flex:none; letter-spacing:.04em}
+.ls .sv.sp{color:#1DB954}
+.listen.dense{gap:calc(.7*var(--su)) calc(1.8*var(--su))}
+.listen.dense .ls{padding:calc(.65*var(--su)) calc(1.4*var(--su)); min-height:calc(4.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.7*var(--su))}
+.listen.dense .ls .ln, .listen.dense .ls .sv{font-size:calc(1.3*var(--su))}
+@media(max-width:768px){
+  .listen, .listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:56vh; overflow-y:auto; gap:2vw}
+  .ls, .listen.dense .ls{padding:2.6vw 3.4vw; min-height:0; gap:3vw}
+  .ls img, .listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt, .listen.dense .ls .lt{font-size:4vw; white-space:normal}
+  .ls .ln, .ls .sv, .listen.dense .ls .ln, .listen.dense .ls .sv{font-size:2.9vw}
+  .slide{overflow-y:auto; justify-content:flex-start; padding-top:16vw; padding-bottom:22vw}
+  .slide::-webkit-scrollbar{display:none}
+  .track{grid-template-columns:minmax(0,1fr) !important}
+  .tk-l{flex-direction:column !important; align-items:center; gap:3vw; width:100%}
+  .tk-r{min-width:0; max-width:100%}
+  .tk-body, .tk-fn, .tk-metaline, .tk-album{max-width:100%}
+  .listen, .listen.dense{margin-top:6vw}
+  .pl-btn{margin-top:8vw; margin-bottom:2vw}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<canvas id="fx"></canvas>
+
+<div class="deck" id="deck">
+
+<!-- 01 · COVER -->
+<section class="slide">
+  <p class="kicker r">GROOVE · Special Feature · 2026.07</p>
+  <h1 class="cover-min r" style="--i:1">비바체가 골라본 2020년대 한국인디</h1>
+  <div class="artstrip r" style="--i:2"><img src="covers/a1.jpg" alt=""><img src="covers/a2.jpg" alt=""><img src="covers/a3.jpg" alt=""><img src="covers/a4.jpg" alt=""><img src="covers/a5.jpg" alt=""><img src="covers/a6.jpg" alt=""><img src="covers/b1.jpg" alt=""><img src="covers/b2.jpg" alt=""><img src="covers/b3.jpg" alt=""><img src="covers/b4.jpg" alt=""><img src="covers/b5.jpg" alt=""><img src="covers/b6.jpg" alt=""></div>
+  <p class="cover-sub r" style="--i:3">2021 – 2026 · 열두 장의 앨범 · 글 비바체</p>
+</section>
+
+<!-- 04 · A1 버둥 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#E8A0B4"><div class="label"></div></div></div>
+        <img class="art" src="covers/a1.jpg" alt="버둥 — 지지않는 곳으로 가자 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2021.10.18</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>01</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">버둥 BUDUNG</p>
+      <div class="tk-album r" style="--i:2">지지않는 곳으로 가자</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2021 · 인디 록 · 포크 · R&amp;B · 블루스 · 꿈의허리 · 텀블벅 에세이북</div>
+      <p class="tk-body r" style="--i:4">이 앨범의 결은 &lsquo;위로&rsquo;가 아니라 &lsquo;편들기&rsquo;다. 구분하자면 위로는 내려다보고, 편들기는 옆에 선다 — 버둥은 후자다. 힘든 해에 제일 오래 들은 앨범이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · A2 250 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#E8455F"><div class="label"></div></div></div>
+        <img class="art" src="covers/a2.jpg" alt="250 — 뽕 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2022.03.18</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>02</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">250 이오공</p>
+      <div class="tk-album r" style="--i:2">뽕 <em>PPONG</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2022 · 뽕 × 일렉트로닉 · BANA · 한국대중음악상 올해의 음반</div>
+      <p class="tk-body r" style="--i:4">결론부터: 2020년대 한국 일렉트로닉의 기준점이다. 뽕을 촌스러움의 기호가 아니라 소리의 재료로 다뤘고, 그 재료의 출처 — 이박사<span class="ast">*</span>의 키보디스트 김수일 — 까지 데려와 합성해냈다. 패러디였다면 45분을 못 버텼을 것이다. 이건 흉내가 아니라 합성이다.</p>
+      <p class="tk-fn r" style="--i:5">* 이박사 — 뽕짝 메들리로 컬트적 인기를 얻은 가수. 김수일은 그 사운드를 만든 키보디스트.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · A3 콩코드 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#D9A84E"><div class="label"></div></div></div>
+        <img class="art" src="covers/a3.jpg" alt="콩코드 — 초음속 여객기 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2022.03.21</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>03</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">콩코드 CONCORDE</p>
+      <div class="tk-album r" style="--i:2">초음속 여객기</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2022 · 사이키델릭 록 · 원맨 밴드 · 한국대중음악상 최우수 록</div>
+      <p class="tk-body r" style="--i:4">정확히 말하면 복고가 아니라 재건이다. 신중현·산울림의 어법을 오지호 혼자 녹음부터 믹싱까지 다시 세웠다. &lsquo;오래된 미래&rsquo;라는 모순이 성립하는 드문 경우고, 봄마다 다시 듣게 된다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · A4 곽태풍 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#FF6B4A"><div class="label"></div></div></div>
+        <img class="art" src="covers/a4.jpg" alt="곽태풍 — 나는야 락스타 ! 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2022.11.19</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>04</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">곽태풍 GWAK</p>
+      <div class="tk-album r" style="--i:2">나는야 락스타 ! <em>I&rsquo;m a rockstar !</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2022 · 인디 록 · 베드룸 팝 · CJ문화재단 튠업 23기 · 레드 바이닐 한정반</div>
+      <p class="tk-body r" style="--i:4">&lsquo;락스타&rsquo;라는 선언과 골방에서 만든 소리 사이의 낙차가 이 앨범의 결이다. 빨간 학사모 커버부터 제목까지 능청스러운데, &lsquo;나쁜 말&rsquo;에서 진심이 새어 나온다. 아직 유명하지 않다는 건 이 경우 결격 사유가 아니라 증거다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · A5 집사 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#C9A227"><div class="label"></div></div></div>
+        <img class="art" src="covers/a5.jpg" alt="집사 ZIP4 — Put On A Tie 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2023</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>05</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">집사 ZIP4</p>
+      <div class="tk-album r" style="--i:2"><em>Put On A Tie</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2023 · 뉴올리언스 재즈 · 6인조 · 자체 제작 · 수자폰 &amp; 브라스</div>
+      <p class="tk-body r" style="--i:4">편성부터가 입장이다: 피아노와 베이스를 빼고 수자폰<span class="ast">*</span>과 브라스로 저음을 채웠다. 1920년대 뉴올리언스의 문법을 흉내가 아니라 체화한, 국내에선 대체재가 없는 팀. 여섯 명 전원이 노래하는 현장감이 음반에 그대로 있다.</p>
+      <p class="tk-fn r" style="--i:5">* 수자폰 — 행진 밴드용 대형 저음 금관악기. 몸에 두르듯 메고 연주한다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · A6 khc/moribet -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#8E7DF7"><div class="label"></div></div></div>
+        <img class="art" src="covers/a6.jpg" alt="khc/moribet — 전파납치 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2023.06.29</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>06</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">khc / moribet</p>
+      <div class="tk-album r" style="--i:2">전파납치 <em>Free to Air</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2023 · 실험 일렉트로닉 · 포크트로니카 · 심야 TV 콘셉트</div>
+      <p class="tk-body r" style="--i:4">콘셉트가 장식이 아니라 구조다. 심야 TV 채널 서핑이라는 프레임 안에서 TTS 내레이터가 곡 사이를 잇고, 이민휘의 &lsquo;저회&rsquo;가 그 소음 한가운데서 낙차를 만든다. &ldquo;전파납치는 범죄입니다&rdquo;라는 소개문 한 줄까지 설계의 일부다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · B1 봉제인간 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#46C08A"><div class="label"></div></div></div>
+        <img class="art" src="covers/b1.jpg" alt="봉제인간 — 12가지 말들 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2023.10.04</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>07</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">봉제인간 BONJAEINGAN</p>
+      <div class="tk-album r" style="--i:2">12가지 말들</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2023 · 사이키델릭 · 프로그레시브 록 · 두루두루 · 한국대중음악상 최우수 록 후보</div>
+      <p class="tk-body r" style="--i:4">곡마다 전혀 다른 방향으로 튀는 앨범이다. 술탄 오브 더 디스코·혁오·장기하와 얼굴들이라는 이력은 참고사항일 뿐, 결론은 곡 안에 있다. 쪼개 듣지 말고 통째로 들어야 한다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · B2 김승주 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#5B8DEF"><div class="label"></div></div></div>
+        <img class="art" src="covers/b2.jpg" alt="김승주 — 고시엔 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2024.04.01</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>08</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">김승주 KIMSEUNGJOO</p>
+      <div class="tk-album r" style="--i:2">고시엔 <em>KOSHIEN</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2024 · 인디 록 EP · 유재하 32회 대상 · 스포츠 만화 세계관</div>
+      <p class="tk-body r" style="--i:4">스포츠 만화의 서사 구조를 EP 한 장으로 옮긴 설계가 핵심이다. &lsquo;케이크가불쌍해&rsquo;에 실제 육상 캐스터의 중계를 얹은 건 농담이 아니라 세계관의 마감 처리다. 18분인데 한 시즌을 완주한 밀도가 있다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · B3 블루터틀랜드 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#3E7C6E"><div class="label"></div></div></div>
+        <img class="art" src="covers/b3.jpg" alt="블루터틀랜드 — 청호춘가 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2024.04.30</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>09</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">블루터틀랜드 BLUE TURTLE LAND</p>
+      <div class="tk-album r" style="--i:2">청호춘가 <em>靑蝴春歌</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2024 · 사이키델릭 록 EP · 신스웨이브 · 해피히피바이브</div>
+      <p class="tk-body r" style="--i:4">봄 앨범을 하나 꼽으라면 지금은 이것이다. 사이키델릭의 나른함 위에 신스웨이브의 광택을 얹는 배합이 고유하다. 다섯 곡이라는 분량만이 유일한 흠.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · B4 팔칠댄스 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#FF9A57"><div class="label"></div></div></div>
+        <img class="art" src="covers/b4.jpg" alt="팔칠댄스 — Youth Heritage 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2024.05.06</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>10</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">팔칠댄스 87DANCE</p>
+      <div class="tk-album r" style="--i:2"><em>Youth Heritage</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2024 · 얼터너티브 록 EP · 드림팝 · 신스팝 · STONESHIP</div>
+      <p class="tk-body r" style="--i:4">유년은 유산이 된다는 명제를 소리로 증명하는 EP다. 듣다가 오래 잊고 있던 골목이 떠올랐다면 우연이 아니라 설계가 작동한 것이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · B5 천진우 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#B08336"><div class="label"></div></div></div>
+        <img class="art" src="covers/b5.jpg" alt="천진우 — 나는 기계가 싫어요 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2024.11.11</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>11</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">천진우 CHEON JINWOO</p>
+      <div class="tk-album r" style="--i:2">나는 기계가 싫어요 <em>Luddite</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2024 · 포크 · 컨트리 · 블루그래스 · 정규 4집 · 자체 제작 · 라이브 밴드 레코딩</div>
+      <p class="tk-body r" style="--i:4">제목이 러다이트인데 녹음 방식이 곧 논지다: 기계가 싫다는 앨범을 굳이 공연장에서 밴드 라이브로 녹음했다. 주장과 방식이 일치하는 드문 경우. 낮에는 교단에 서는 사람의 블랙코미디라 더 쓸쓸하다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · B6 유령서점 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="sleeve">
+        <div class="discwrap"><div class="disc" style="--tc:#A34FDE"><div class="label"></div></div></div>
+        <img class="art" src="covers/b6.jpg" alt="유령서점 — 4 Steps Fore the Spiral 앨범 커버">
+      </div>
+      <div class="kicker">RELEASED · 2026.06.22</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>12</b> / 12</div>
+      <p class="tk-artist r" style="--i:1">유령서점 GHOST BOOKSTORE</p>
+      <div class="tk-album r" style="--i:2"><em>4 Steps &rsquo;Fore the Spiral</em></div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2026 · 드리미 · 슈게이즈 성향 록 · 웨스턴 콘셉트 13곡 · 마운드미디어 테잎스</div>
+      <p class="tk-body r" style="--i:4">콘셉트 앨범의 성패는 유지력인데, 이건 13곡 내내 서부극의 결을 놓지 않는다. 사막과 말과 소용돌이가 소재가 아니라 지형으로 쓰인다. 가장 최근에 도착한 앨범 — &lsquo;Eddy&rsquo;부터 들으면 빠르다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · LISTEN -->
+<section class="slide">
+  <p class="kicker r">Listen</p>
+  <h2 class="listen-h r" style="--i:1">들으러 가기</h2>
+  <a class="pl-btn r" style="--i:2" href="https://open.spotify.com/playlist/1g8g4R9VEXa2fH9EQZSmVN" target="_blank" rel="noopener">&#9654; 플레이리스트 재생 — Spotify</a>
+  <div class="listen r" style="--i:3">
+    <a class="ls" href="https://open.spotify.com/album/3lnWnDzTIrof4f1eRAF8q0" target="_blank" rel="noopener"><img src="covers/a1.jpg" alt=""><span class="ln">01</span><span class="lt"><b>버둥</b><span class="song"> — 지지않는 곳으로 가자</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/1mgIh54hHGhlRkyNsrVW5J" target="_blank" rel="noopener"><img src="covers/a2.jpg" alt=""><span class="ln">02</span><span class="lt"><b>250</b><span class="song"> — 뽕</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/6jZGYZlyfNza8ZYnTEXH1n" target="_blank" rel="noopener"><img src="covers/a3.jpg" alt=""><span class="ln">03</span><span class="lt"><b>콩코드</b><span class="song"> — 초음속 여객기</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/6fEYfJK7Hn7gEFxasoHkAv" target="_blank" rel="noopener"><img src="covers/a4.jpg" alt=""><span class="ln">04</span><span class="lt"><b>곽태풍</b><span class="song"> — 나는야 락스타 !</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/0BsKFsHaXXZeciaEotXbeh" target="_blank" rel="noopener"><img src="covers/a5.jpg" alt=""><span class="ln">05</span><span class="lt"><b>집사 (ZIP4)</b><span class="song"> — Put On A Tie</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/3KIVD8Wwo8Ivk9x5of1F48" target="_blank" rel="noopener"><img src="covers/a6.jpg" alt=""><span class="ln">06</span><span class="lt"><b>khc/moribet</b><span class="song"> — 전파납치</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/6euOA9dVGPx4j7ULn9jIlP" target="_blank" rel="noopener"><img src="covers/b1.jpg" alt=""><span class="ln">07</span><span class="lt"><b>봉제인간</b><span class="song"> — 12가지 말들</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/27V5Zkabh3T1YQJjdwV8Gb" target="_blank" rel="noopener"><img src="covers/b2.jpg" alt=""><span class="ln">08</span><span class="lt"><b>김승주</b><span class="song"> — 고시엔</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/3WGrEWyrP2rPAAQxiA0Q0A" target="_blank" rel="noopener"><img src="covers/b3.jpg" alt=""><span class="ln">09</span><span class="lt"><b>블루터틀랜드</b><span class="song"> — 청호춘가</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/5FdkZC5tFWRZWM6E09oRsv" target="_blank" rel="noopener"><img src="covers/b4.jpg" alt=""><span class="ln">10</span><span class="lt"><b>팔칠댄스</b><span class="song"> — Youth Heritage</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/7lrlYIETvRxY9vsmVE2CAY" target="_blank" rel="noopener"><img src="covers/b5.jpg" alt=""><span class="ln">11</span><span class="lt"><b>천진우</b><span class="song"> — 나는 기계가 싫어요</span></span><span class="sv sp">Spotify &nearr;</span></a>
+    <a class="ls" href="https://open.spotify.com/album/3nuBJdFzPDzyguevYdiS2L" target="_blank" rel="noopener"><img src="covers/b6.jpg" alt=""><span class="ln">12</span><span class="lt"><b>유령서점</b><span class="song"> — 4 Steps &rsquo;Fore the Spiral</span></span><span class="sv sp">Spotify &nearr;</span></a>
+  </div>
+</section>
+
+
+
+
+
+</div>
+
+<div class="chrome">
+  <span class="counter"><span id="cur">1</span> / <span id="tot">0</span></span>
+  <div class="dots" id="dots"></div>
+  <span class="hint"><kbd>←</kbd><kbd>→</kbd> 또는 화면 좌/우 클릭 · 앨범 넘기기</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  var prog=document.getElementById('prog'), cur=document.getElementById('cur');
+  document.getElementById('tot').textContent=n;
+  var dots=document.getElementById('dots');
+  slides.forEach(function(_,k){var b=document.createElement('button');b.onclick=function(){go(k)};dots.appendChild(b)});
+  var dotEls=[].slice.call(dots.children);
+
+  /* ambient particle field */
+  (function particles(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c=document.getElementById('fx'), x=c.getContext('2d'), W,H,ps=[];
+    function size(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+    size(); addEventListener('resize',size);
+    var N=Math.min(56, Math.round(innerWidth/26));
+    var cols=['232,69,95','217,168,78','255,255,255'];
+    for(var k=0;k<N;k++){ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,
+      s:Math.random()*.28+.06, sway:Math.random()*Math.PI*2, sw:Math.random()*.01+.003,
+      a:Math.random()*.45+.12, col:cols[Math.random()<.68?0:(Math.random()<.6?1:2)]});}
+    function tick(){ x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
+      for(var j=0;j<ps.length;j++){var p=ps[j]; p.y-=p.s; p.sway+=p.sw; p.x+=Math.sin(p.sway)*.25;
+        if(p.y< -6){p.y=H+6; p.x=Math.random()*W;}
+        var tw=p.a*(0.6+0.4*Math.sin(p.sway*2));
+        x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle='rgba('+p.col+','+tw.toFixed(2)+')'; x.fill(); }
+      requestAnimationFrame(tick); }
+    tick();
+  })();
+
+  var deck=document.getElementById('deck');
+  function go(k){
+    var prev=i; i=(k+n)%n;
+    if(prev!==i){
+      deck.classList.toggle('camback', i<prev);
+      var old=slides[prev];
+      old.classList.remove('active'); old.classList.add('leaving');
+      setTimeout(function(){ old.classList.remove('leaving'); }, 1300);
+    }
+    var s=slides[i];
+    slides.forEach(function(x,idx){ if(idx!==i && idx!==prev) x.classList.remove('active','leaving'); });
+    s.classList.remove('leaving'); void s.offsetWidth; s.classList.add('active');
+    prog.style.width=((i+1)/n*100)+'%';
+    cur.textContent=i+1;
+    dotEls.forEach(function(d,x){d.classList.toggle('on',x===i)});
+  }
+  function next(){go(i+1)} function prev(){go(i-1)} window.__deckGo=go;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next()}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+    else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(n-1)}
+  });
+  deck.addEventListener('click',function(e){
+    if(e.target.closest('.dots')||e.target.closest('a')||e.target.closest('[data-go]'))return;
+    var x=e.clientX, w=window.innerWidth; if(x<w*0.32)prev(); else if(x>w*0.68)next();
+  });
+  document.addEventListener('click',function(e){
+    var g=e.target.closest('[data-go]'); if(g){ e.preventDefault(); go(+g.getAttribute('data-go')); }
+  });
+  var sx=0;
+  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
+  go(0);
+})();
+</script>
+
+<!-- ISSUE NAV -->
+<style>
+#nav-btn{position:fixed;top:16px;left:16px;z-index:1000;width:44px;height:44px;border:none;
+  border-radius:12px;background:rgba(24,27,38,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#F0EDE4;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.45);transition:background .2s,transform .2s}
+#nav-btn:hover{background:rgba(32,36,47,.95);transform:translateY(-1px)}
+#nav-btn svg{width:50%;height:50%}
+#nav-back{position:fixed;inset:0;z-index:999;background:rgba(4,6,12,.55);opacity:0;visibility:hidden;transition:opacity .25s}
+#nav-back.open{opacity:1;visibility:visible}
+#nav-panel{position:fixed;top:0;left:0;z-index:1001;height:100%;width:320px;max-width:84vw;
+  background:linear-gradient(180deg,#12141d,#181B26);border-right:1px solid #2A2E3B;box-shadow:10px 0 40px rgba(0,0,0,.55);
+  transform:translateX(-101%);transition:transform .3s cubic-bezier(.3,.72,.2,1);display:flex;flex-direction:column}
+#nav-panel.open{transform:none}
+#nav-panel .nv-head{padding:22px 24px 14px;border-bottom:1px solid #2A2E3B;position:relative}
+#nav-panel .nv-ey{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.16em;color:#E8455F;text-transform:uppercase}
+#nav-panel .nv-ttl{font:800 18px/1.25 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;color:#F0EDE4;margin-top:6px}
+#nav-x{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:rgba(255,255,255,.06);border-radius:8px;
+  color:#A8A69C;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
+#nav-x:hover{background:rgba(255,255,255,.12);color:#fff}
+#nav-list{overflow-y:auto;flex:1;padding:10px 12px 18px}
+.nv-item{display:flex;gap:12px;align-items:center;text-decoration:none;color:#C7CBD8;
+  font:600 15px/1.35 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  padding:12px;border-radius:11px;transition:background .15s,color .15s}
+.nv-item:hover{background:rgba(232,69,95,.13);color:#fff}
+.nv-item.on{background:rgba(232,69,95,.2);color:#fff}
+.nv-item .nv-n{font:700 12px/1 "JetBrains Mono",monospace;color:#E8455F;min-width:26px;text-align:right}
+.nv-item .nv-sub{display:block;font:500 11.5px/1.3 "JetBrains Mono",monospace;color:#6E6D66;margin-top:3px}
+.nv-item.on .nv-sub{color:#d9a0aa}
+@media(prefers-reduced-motion:reduce){#nav-panel,#nav-back{transition:none}}
+</style>
+<button id="nav-btn" aria-label="다른 호 보기" title="다른 호 보기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<div id="nav-back"></div>
+<nav id="nav-panel" aria-label="호수 목차">
+  <div class="nv-head">
+    <div class="nv-ey">GROOVE Magazine</div>
+    <div class="nv-ttl">다른 호 보기</div>
+    <button id="nav-x" aria-label="닫기">&times;</button>
+  </div>
+  <div id="nav-list">
+    <a class="nv-item" data-slug="index" href="../index.html"><span class="nv-n">&#8962;</span><span>기사 목록<span class="nv-sub">GROOVE — 비바체의 음악 노트</span></span></a>
+    <a class="nv-item" data-slug="korean-indie-new-wave" href="korean-indie-new-wave.html"><span class="nv-n">01</span><span>비바체가 골라본 2020년대 한국인디<span class="nv-sub">앨범 12장 · 2026.07</span></span></a>
+    <a class="nv-item" data-slug="arise" href="arise.html"><span class="nv-n">&#8544;</span><span>Arise - 60's to 80's<span class="nv-sub">록 3부작 · 개막 · 12곡</span></span></a>
+    <a class="nv-item" data-slug="blooming" href="blooming.html"><span class="nv-n">&#8545;</span><span>Blooming - 80's to 90's<span class="nv-sub">록 3부작 · 만개 · 11곡</span></span></a>
+    <a class="nv-item" data-slug="crown" href="crown.html"><span class="nv-n">&#8546;</span><span>Crown - 21C<span class="nv-sub">록 3부작 · 대관식 · 24곡</span></span></a>
+    <a class="nv-item" data-slug="clubs" href="clubs.html"><span class="nv-n">02</span><span>전설이 시작된 클럽들 — 해외편<span class="nv-sub">클럽 연대기 · 7곳</span></span></a>
+    <a class="nv-item" data-slug="clubs-kr" href="clubs-kr.html"><span class="nv-n">03</span><span>전설이 시작된 클럽들 — 국내편<span class="nv-sub">클럽 연대기 · 19곳</span></span></a>
+  </div>
+</nav>
+<script>
+(function(){
+  var panel=document.getElementById('nav-panel'),back=document.getElementById('nav-back'),
+      btn=document.getElementById('nav-btn'),open=false;
+  var cur=(location.pathname.split('/').pop()||'').replace('.html','');
+  document.querySelectorAll('.nv-item').forEach(function(a){
+    if(a.getAttribute('data-slug')===cur) a.classList.add('on');
+  });
+  function openMenu(){open=true;panel.classList.add('open');back.classList.add('open');}
+  function close(){open=false;panel.classList.remove('open');back.classList.remove('open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();open?close():openMenu();});
+  document.getElementById('nav-x').addEventListener('click',function(e){e.stopPropagation();close();});
+  back.addEventListener('click',close);
+  panel.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close();},true);
+})();
+</script>
+</body>
+</html>

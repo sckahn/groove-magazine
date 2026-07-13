@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>전설이 시작된 클럽들 · 해외편 — GROOVE Special</title>
+<meta name="description" content="전설이 시작된 클럽들 해외편 — 캐번에서 르 팔라스까지, 여덟 곳의 연대기. GROOVE Special Feature.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Nanum+Myeongjo:wght@700;800&display=swap');
+
+:root{ --su:min(1vh,.5625vw);
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Menlo","Cascadia Mono","Consolas",monospace;
+  --serif:"Playfair Display","Iowan Old Style",Georgia,"Times New Roman","AppleMyungjo","Nanum Myeongjo","Batang",바탕,serif;
+  --bg:#0A0A14; --bg2:#0E0D1C; --surface:#15152A; --surface2:#1C1B36;
+  --ink:#F2EFFA; --muted:#A9A5C6; --faint:#6C6890;
+  --accent:#FF4D8D; --accent2:#FF7AA8; --accent-soft:rgba(255,77,141,.14);
+  --gold:#5EE6EB; --good:#46C08A;
+  --border:#28263F; --border2:#3d3a5f55; --grid:rgba(255,255,255,.045);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--grid) 1px,transparent 1px); background-size:30px 30px;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.deck{position:fixed; inset:0; overflow:hidden; z-index:1}
+@media(min-width:769px){
+  .deck{max-width:calc(100vh*16/9); max-height:calc(100vw*9/16); margin:auto}
+}
+.slide{
+  position:absolute; inset:0; padding:calc(6.5*var(--su)) calc(8*var(--su)) calc(6*var(--su));
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  opacity:0; pointer-events:none; overflow:hidden; transform-origin:50% 50%;
+}
+.slide > *{margin-inline:auto}
+.slide.active{opacity:1; z-index:2; pointer-events:auto; animation:camIn .8s cubic-bezier(.25,.72,.3,1) both}
+.slide.leaving{z-index:1; pointer-events:none; animation:camOut .8s cubic-bezier(.4,.08,.5,1) both}
+.deck.camback .slide.active{animation-name:camInBack}
+.deck.camback .slide.leaving{animation-name:camOutBack}
+@keyframes camIn{from{opacity:0; transform:translateX(16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOut{from{opacity:1; transform:none} to{opacity:0; transform:translateX(-12vw) scale(.955)}}
+@keyframes camInBack{from{opacity:0; transform:translateX(-16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOutBack{from{opacity:1; transform:none} to{opacity:0; transform:translateX(12vw) scale(.955)}}
+.slide.leaving .r{opacity:1!important; transform:none!important; filter:none!important; animation:none!important}
+.slide::before{content:""; position:absolute; top:-30%; left:50%; transform:translateX(-50%);
+  width:80%; height:60%; background:radial-gradient(ellipse at center,var(--accent-soft),transparent 70%);
+  opacity:.5; pointer-events:none; z-index:0}
+.slide::after{content:""; position:absolute; right:-15%; bottom:-25%; width:60%; height:55%;
+  background:radial-gradient(ellipse at center,rgba(94,230,235,.07),transparent 70%); pointer-events:none; z-index:0}
+.slide > *{position:relative; z-index:1}
+
+/* ---- reveal ---- */
+.r{opacity:0; transform:translateY(calc(2.6*var(--su)))}
+.slide.active .r{animation:riseGlow .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--i,0)*95ms + 140ms)}
+@keyframes riseGlow{
+  0%{opacity:0; transform:translateY(calc(2.8*var(--su))); filter:blur(6px)}
+  60%{filter:blur(0)}
+  100%{opacity:1; transform:none; filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;animation:none!important}
+  .slide{transform:none!important} .slide.active{animation:none; opacity:1} .slide.leaving{animation:none; opacity:0}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono); font-size:calc(1.7*var(--su)); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); display:inline-flex; align-items:center; justify-content:center; gap:calc(1.1*var(--su)); margin-bottom:calc(2.4*var(--su))}
+.eyebrow::before{content:""; width:calc(3.4*var(--su)); height:2px; background:var(--accent)}
+h1{font-size:calc(8.2*var(--su)); line-height:1.06; letter-spacing:-.038em; font-weight:800; text-wrap:balance; text-shadow:0 calc(.4*var(--su)) calc(3*var(--su)) rgba(0,0,0,.45)}
+h1 em, .serif{font-family:var(--serif); font-style:italic; font-weight:700}
+h1 .acc,b.acc{color:var(--accent)}
+h2{font-size:calc(5.2*var(--su)); line-height:1.08; letter-spacing:-.018em; font-weight:700; text-wrap:balance}
+.lede{font-size:calc(2.6*var(--su)); color:var(--muted); max-width:56ch; line-height:1.65; margin-top:calc(2.6*var(--su))}
+.lede b{color:var(--ink); font-weight:600}
+.big{font-size:calc(6*var(--su)); line-height:1.14; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+.big b{color:var(--accent)}
+.kicker{font-family:var(--mono); font-size:calc(1.6*var(--su)); color:var(--faint); letter-spacing:.08em}
+
+/* ---- cover (minimal) ---- */
+.cover-min{font-size:calc(5.6*var(--su)); font-weight:800; letter-spacing:-.04em; line-height:1.25; color:var(--ink); text-shadow:none; margin-top:calc(1.6*var(--su))}
+.cover-lede{font-size:calc(2.2*var(--su)); color:var(--muted); line-height:1.7; max-width:58ch; margin-top:calc(2*var(--su))}
+.cover-lede b{color:var(--ink)}
+.cover-sub{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.12em; color:var(--faint); margin-top:calc(.6*var(--su))}
+.artstrip{display:flex; gap:calc(1.2*var(--su)); justify-content:center; margin-top:calc(3*var(--su)); margin-bottom:calc(2*var(--su)); flex-wrap:wrap; max-width:calc(70*var(--su))}
+.artstrip img{width:calc(10.5*var(--su)); height:calc(10.5*var(--su)); border-radius:calc(.5*var(--su)); object-fit:cover}
+
+/* ---- brandbar / badge ---- */
+.brandbar{display:flex; align-items:center; justify-content:center; gap:calc(1.6*var(--su)); margin-bottom:calc(3*var(--su))}
+.logo{width:calc(5*var(--su));height:calc(5*var(--su));border-radius:50%;background:conic-gradient(from 40deg,#1a1a1f,#33333c,#1a1a1f,#33333c,#1a1a1f);
+  display:grid;place-items:center;position:relative;box-shadow:0 0 0 2px var(--accent)}
+.logo::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--accent)}
+.badge{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.08em; color:var(--muted);
+  border:1px solid var(--border2); border-radius:999px; padding:calc(.7*var(--su)) calc(1.6*var(--su)); background:var(--surface)}
+.dot{width:calc(1*var(--su));height:calc(1*var(--su));border-radius:50%;background:var(--good);display:inline-block;margin-right:calc(.8*var(--su));
+  box-shadow:0 0 0 0 rgba(70,192,138,.5); animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 calc(1.4*var(--su)) rgba(70,192,138,0)}100%{box-shadow:0 0 0 0 rgba(70,192,138,0)}}
+
+/* ---- stats ---- */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:calc(2*var(--su)); margin-top:calc(4*var(--su)); width:100%; max-width:110ch}
+.stat{background:var(--surface); border:1px solid var(--border); border-radius:calc(1.6*var(--su)); padding:calc(3*var(--su)); display:flex; flex-direction:column; justify-content:center}
+.stat .n{font-family:var(--mono); font-size:calc(5.6*var(--su)); font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.stat.acc .n{color:var(--accent)}
+.stat .l{font-size:calc(1.7*var(--su)); color:var(--muted); margin-top:calc(.8*var(--su))}
+
+/* ---- track slide (editorial) ---- */
+.track{display:grid; grid-template-columns:.92fr 1.08fr; gap:calc(7*var(--su)); align-items:center; width:100%; max-width:134ch; text-align:left}
+.tk-l{display:flex; flex-direction:column; align-items:center; gap:calc(2.4*var(--su))}
+.sleeve{position:relative; width:calc(40*var(--su)); height:calc(31*var(--su)); flex:none}
+.discwrap{position:absolute; right:0; top:50%; transform:translateY(-50%); width:calc(27*var(--su)); height:calc(27*var(--su))}
+.sleeve .art{position:absolute; left:0; top:50%; transform:translateY(-50%); width:calc(30*var(--su)); height:calc(30*var(--su));
+  object-fit:cover; border-radius:calc(.4*var(--su));
+  box-shadow:calc(1*var(--su)) calc(1.6*var(--su)) calc(5*var(--su)) rgba(0,0,0,.65)}
+.disc{width:100%; height:100%; border-radius:50%; position:relative; flex:none;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.08), transparent 40%),
+    repeating-radial-gradient(circle, #16161b 0, #16161b 2px, #1e1e25 3px, #16161b 4px);
+  box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(1*var(--su)) rgba(255,255,255,.05);
+  animation:spin33 14s linear infinite}
+.slide.leaving .disc{animation-play-state:paused}
+@keyframes spin33{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.disc{animation:none}}
+.disc .label{position:absolute; inset:31%; border-radius:50%; background:var(--tc,var(--accent));
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.disc .label::after{content:""; position:absolute; inset:45.5%; border-radius:50%; background:var(--bg); box-shadow:0 0 0 2px rgba(0,0,0,.3)}
+.tk-r{min-width:0}
+.tk-no{font-family:var(--mono); font-size:calc(1.6*var(--su)); letter-spacing:.24em; color:var(--faint); margin-bottom:calc(2*var(--su))}
+.tk-no b{color:var(--accent); font-size:calc(2.2*var(--su))}
+.tk-artist{font-family:var(--mono); font-size:calc(1.9*var(--su)); color:var(--muted); font-weight:600; letter-spacing:.22em; text-transform:uppercase}
+.tk-album{font-family:"Nanum Myeongjo",var(--serif); font-size:calc(5.4*var(--su)); font-weight:800; letter-spacing:-.02em; line-height:1.22; margin-top:calc(1.2*var(--su)); text-wrap:balance}
+.tk-album em{font-family:var(--serif); font-style:italic; font-weight:700}
+.rule{width:calc(5.5*var(--su)); height:2px; background:var(--accent); margin-top:calc(2.6*var(--su))}
+.tk-metaline{font-family:var(--mono); font-size:calc(1.7*var(--su)); color:var(--faint); letter-spacing:.06em; margin-top:calc(1.6*var(--su))}
+.tk-body{font-size:calc(2.55*var(--su)); color:var(--muted); line-height:1.75; margin-top:calc(2.6*var(--su)); max-width:60ch}
+.tk-body b{color:var(--ink); font-weight:600}
+
+/* ---- closing ---- */
+.close-list{display:flex;flex-direction:column;gap:calc(3*var(--su));margin-top:calc(4.5*var(--su));max-width:66ch; text-align:left}
+.cl{display:flex;align-items:flex-start;gap:calc(2*var(--su));font-size:calc(2.5*var(--su));color:var(--muted); line-height:1.5}
+.cl .k{font-family:var(--mono);color:var(--accent);font-weight:700;font-size:calc(1.9*var(--su));margin-top:calc(.5*var(--su)); white-space:nowrap}
+.cl b{color:var(--ink)}
+
+
+/* ---- listen ---- */
+.pl-btn{display:inline-flex; align-items:center; gap:calc(1*var(--su)); font-family:var(--mono); font-size:calc(1.7*var(--su)); font-weight:700;
+  color:#1DB954; border:1.5px solid #1DB954; border-radius:999px; padding:calc(1.1*var(--su)) calc(2.6*var(--su));
+  text-decoration:none; margin-top:calc(4*var(--su)); transition:background .2s, color .2s}
+.pl-btn:hover{background:#1DB954; color:#0D0F16}
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(5*var(--su)); letter-spacing:-.02em}
+.listen{display:grid; grid-template-columns:1fr 1fr; gap:calc(1.1*var(--su)) calc(2.2*var(--su)); width:100%; max-width:122ch; margin-top:calc(3*var(--su)); text-align:left}
+.ls{display:flex; align-items:center; gap:calc(1.4*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su)); padding:calc(1*var(--su)) calc(1.5*var(--su)); transition:border-color .2s, transform .2s}
+.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img{width:calc(4.6*var(--su)); height:calc(4.6*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln{font-family:var(--mono); color:var(--faint); font-size:calc(1.5*var(--su)); flex:none}
+.ls .lt{font-size:calc(2*var(--su)); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1}
+.ls .sv{font-family:var(--mono); font-size:calc(1.5*var(--su)); flex:none}
+.ls .sv.sp{color:#1DB954}
+.ls .sv.am{color:var(--muted)}
+.listen.dense{gap:calc(.65*var(--su)) calc(1.8*var(--su)); margin-top:calc(2*var(--su))}
+.listen.dense .ls{padding:calc(.5*var(--su)) calc(1.2*var(--su)); border-radius:calc(.7*var(--su))}
+.listen.dense .ls img{width:calc(2.9*var(--su)); height:calc(2.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.8*var(--su))}
+.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:calc(1.2*var(--su))}
+
+
+.tk-fn{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); line-height:1.65; margin-top:calc(2*var(--su)); max-width:60ch}
+.ast{color:var(--accent); font-weight:700}
+
+
+/* ---- neon marquee ---- */
+.neon{width:calc(40*var(--su)); height:calc(27*var(--su)); border-radius:calc(1.8*var(--su)); flex:none;
+  background:radial-gradient(circle at 50% 28%, #1B1936, #0C0B18 70%);
+  border:1px solid #2E2B4E; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:calc(1.8*var(--su));
+  box-shadow:0 calc(1.4*var(--su)) calc(5*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(7*var(--su)) rgba(255,77,141,.07)}
+.neon .nn{font-family:var(--mono); font-weight:700; font-size:calc(2.9*var(--su)); letter-spacing:.14em; color:#FFDCEA; text-align:center; padding:0 calc(2*var(--su)); line-height:1.4;
+  text-shadow:0 0 calc(.8*var(--su)) #fff5, 0 0 calc(2.2*var(--su)) var(--accent), 0 0 calc(6*var(--su)) var(--accent);
+  animation:neonFlick 3.8s ease-in-out infinite}
+.neon .nc{font-family:var(--mono); font-size:calc(1.4*var(--su)); letter-spacing:.26em; color:#B8F4F6;
+  text-shadow:0 0 calc(2*var(--su)) rgba(94,230,235,.8)}
+@keyframes neonFlick{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.75}94%{opacity:1}96%{opacity:.88}97%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.neon .nn{animation:none}}
+.clubstrip{display:flex; flex-wrap:wrap; gap:calc(1.2*var(--su)); justify-content:center; max-width:calc(96*var(--su)); margin-top:calc(3.2*var(--su)); margin-bottom:calc(2*var(--su))}
+.clubstrip span{font-family:var(--mono); font-size:calc(1.45*var(--su)); letter-spacing:.1em; color:#FFDCEA;
+  border:1px solid rgba(255,77,141,.45); border-radius:999px; padding:calc(.8*var(--su)) calc(1.7*var(--su));
+  text-shadow:0 0 calc(1.6*var(--su)) rgba(255,77,141,.8)}
+
+.clubshot{width:calc(40*var(--su)); height:calc(23*var(--su)); object-fit:cover; border-radius:calc(1.2*var(--su));
+  border:1px solid #2E2B4E; box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6)}
+.neon.mini{height:calc(9.5*var(--su)); gap:calc(.9*var(--su)); margin-top:calc(1.4*var(--su))}
+.neon.mini .nn{font-size:calc(2.1*var(--su))}
+.neon.mini .nc{font-size:calc(1.2*var(--su))}
+.shot-credit{font-family:var(--mono); font-size:calc(1.15*var(--su)); letter-spacing:.18em; color:var(--faint); margin-top:calc(1.2*var(--su))}
+
+/* ---- chrome ---- */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;z-index:21;transition:width .4s;box-shadow:0 0 calc(1.2*var(--su)) var(--accent)}
+.chrome{position:fixed; inset:auto 0 0 0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:calc(2*var(--su)) calc(3*var(--su)); pointer-events:none}
+.counter{font-family:var(--mono);font-size:calc(1.5*var(--su));color:var(--faint)}
+.dots{display:flex;gap:calc(.9*var(--su));pointer-events:auto;flex-wrap:wrap;justify-content:center;max-width:60vw}
+.dots button{width:calc(1.1*var(--su));height:calc(1.1*var(--su));min-width:7px;min-height:7px;border-radius:50%;border:0;background:var(--border2);cursor:pointer;padding:0;transition:.3s}
+.dots button.on{background:var(--accent);transform:scale(1.3);box-shadow:0 0 calc(1*var(--su)) var(--accent)}
+.hint{font-family:var(--mono);font-size:calc(1.35*var(--su));color:var(--faint)}
+kbd{font-family:var(--mono);background:var(--surface2);border:1px solid var(--border2);border-radius:calc(.5*var(--su));padding:calc(.2*var(--su)) calc(.8*var(--su));font-size:calc(1.2*var(--su))}
+#fx{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.9}
+
+@media(max-width:768px){
+  :root{--su:1.05vh}
+  .kicker{font-size:3vw}
+  .cover-min{font-size:8.6vw}
+  .cover-lede{font-size:3.9vw; max-width:88vw}
+  .cover-sub{font-size:2.9vw; letter-spacing:.06em}
+  .artstrip{max-width:92vw; gap:1.6vw}
+  .artstrip img{width:13.5vw; height:13.5vw}
+  .tk-no{font-size:3vw} .tk-no b{font-size:4vw}
+  .tk-artist{font-size:3.4vw}
+  .tk-album{font-size:8vw}
+  .tk-metaline{font-size:3.1vw}
+  .listen-h{font-size:8vw}
+  .pl-btn{font-size:3.6vw; padding:2vw 6vw}
+  .listen,.listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:58vh; overflow-y:auto; gap:2vw}
+  .ls,.listen.dense .ls{padding:2.4vw 3.2vw}
+  .ls img,.listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt,.listen.dense .ls .lt{font-size:3.9vw; white-space:normal}
+  .ls .ln,.ls .sv,.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:2.9vw}
+
+  h1{font-size:9vw} h2{font-size:6.4vw} .big{font-size:7vw} .cover-min{font-size:6.4vw}
+    .quote{font-size:6.4vw}
+  .slide{padding:9vw 6vw}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .track{grid-template-columns:1fr; gap:5vw}
+  .listen{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:62vh; overflow-y:auto}
+  .tk-l{flex-direction:row; justify-content:flex-start; gap:5vw}
+  .sleeve{width:52vw; height:40vw}
+  .sleeve .art{width:38vw; height:38vw}
+  .discwrap{width:34vw; height:34vw}
+  .tk-body{font-size:4.2vw}
+  .tk-fn{font-size:2.9vw}
+  .neon{width:88vw; height:52vw}
+  .neon.mini{width:88vw; height:17vw}
+  .neon.mini{height:20vw}
+  .clubshot{width:88vw; height:48vw}
+  .shot-credit{font-size:2.2vw}
+  .neon .nn{font-size:5.4vw}
+  .neon .nc{font-size:2.8vw}
+  .clubstrip span{font-size:2.8vw}
+  .hint{display:none}
+}
+
+/* ==== unified listen layout ==== */
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(4.6*var(--su)); letter-spacing:-.02em}
+.listen, .listen.dense{display:grid; grid-template-columns:1fr 1fr; gap:calc(1*var(--su)) calc(2*var(--su)); width:100%; max-width:126ch; margin-top:calc(3.6*var(--su)); text-align:left; max-height:none; overflow:visible}
+.ls, .listen.dense .ls{display:flex; align-items:center; gap:calc(1.5*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su));
+  padding:calc(1*var(--su)) calc(1.7*var(--su)); min-height:calc(6*var(--su)); transition:border-color .2s, transform .2s}
+a.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img, .listen.dense .ls img{width:calc(4.3*var(--su)); height:calc(4.3*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln, .listen.dense .ls .ln{font-family:var(--mono); font-size:calc(1.5*var(--su)); color:var(--faint); flex:none; min-width:calc(2.8*var(--su))}
+.ls .lt, .listen.dense .ls .lt{font-size:calc(1.95*var(--su)); font-weight:700; color:var(--ink); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:1.45}
+.ls .lt .song{color:var(--muted); font-weight:500}
+.ls .sv, .listen.dense .ls .sv{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); flex:none; letter-spacing:.04em}
+.ls .sv.sp{color:#1DB954}
+.listen.dense{gap:calc(.7*var(--su)) calc(1.8*var(--su))}
+.listen.dense .ls{padding:calc(.65*var(--su)) calc(1.4*var(--su)); min-height:calc(4.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.7*var(--su))}
+.listen.dense .ls .ln, .listen.dense .ls .sv{font-size:calc(1.3*var(--su))}
+@media(max-width:768px){
+  .listen, .listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:56vh; overflow-y:auto; gap:2vw}
+  .ls, .listen.dense .ls{padding:2.6vw 3.4vw; min-height:0; gap:3vw}
+  .ls img, .listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt, .listen.dense .ls .lt{font-size:4vw; white-space:normal}
+  .ls .ln, .ls .sv, .listen.dense .ls .ln, .listen.dense .ls .sv{font-size:2.9vw}
+  .slide{overflow-y:auto; justify-content:flex-start; padding-top:16vw; padding-bottom:22vw}
+  .slide::-webkit-scrollbar{display:none}
+  .track{grid-template-columns:minmax(0,1fr) !important}
+  .tk-l{flex-direction:column !important; align-items:center; gap:3vw; width:100%}
+  .tk-r{min-width:0; max-width:100%}
+  .tk-body, .tk-fn, .tk-metaline, .tk-album{max-width:100%}
+  .listen, .listen.dense{margin-top:6vw}
+  .pl-btn{margin-top:8vw; margin-bottom:2vw}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<canvas id="fx"></canvas>
+
+<div class="deck" id="deck">
+
+<!-- COVER -->
+<section class="slide">
+  <p class="kicker r">GROOVE · 클럽 연대기 · 해외편</p>
+  <h1 class="cover-min r" style="--i:1">전설이 시작된 클럽들 — 해외편</h1>
+  <p class="cover-lede r" style="--i:2">명곡은 스튜디오에서 태어나지만, 전설은 클럽에서 태어난다. 리버풀의 지하 창고에서 파리의 극장까지 — 록과 팝의 지도를 바꾼 일곱 곳의 문을 연 순서대로 연다.</p>
+  <div class="clubstrip r" style="--i:3"><span>THE CAVERN CLUB</span><span>MARQUEE CLUB</span><span>WHISKY A GO GO</span><span>KALEIDOSCOPE</span><span>CBGB</span><span>STUDIO 54</span><span>LE PALACE</span></div>
+  <p class="cover-sub r" style="--i:4">1957 – 1978 · 일곱 곳 · 글 비바체</p>
+</section>
+
+<!-- 01 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/01.jpg" alt="THE CAVERN CLUB">
+      <div class="neon mini"><div class="nn">THE CAVERN CLUB</div><div class="nc">LIVERPOOL · EST. 1957</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>01</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">LIVERPOOL</p>
+      <div class="tk-album r" style="--i:2">캐번 클럽</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1957 – 영업 중(재건) · 리버풀 매튜 스트리트 · 머지비트</div>
+      <p class="tk-body r" style="--i:4">리버풀 매튜 스트리트의 지하 창고는 재즈 클럽으로 문을 열었다. 1961년 점심 공연 무대에 오른 비틀스는 이후 2년간 여기서 292회를 연주했고, 레코드점 주인 브라이언 엡스타인이 이들을 처음 본 곳도 이 지하다. 머지비트<span class="ast">*</span>라는 장르 이름이 사실상 이 클럽에서 나왔다. 원래 건물은 1973년 철거됐지만 같은 벽돌로 다시 지어졌다 — 지금도 매일 밤 비틀스가 연주된다.</p>
+      <p class="tk-fn r" style="--i:5">* 머지비트 — 리버풀 머지강 유역에서 나온 1960년대 초의 비트 음악.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/02.jpg" alt="MARQUEE CLUB">
+      <div class="neon mini"><div class="nn">MARQUEE CLUB</div><div class="nc">LONDON · EST. 1958</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>02</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">LONDON</p>
+      <div class="tk-album r" style="--i:2">마퀴 클럽</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1958 – 2008 · 런던 소호 · 브리티시 록</div>
+      <p class="tk-body r" style="--i:4">롤링 스톤스가 1962년 7월 12일 첫 공연을 올린 곳이 이 클럽이다. 더 후는 화요일 밤 레지던시<span class="ast">*</span>로 &lsquo;맥시멈 R&amp;B&rsquo;의 전설을 만들었고, 지미 헨드릭스·데이비드 보위·레드 제플린이 전부 이 좁은 무대를 거쳤다. 60년대 영국 록의 이력서에서 마퀴 클럽 한 줄이 없는 밴드는 드물다.</p>
+      <p class="tk-fn r" style="--i:5">* 레지던시 — 한 무대에 전속으로 서는 정기 공연 계약.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/03.jpg" alt="WHISKY A GO GO">
+      <div class="neon mini"><div class="nn">WHISKY A GO GO</div><div class="nc">LOS ANGELES · EST. 1964</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>03</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">LOS ANGELES</p>
+      <div class="tk-album r" style="--i:2">위스키 어 고고</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1964 – 영업 중 · LA 선셋 스트립 · 록</div>
+      <p class="tk-body r" style="--i:4">1964년 문을 연 선셋 스트립의 본진. DJ를 유리 부스에 올려 춤추게 한 것이 고고 댄싱<span class="ast">*</span>의 기원이 됐다. 몇 블록 옆의 초라한 술집 런던 포그에서 하룻밤 몇 달러를 받으며 넉 달을 버틴 무명의 도어스가 이 무대의 하우스 밴드<span class="ast">**</span>로 올라왔고 — 런던 포그는 도어스를 내보낸 그해를 넘기지 못하고 사라졌다 — 짐 모리슨이 &lsquo;The End&rsquo;의 금기 가사를 내지른 밤에는 여기서도 해고당했다. 그 뒤로도 이 무대는 밴 헤일런·머틀리 크루·건즈 앤 로지스를 차례로 세상에 내보냈다. LA 록의 관문은 60년이 지난 지금도 영업 중이다.</p>
+      <p class="tk-fn r" style="--i:5">* 고고 댄싱 — 무대 옆 부스에서 춤추는 스타일. 이 클럽에서 시작해 세계로 퍼졌다.<br>** 하우스 밴드 — 클럽에 전속으로 고용돼 매일 밤 연주하는 밴드.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/05.jpg" alt="KALEIDOSCOPE">
+      <div class="neon mini"><div class="nn">KALEIDOSCOPE</div><div class="nc">HOLLYWOOD · 1968</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>04</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">HOLLYWOOD</p>
+      <div class="tk-album r" style="--i:2">칼레이도스코프</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1968 · 헐리우드 · 사이키델리아</div>
+      <p class="tk-body r" style="--i:4">1968년 헐리우드의 극장을 개조해 문을 연 사이키델릭 볼룸. 회전 무대와 라이트 쇼를 갖추고 제퍼슨 에어플레인, 그레이트풀 데드, 캔드 히트를 올렸다. 몇 달 만에 문을 닫았지만 샌프란시스코의 사이키델리아를 LA로 번역한 짧고 강렬한 실험이었다. 수명이 아니라 밀도로 기억되는 클럽.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/06.jpg" alt="CBGB">
+      <div class="neon mini"><div class="nn">CBGB</div><div class="nc">NEW YORK · EST. 1973</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>05</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">NEW YORK</p>
+      <div class="tk-album r" style="--i:2">CBGB</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1973 – 2006 · 뉴욕 바워리 · 펑크</div>
+      <p class="tk-body r" style="--i:4">간판의 약자는 컨트리·블루그래스·블루스지만, 이 바워리의 술집이 실제로 키운 건 펑크였다. 텔레비전과 라몬스, 패티 스미스, 블론디, 토킹 헤즈가 전부 이 좁고 더러운 무대에서 신인 시절을 통과했다. 규칙은 하나 — 자작곡만 연주할 것. 2006년 문을 닫던 밤의 마지막 무대에는 패티 스미스가 섰다. 클럽은 사라졌지만 뉴욕 펑크라는 장르 전체가 이 술집의 유산이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/07.jpg" alt="STUDIO 54">
+      <div class="neon mini"><div class="nn">STUDIO 54</div><div class="nc">NEW YORK · EST. 1977</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>06</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">NEW YORK</p>
+      <div class="tk-album r" style="--i:2">스튜디오 54</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1977 – 1980 · 뉴욕 미드타운 · 디스코</div>
+      <p class="tk-body r" style="--i:4">1977년 문을 연 디스코의 성전. 비앙카 재거가 백마를 타고 입장했고, 그레이스 존스가 무대와 객석의 경계를 지웠다. 문 앞의 선별 입장<span class="ast">*</span>은 그 자체로 공연이었다 — 안에서는 앤디 워홀과 무명 청년이 같은 플로어에서 춤췄다. 오너들이 탈세로 구속되며 원형은 33개월 만에 끝났지만, 클럽 문화라는 개념을 다시 쓴 33개월이었다.</p>
+      <p class="tk-fn r" style="--i:5">* 선별 입장(도어 폴리시) — 입구에서 손님을 골라 들이던 스튜디오 54의 악명 높은 방식.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs/08.jpg" alt="LE PALACE">
+      <div class="neon mini"><div class="nn">LE PALACE</div><div class="nc">PARIS · EST. 1978</div></div>
+      <div class="shot-credit">PHOTO · WIKIMEDIA COMMONS</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>07</b> / 7</div>
+      <p class="tk-artist r" style="--i:1">PARIS</p>
+      <div class="tk-album r" style="--i:2">르 팔라스</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1978 – 1990s · 파리 9구 · 디스코 · 뉴웨이브</div>
+      <p class="tk-body r" style="--i:4">파리의 낡은 극장을 파브리스 에마에르가 개조해 1978년 문을 열었다. 개장 무대는 그레이스 존스 — 뉴욕에 스튜디오 54가 있다면 파리에는 르 팔라스가 있었다. 상류층과 언더그라운드, 패션과 음악이 한 플로어에서 섞였고 이브 생 로랑부터 무명 예술가까지 같은 밤을 살았다. 클럽이 도시의 살롱이 될 수 있다는 걸 증명한 곳.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN -->
+<section class="slide">
+  <p class="kicker r">Listen</p>
+  <h2 class="listen-h r" style="--i:1">들으러 가기</h2>
+  <a class="pl-btn r" style="--i:2" href="https://open.spotify.com/playlist/5L9qLwnfhoZF1iIIGFiyj0" target="_blank" rel="noopener">&#9654; 플레이리스트 재생 — Spotify</a>
+  <div class="listen dense r" style="--i:3">
+    <div class="ls"><img src="covers/clubs/t01.jpg" alt=""><span class="ln">01</span><span class="lt"><b>The Beatles</b><span class="song"> — Twist and Shout</span></span><span class="sv am">캐번</span></div>
+    <div class="ls"><img src="covers/clubs/t02.jpg" alt=""><span class="ln">02</span><span class="lt"><b>The Rolling Stones</b><span class="song"> — Not Fade Away</span></span><span class="sv am">마퀴</span></div>
+    <div class="ls"><img src="covers/clubs/t03.jpg" alt=""><span class="ln">03</span><span class="lt"><b>The Who</b><span class="song"> — My Generation</span></span><span class="sv am">마퀴</span></div>
+    <div class="ls"><img src="covers/clubs/t04.jpg" alt=""><span class="ln">04</span><span class="lt"><b>The Doors</b><span class="song"> — Break On Through</span></span><span class="sv am">위스키 어 고고</span></div>
+    <div class="ls"><img src="covers/clubs/t05.jpg" alt=""><span class="ln">05</span><span class="lt"><b>The Doors</b><span class="song"> — Light My Fire</span></span><span class="sv am">위스키 어 고고</span></div>
+    <div class="ls"><img src="covers/clubs/t06.jpg" alt=""><span class="ln">06</span><span class="lt"><b>Van Halen</b><span class="song"> — Runnin' with the Devil</span></span><span class="sv am">위스키 어 고고</span></div>
+    <div class="ls"><img src="covers/clubs/t07.jpg" alt=""><span class="ln">07</span><span class="lt"><b>Guns N' Roses</b><span class="song"> — Welcome to the Jungle</span></span><span class="sv am">위스키 어 고고</span></div>
+    <div class="ls"><img src="covers/clubs/t08.jpg" alt=""><span class="ln">08</span><span class="lt"><b>Jefferson Airplane</b><span class="song"> — Somebody to Love</span></span><span class="sv am">칼레이도스코프</span></div>
+    <div class="ls"><img src="covers/clubs/t09.jpg" alt=""><span class="ln">09</span><span class="lt"><b>Canned Heat</b><span class="song"> — On the Road Again</span></span><span class="sv am">칼레이도스코프</span></div>
+    <div class="ls"><img src="covers/clubs/t10.jpg" alt=""><span class="ln">10</span><span class="lt"><b>Ramones</b><span class="song"> — Blitzkrieg Bop</span></span><span class="sv am">CBGB</span></div>
+    <div class="ls"><img src="covers/clubs/t11.jpg" alt=""><span class="ln">11</span><span class="lt"><b>Television</b><span class="song"> — Marquee Moon</span></span><span class="sv am">CBGB</span></div>
+    <div class="ls"><img src="covers/clubs/t12.jpg" alt=""><span class="ln">12</span><span class="lt"><b>Patti Smith</b><span class="song"> — Gloria</span></span><span class="sv am">CBGB</span></div>
+    <div class="ls"><img src="covers/clubs/t13.jpg" alt=""><span class="ln">13</span><span class="lt"><b>Talking Heads</b><span class="song"> — Psycho Killer</span></span><span class="sv am">CBGB</span></div>
+    <div class="ls"><img src="covers/clubs/t14.jpg" alt=""><span class="ln">14</span><span class="lt"><b>Chic</b><span class="song"> — Le Freak</span></span><span class="sv am">스튜디오 54</span></div>
+    <div class="ls"><img src="covers/clubs/t15.jpg" alt=""><span class="ln">15</span><span class="lt"><b>Donna Summer</b><span class="song"> — I Feel Love</span></span><span class="sv am">스튜디오 54</span></div>
+    <div class="ls"><img src="covers/clubs/t16.jpg" alt=""><span class="ln">16</span><span class="lt"><b>Grace Jones</b><span class="song"> — La Vie en rose</span></span><span class="sv am">르 팔라스</span></div>
+  </div>
+</section>
+
+</div>
+
+<div class="chrome">
+  <span class="counter"><span id="cur">1</span> / <span id="tot">0</span></span>
+  <div class="dots" id="dots"></div>
+  <span class="hint"><kbd>←</kbd><kbd>→</kbd> 또는 화면 좌/우 클릭 · 앨범 넘기기</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  var prog=document.getElementById('prog'), cur=document.getElementById('cur');
+  document.getElementById('tot').textContent=n;
+  var dots=document.getElementById('dots');
+  slides.forEach(function(_,k){var b=document.createElement('button');b.onclick=function(){go(k)};dots.appendChild(b)});
+  var dotEls=[].slice.call(dots.children);
+
+  /* ambient particle field */
+  (function particles(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c=document.getElementById('fx'), x=c.getContext('2d'), W,H,ps=[];
+    function size(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+    size(); addEventListener('resize',size);
+    var N=Math.min(56, Math.round(innerWidth/26));
+    var cols=['232,69,95','217,168,78','255,255,255'];
+    for(var k=0;k<N;k++){ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,
+      s:Math.random()*.28+.06, sway:Math.random()*Math.PI*2, sw:Math.random()*.01+.003,
+      a:Math.random()*.45+.12, col:cols[Math.random()<.68?0:(Math.random()<.6?1:2)]});}
+    function tick(){ x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
+      for(var j=0;j<ps.length;j++){var p=ps[j]; p.y-=p.s; p.sway+=p.sw; p.x+=Math.sin(p.sway)*.25;
+        if(p.y< -6){p.y=H+6; p.x=Math.random()*W;}
+        var tw=p.a*(0.6+0.4*Math.sin(p.sway*2));
+        x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle='rgba('+p.col+','+tw.toFixed(2)+')'; x.fill(); }
+      requestAnimationFrame(tick); }
+    tick();
+  })();
+
+  var deck=document.getElementById('deck');
+  function go(k){
+    var prev=i; i=(k+n)%n;
+    if(prev!==i){
+      deck.classList.toggle('camback', i<prev);
+      var old=slides[prev];
+      old.classList.remove('active'); old.classList.add('leaving');
+      setTimeout(function(){ old.classList.remove('leaving'); }, 1300);
+    }
+    var s=slides[i];
+    slides.forEach(function(x,idx){ if(idx!==i && idx!==prev) x.classList.remove('active','leaving'); });
+    s.classList.remove('leaving'); void s.offsetWidth; s.classList.add('active');
+    prog.style.width=((i+1)/n*100)+'%';
+    cur.textContent=i+1;
+    dotEls.forEach(function(d,x){d.classList.toggle('on',x===i)});
+  }
+  function next(){go(i+1)} function prev(){go(i-1)} window.__deckGo=go;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next()}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+    else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(n-1)}
+  });
+  deck.addEventListener('click',function(e){
+    if(e.target.closest('.dots')||e.target.closest('a')||e.target.closest('[data-go]'))return;
+    var x=e.clientX, w=window.innerWidth; if(x<w*0.32)prev(); else if(x>w*0.68)next();
+  });
+  document.addEventListener('click',function(e){
+    var g=e.target.closest('[data-go]'); if(g){ e.preventDefault(); go(+g.getAttribute('data-go')); }
+  });
+  var sx=0;
+  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
+  go(0);
+})();
+</script>
+
+<!-- ISSUE NAV -->
+<style>
+#nav-btn{position:fixed;top:16px;left:16px;z-index:1000;width:44px;height:44px;border:none;
+  border-radius:12px;background:rgba(24,27,38,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#F0EDE4;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.45);transition:background .2s,transform .2s}
+#nav-btn:hover{background:rgba(32,36,47,.95);transform:translateY(-1px)}
+#nav-btn svg{width:50%;height:50%}
+#nav-back{position:fixed;inset:0;z-index:999;background:rgba(4,6,12,.55);opacity:0;visibility:hidden;transition:opacity .25s}
+#nav-back.open{opacity:1;visibility:visible}
+#nav-panel{position:fixed;top:0;left:0;z-index:1001;height:100%;width:320px;max-width:84vw;
+  background:linear-gradient(180deg,#12141d,#181B26);border-right:1px solid #2A2E3B;box-shadow:10px 0 40px rgba(0,0,0,.55);
+  transform:translateX(-101%);transition:transform .3s cubic-bezier(.3,.72,.2,1);display:flex;flex-direction:column}
+#nav-panel.open{transform:none}
+#nav-panel .nv-head{padding:22px 24px 14px;border-bottom:1px solid #2A2E3B;position:relative}
+#nav-panel .nv-ey{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.16em;color:#E8455F;text-transform:uppercase}
+#nav-panel .nv-ttl{font:800 18px/1.25 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;color:#F0EDE4;margin-top:6px}
+#nav-x{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:rgba(255,255,255,.06);border-radius:8px;
+  color:#A8A69C;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
+#nav-x:hover{background:rgba(255,255,255,.12);color:#fff}
+#nav-list{overflow-y:auto;flex:1;padding:10px 12px 18px}
+.nv-item{display:flex;gap:12px;align-items:center;text-decoration:none;color:#C7CBD8;
+  font:600 15px/1.35 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  padding:12px;border-radius:11px;transition:background .15s,color .15s}
+.nv-item:hover{background:rgba(232,69,95,.13);color:#fff}
+.nv-item.on{background:rgba(232,69,95,.2);color:#fff}
+.nv-item .nv-n{font:700 12px/1 "JetBrains Mono",monospace;color:#E8455F;min-width:26px;text-align:right}
+.nv-item .nv-sub{display:block;font:500 11.5px/1.3 "JetBrains Mono",monospace;color:#6E6D66;margin-top:3px}
+.nv-item.on .nv-sub{color:#d9a0aa}
+@media(prefers-reduced-motion:reduce){#nav-panel,#nav-back{transition:none}}
+</style>
+<button id="nav-btn" aria-label="다른 호 보기" title="다른 호 보기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<div id="nav-back"></div>
+<nav id="nav-panel" aria-label="호수 목차">
+  <div class="nv-head">
+    <div class="nv-ey">GROOVE Magazine</div>
+    <div class="nv-ttl">다른 호 보기</div>
+    <button id="nav-x" aria-label="닫기">&times;</button>
+  </div>
+  <div id="nav-list">
+    <a class="nv-item" data-slug="index" href="../index.html"><span class="nv-n">&#8962;</span><span>기사 목록<span class="nv-sub">GROOVE — 비바체의 음악 노트</span></span></a>
+    <a class="nv-item" data-slug="korean-indie-new-wave" href="korean-indie-new-wave.html"><span class="nv-n">01</span><span>비바체가 골라본 2020년대 한국인디<span class="nv-sub">앨범 12장 · 2026.07</span></span></a>
+    <a class="nv-item" data-slug="arise" href="arise.html"><span class="nv-n">&#8544;</span><span>Arise - 60's to 80's<span class="nv-sub">록 3부작 · 개막 · 12곡</span></span></a>
+    <a class="nv-item" data-slug="blooming" href="blooming.html"><span class="nv-n">&#8545;</span><span>Blooming - 80's to 90's<span class="nv-sub">록 3부작 · 만개 · 11곡</span></span></a>
+    <a class="nv-item" data-slug="crown" href="crown.html"><span class="nv-n">&#8546;</span><span>Crown - 21C<span class="nv-sub">록 3부작 · 대관식 · 24곡</span></span></a>
+    <a class="nv-item" data-slug="clubs" href="clubs.html"><span class="nv-n">02</span><span>전설이 시작된 클럽들 — 해외편<span class="nv-sub">클럽 연대기 · 7곳</span></span></a>
+    <a class="nv-item" data-slug="clubs-kr" href="clubs-kr.html"><span class="nv-n">03</span><span>전설이 시작된 클럽들 — 국내편<span class="nv-sub">클럽 연대기 · 19곳</span></span></a>
+  </div>
+</nav>
+<script>
+(function(){
+  var panel=document.getElementById('nav-panel'),back=document.getElementById('nav-back'),
+      btn=document.getElementById('nav-btn'),open=false;
+  var cur=(location.pathname.split('/').pop()||'').replace('.html','');
+  document.querySelectorAll('.nv-item').forEach(function(a){
+    if(a.getAttribute('data-slug')===cur) a.classList.add('on');
+  });
+  function openMenu(){open=true;panel.classList.add('open');back.classList.add('open');}
+  function close(){open=false;panel.classList.remove('open');back.classList.remove('open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();open?close():openMenu();});
+  document.getElementById('nav-x').addEventListener('click',function(e){e.stopPropagation();close();});
+  back.addEventListener('click',close);
+  panel.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close();},true);
+})();
+</script>
+</body>
+</html>

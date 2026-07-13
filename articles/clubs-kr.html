@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>전설이 시작된 클럽들 · 국내편 — GROOVE Special</title>
+<meta name="description" content="전설이 시작된 클럽들 국내편 — 문나이트에서 오방가르드까지, 열여덟 곳의 연대기. GROOVE Special Feature.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Nanum+Myeongjo:wght@700;800&display=swap');
+
+:root{ --su:min(1vh,.5625vw);
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Menlo","Cascadia Mono","Consolas",monospace;
+  --serif:"Playfair Display","Iowan Old Style",Georgia,"Times New Roman","AppleMyungjo","Nanum Myeongjo","Batang",바탕,serif;
+  --bg:#0A0A14; --bg2:#0E0D1C; --surface:#15152A; --surface2:#1C1B36;
+  --ink:#F2EFFA; --muted:#A9A5C6; --faint:#6C6890;
+  --accent:#FF4D8D; --accent2:#FF7AA8; --accent-soft:rgba(255,77,141,.14);
+  --gold:#5EE6EB; --good:#46C08A;
+  --border:#28263F; --border2:#3d3a5f55; --grid:rgba(255,255,255,.045);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--grid) 1px,transparent 1px); background-size:30px 30px;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.deck{position:fixed; inset:0; overflow:hidden; z-index:1}
+@media(min-width:769px){
+  .deck{max-width:calc(100vh*16/9); max-height:calc(100vw*9/16); margin:auto}
+}
+.slide{
+  position:absolute; inset:0; padding:calc(6.5*var(--su)) calc(8*var(--su)) calc(6*var(--su));
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  opacity:0; pointer-events:none; overflow:hidden; transform-origin:50% 50%;
+}
+.slide > *{margin-inline:auto}
+.slide.active{opacity:1; z-index:2; pointer-events:auto; animation:camIn .8s cubic-bezier(.25,.72,.3,1) both}
+.slide.leaving{z-index:1; pointer-events:none; animation:camOut .8s cubic-bezier(.4,.08,.5,1) both}
+.deck.camback .slide.active{animation-name:camInBack}
+.deck.camback .slide.leaving{animation-name:camOutBack}
+@keyframes camIn{from{opacity:0; transform:translateX(16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOut{from{opacity:1; transform:none} to{opacity:0; transform:translateX(-12vw) scale(.955)}}
+@keyframes camInBack{from{opacity:0; transform:translateX(-16vw) scale(1.05)} to{opacity:1; transform:none}}
+@keyframes camOutBack{from{opacity:1; transform:none} to{opacity:0; transform:translateX(12vw) scale(.955)}}
+.slide.leaving .r{opacity:1!important; transform:none!important; filter:none!important; animation:none!important}
+.slide::before{content:""; position:absolute; top:-30%; left:50%; transform:translateX(-50%);
+  width:80%; height:60%; background:radial-gradient(ellipse at center,var(--accent-soft),transparent 70%);
+  opacity:.5; pointer-events:none; z-index:0}
+.slide::after{content:""; position:absolute; right:-15%; bottom:-25%; width:60%; height:55%;
+  background:radial-gradient(ellipse at center,rgba(94,230,235,.07),transparent 70%); pointer-events:none; z-index:0}
+.slide > *{position:relative; z-index:1}
+
+/* ---- reveal ---- */
+.r{opacity:0; transform:translateY(calc(2.6*var(--su)))}
+.slide.active .r{animation:riseGlow .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--i,0)*95ms + 140ms)}
+@keyframes riseGlow{
+  0%{opacity:0; transform:translateY(calc(2.8*var(--su))); filter:blur(6px)}
+  60%{filter:blur(0)}
+  100%{opacity:1; transform:none; filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;animation:none!important}
+  .slide{transform:none!important} .slide.active{animation:none; opacity:1} .slide.leaving{animation:none; opacity:0}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono); font-size:calc(1.7*var(--su)); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); display:inline-flex; align-items:center; justify-content:center; gap:calc(1.1*var(--su)); margin-bottom:calc(2.4*var(--su))}
+.eyebrow::before{content:""; width:calc(3.4*var(--su)); height:2px; background:var(--accent)}
+h1{font-size:calc(8.2*var(--su)); line-height:1.06; letter-spacing:-.038em; font-weight:800; text-wrap:balance; text-shadow:0 calc(.4*var(--su)) calc(3*var(--su)) rgba(0,0,0,.45)}
+h1 em, .serif{font-family:var(--serif); font-style:italic; font-weight:700}
+h1 .acc,b.acc{color:var(--accent)}
+h2{font-size:calc(5.2*var(--su)); line-height:1.08; letter-spacing:-.018em; font-weight:700; text-wrap:balance}
+.lede{font-size:calc(2.6*var(--su)); color:var(--muted); max-width:56ch; line-height:1.65; margin-top:calc(2.6*var(--su))}
+.lede b{color:var(--ink); font-weight:600}
+.big{font-size:calc(6*var(--su)); line-height:1.14; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+.big b{color:var(--accent)}
+.kicker{font-family:var(--mono); font-size:calc(1.6*var(--su)); color:var(--faint); letter-spacing:.08em}
+
+/* ---- cover (minimal) ---- */
+.cover-min{font-size:calc(5.6*var(--su)); font-weight:800; letter-spacing:-.04em; line-height:1.25; color:var(--ink); text-shadow:none; margin-top:calc(1.6*var(--su))}
+.cover-lede{font-size:calc(2.2*var(--su)); color:var(--muted); line-height:1.7; max-width:58ch; margin-top:calc(2*var(--su))}
+.cover-lede b{color:var(--ink)}
+.cover-sub{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.12em; color:var(--faint); margin-top:calc(.6*var(--su))}
+.artstrip{display:flex; gap:calc(1.2*var(--su)); justify-content:center; margin-top:calc(3*var(--su)); margin-bottom:calc(2*var(--su)); flex-wrap:wrap; max-width:calc(70*var(--su))}
+.artstrip img{width:calc(10.5*var(--su)); height:calc(10.5*var(--su)); border-radius:calc(.5*var(--su)); object-fit:cover}
+
+/* ---- brandbar / badge ---- */
+.brandbar{display:flex; align-items:center; justify-content:center; gap:calc(1.6*var(--su)); margin-bottom:calc(3*var(--su))}
+.logo{width:calc(5*var(--su));height:calc(5*var(--su));border-radius:50%;background:conic-gradient(from 40deg,#1a1a1f,#33333c,#1a1a1f,#33333c,#1a1a1f);
+  display:grid;place-items:center;position:relative;box-shadow:0 0 0 2px var(--accent)}
+.logo::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--accent)}
+.badge{font-family:var(--mono); font-size:calc(1.5*var(--su)); letter-spacing:.08em; color:var(--muted);
+  border:1px solid var(--border2); border-radius:999px; padding:calc(.7*var(--su)) calc(1.6*var(--su)); background:var(--surface)}
+.dot{width:calc(1*var(--su));height:calc(1*var(--su));border-radius:50%;background:var(--good);display:inline-block;margin-right:calc(.8*var(--su));
+  box-shadow:0 0 0 0 rgba(70,192,138,.5); animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 calc(1.4*var(--su)) rgba(70,192,138,0)}100%{box-shadow:0 0 0 0 rgba(70,192,138,0)}}
+
+/* ---- stats ---- */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:calc(2*var(--su)); margin-top:calc(4*var(--su)); width:100%; max-width:110ch}
+.stat{background:var(--surface); border:1px solid var(--border); border-radius:calc(1.6*var(--su)); padding:calc(3*var(--su)); display:flex; flex-direction:column; justify-content:center}
+.stat .n{font-family:var(--mono); font-size:calc(5.6*var(--su)); font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.stat.acc .n{color:var(--accent)}
+.stat .l{font-size:calc(1.7*var(--su)); color:var(--muted); margin-top:calc(.8*var(--su))}
+
+/* ---- track slide (editorial) ---- */
+.track{display:grid; grid-template-columns:.92fr 1.08fr; gap:calc(7*var(--su)); align-items:center; width:100%; max-width:134ch; text-align:left}
+.tk-l{display:flex; flex-direction:column; align-items:center; gap:calc(2.4*var(--su))}
+.sleeve{position:relative; width:calc(40*var(--su)); height:calc(31*var(--su)); flex:none}
+.discwrap{position:absolute; right:0; top:50%; transform:translateY(-50%); width:calc(27*var(--su)); height:calc(27*var(--su))}
+.sleeve .art{position:absolute; left:0; top:50%; transform:translateY(-50%); width:calc(30*var(--su)); height:calc(30*var(--su));
+  object-fit:cover; border-radius:calc(.4*var(--su));
+  box-shadow:calc(1*var(--su)) calc(1.6*var(--su)) calc(5*var(--su)) rgba(0,0,0,.65)}
+.disc{width:100%; height:100%; border-radius:50%; position:relative; flex:none;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.08), transparent 40%),
+    repeating-radial-gradient(circle, #16161b 0, #16161b 2px, #1e1e25 3px, #16161b 4px);
+  box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(1*var(--su)) rgba(255,255,255,.05);
+  animation:spin33 14s linear infinite}
+.slide.leaving .disc{animation-play-state:paused}
+@keyframes spin33{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.disc{animation:none}}
+.disc .label{position:absolute; inset:31%; border-radius:50%; background:var(--tc,var(--accent));
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.disc .label::after{content:""; position:absolute; inset:45.5%; border-radius:50%; background:var(--bg); box-shadow:0 0 0 2px rgba(0,0,0,.3)}
+.tk-r{min-width:0}
+.tk-no{font-family:var(--mono); font-size:calc(1.6*var(--su)); letter-spacing:.24em; color:var(--faint); margin-bottom:calc(2*var(--su))}
+.tk-no b{color:var(--accent); font-size:calc(2.2*var(--su))}
+.tk-artist{font-family:var(--mono); font-size:calc(1.9*var(--su)); color:var(--muted); font-weight:600; letter-spacing:.22em; text-transform:uppercase}
+.tk-album{font-family:"Nanum Myeongjo",var(--serif); font-size:calc(5.4*var(--su)); font-weight:800; letter-spacing:-.02em; line-height:1.22; margin-top:calc(1.2*var(--su)); text-wrap:balance}
+.tk-album em{font-family:var(--serif); font-style:italic; font-weight:700}
+.rule{width:calc(5.5*var(--su)); height:2px; background:var(--accent); margin-top:calc(2.6*var(--su))}
+.tk-metaline{font-family:var(--mono); font-size:calc(1.7*var(--su)); color:var(--faint); letter-spacing:.06em; margin-top:calc(1.6*var(--su))}
+.tk-body{font-size:calc(2.55*var(--su)); color:var(--muted); line-height:1.75; margin-top:calc(2.6*var(--su)); max-width:60ch}
+.tk-body b{color:var(--ink); font-weight:600}
+
+/* ---- closing ---- */
+.close-list{display:flex;flex-direction:column;gap:calc(3*var(--su));margin-top:calc(4.5*var(--su));max-width:66ch; text-align:left}
+.cl{display:flex;align-items:flex-start;gap:calc(2*var(--su));font-size:calc(2.5*var(--su));color:var(--muted); line-height:1.5}
+.cl .k{font-family:var(--mono);color:var(--accent);font-weight:700;font-size:calc(1.9*var(--su));margin-top:calc(.5*var(--su)); white-space:nowrap}
+.cl b{color:var(--ink)}
+
+
+/* ---- listen ---- */
+.pl-btn{display:inline-flex; align-items:center; gap:calc(1*var(--su)); font-family:var(--mono); font-size:calc(1.7*var(--su)); font-weight:700;
+  color:#1DB954; border:1.5px solid #1DB954; border-radius:999px; padding:calc(1.1*var(--su)) calc(2.6*var(--su));
+  text-decoration:none; margin-top:calc(2.4*var(--su)); transition:background .2s, color .2s}
+.pl-btn:hover{background:#1DB954; color:#0D0F16}
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(5*var(--su)); letter-spacing:-.02em}
+.listen{display:grid; grid-template-columns:1fr 1fr; gap:calc(1.1*var(--su)) calc(2.2*var(--su)); width:100%; max-width:122ch; margin-top:calc(3*var(--su)); text-align:left}
+.ls{display:flex; align-items:center; gap:calc(1.4*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su)); padding:calc(1*var(--su)) calc(1.5*var(--su)); transition:border-color .2s, transform .2s}
+.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img{width:calc(4.6*var(--su)); height:calc(4.6*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln{font-family:var(--mono); color:var(--faint); font-size:calc(1.5*var(--su)); flex:none}
+.ls .lt{font-size:calc(2*var(--su)); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1}
+.ls .sv{font-family:var(--mono); font-size:calc(1.5*var(--su)); flex:none}
+.ls .sv.sp{color:#1DB954}
+.ls .sv.am{color:var(--muted)}
+.listen.dense{gap:calc(.65*var(--su)) calc(1.8*var(--su)); margin-top:calc(2*var(--su))}
+.listen.dense .ls{padding:calc(.5*var(--su)) calc(1.2*var(--su)); border-radius:calc(.7*var(--su))}
+.listen.dense .ls img{width:calc(2.9*var(--su)); height:calc(2.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.8*var(--su))}
+.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:calc(1.2*var(--su))}
+
+
+.tk-fn{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); line-height:1.65; margin-top:calc(2*var(--su)); max-width:60ch}
+.ast{color:var(--accent); font-weight:700}
+
+
+/* ---- neon marquee ---- */
+.neon{width:calc(40*var(--su)); height:calc(27*var(--su)); border-radius:calc(1.8*var(--su)); flex:none;
+  background:radial-gradient(circle at 50% 28%, #1B1936, #0C0B18 70%);
+  border:1px solid #2E2B4E; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:calc(1.8*var(--su));
+  box-shadow:0 calc(1.4*var(--su)) calc(5*var(--su)) rgba(0,0,0,.6), inset 0 0 calc(7*var(--su)) rgba(255,77,141,.07)}
+.neon .nn{font-family:var(--mono); font-weight:700; font-size:calc(2.9*var(--su)); letter-spacing:.14em; color:#FFDCEA; text-align:center; padding:0 calc(2*var(--su)); line-height:1.4;
+  text-shadow:0 0 calc(.8*var(--su)) #fff5, 0 0 calc(2.2*var(--su)) var(--accent), 0 0 calc(6*var(--su)) var(--accent);
+  animation:neonFlick 3.8s ease-in-out infinite}
+.neon .nc{font-family:var(--mono); font-size:calc(1.4*var(--su)); letter-spacing:.26em; color:#B8F4F6;
+  text-shadow:0 0 calc(2*var(--su)) rgba(94,230,235,.8)}
+@keyframes neonFlick{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.75}94%{opacity:1}96%{opacity:.88}97%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.neon .nn{animation:none}}
+.clubstrip{display:flex; flex-wrap:wrap; gap:calc(1.2*var(--su)); justify-content:center; max-width:calc(96*var(--su)); margin-top:calc(3.2*var(--su)); margin-bottom:calc(2*var(--su))}
+.clubstrip span{font-family:var(--mono); font-size:calc(1.45*var(--su)); letter-spacing:.1em; color:#FFDCEA;
+  border:1px solid rgba(255,77,141,.45); border-radius:999px; padding:calc(.8*var(--su)) calc(1.7*var(--su));
+  text-shadow:0 0 calc(1.6*var(--su)) rgba(255,77,141,.8)}
+
+.clubshot{width:calc(40*var(--su)); height:calc(23*var(--su)); object-fit:cover; border-radius:calc(1.2*var(--su));
+  border:1px solid #2E2B4E; box-shadow:0 calc(1.2*var(--su)) calc(4*var(--su)) rgba(0,0,0,.6)}
+.neon.mini{height:calc(9.5*var(--su)); gap:calc(.9*var(--su)); margin-top:calc(1.4*var(--su))}
+.neon.mini .nn{font-size:calc(2.1*var(--su))}
+.neon.mini .nc{font-size:calc(1.2*var(--su))}
+.shot-credit{font-family:var(--mono); font-size:calc(1.15*var(--su)); letter-spacing:.18em; color:var(--faint); margin-top:calc(1.2*var(--su))}
+
+/* ---- chrome ---- */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;z-index:21;transition:width .4s;box-shadow:0 0 calc(1.2*var(--su)) var(--accent)}
+.chrome{position:fixed; inset:auto 0 0 0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:calc(2*var(--su)) calc(3*var(--su)); pointer-events:none}
+.counter{font-family:var(--mono);font-size:calc(1.5*var(--su));color:var(--faint)}
+.dots{display:flex;gap:calc(.9*var(--su));pointer-events:auto;flex-wrap:wrap;justify-content:center;max-width:60vw}
+.dots button{width:calc(1.1*var(--su));height:calc(1.1*var(--su));min-width:7px;min-height:7px;border-radius:50%;border:0;background:var(--border2);cursor:pointer;padding:0;transition:.3s}
+.dots button.on{background:var(--accent);transform:scale(1.3);box-shadow:0 0 calc(1*var(--su)) var(--accent)}
+.hint{font-family:var(--mono);font-size:calc(1.35*var(--su));color:var(--faint)}
+kbd{font-family:var(--mono);background:var(--surface2);border:1px solid var(--border2);border-radius:calc(.5*var(--su));padding:calc(.2*var(--su)) calc(.8*var(--su));font-size:calc(1.2*var(--su))}
+#fx{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.9}
+
+@media(max-width:768px){
+  :root{--su:1.05vh}
+  .kicker{font-size:3vw}
+  .cover-min{font-size:8.6vw}
+  .cover-lede{font-size:3.9vw; max-width:88vw}
+  .cover-sub{font-size:2.9vw; letter-spacing:.06em}
+  .artstrip{max-width:92vw; gap:1.6vw}
+  .artstrip img{width:13.5vw; height:13.5vw}
+  .tk-no{font-size:3vw} .tk-no b{font-size:4vw}
+  .tk-artist{font-size:3.4vw}
+  .tk-album{font-size:8vw}
+  .tk-metaline{font-size:3.1vw}
+  .listen-h{font-size:8vw}
+  .pl-btn{font-size:3.6vw; padding:2vw 6vw}
+  .listen,.listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:58vh; overflow-y:auto; gap:2vw}
+  .ls,.listen.dense .ls{padding:2.4vw 3.2vw}
+  .ls img,.listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt,.listen.dense .ls .lt{font-size:3.9vw; white-space:normal}
+  .ls .ln,.ls .sv,.listen.dense .ls .ln,.listen.dense .ls .sv{font-size:2.9vw}
+
+  h1{font-size:9vw} h2{font-size:6.4vw} .big{font-size:7vw} .cover-min{font-size:6.4vw}
+    .quote{font-size:6.4vw}
+  .slide{padding:9vw 6vw}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .track{grid-template-columns:1fr; gap:5vw}
+  .listen{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:62vh; overflow-y:auto}
+  .tk-l{flex-direction:row; justify-content:flex-start; gap:5vw}
+  .sleeve{width:52vw; height:40vw}
+  .sleeve .art{width:38vw; height:38vw}
+  .discwrap{width:34vw; height:34vw}
+  .tk-body{font-size:4.2vw}
+  .tk-fn{font-size:2.9vw}
+  .neon{width:88vw; height:52vw}
+  .neon.mini{width:88vw; height:17vw}
+  .neon.mini{height:20vw}
+  .clubshot{width:88vw; height:48vw}
+  .shot-credit{font-size:2.2vw}
+  .neon .nn{font-size:5.4vw}
+  .neon .nc{font-size:2.8vw}
+  .clubstrip span{font-size:2.8vw}
+  .hint{display:none}
+}
+
+/* ==== unified listen layout ==== */
+.listen-h{font-family:"Nanum Myeongjo",var(--serif); font-weight:800; font-size:calc(4.6*var(--su)); letter-spacing:-.02em}
+.listen, .listen.dense{display:grid; grid-template-columns:1fr 1fr; gap:calc(1*var(--su)) calc(2*var(--su)); width:100%; max-width:126ch; margin-top:calc(3.6*var(--su)); text-align:left; max-height:none; overflow:visible}
+.ls, .listen.dense .ls{display:flex; align-items:center; gap:calc(1.5*var(--su)); text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:calc(1*var(--su));
+  padding:calc(1*var(--su)) calc(1.7*var(--su)); min-height:calc(6*var(--su)); transition:border-color .2s, transform .2s}
+a.ls:hover{border-color:var(--accent); transform:translateY(-1px)}
+.ls img, .listen.dense .ls img{width:calc(4.3*var(--su)); height:calc(4.3*var(--su)); border-radius:calc(.4*var(--su)); object-fit:cover; flex:none}
+.ls .ln, .listen.dense .ls .ln{font-family:var(--mono); font-size:calc(1.5*var(--su)); color:var(--faint); flex:none; min-width:calc(2.8*var(--su))}
+.ls .lt, .listen.dense .ls .lt{font-size:calc(1.95*var(--su)); font-weight:700; color:var(--ink); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:1.45}
+.ls .lt .song{color:var(--muted); font-weight:500}
+.ls .sv, .listen.dense .ls .sv{font-family:var(--mono); font-size:calc(1.45*var(--su)); color:var(--faint); flex:none; letter-spacing:.04em}
+.ls .sv.sp{color:#1DB954}
+.listen.dense{gap:calc(.7*var(--su)) calc(1.8*var(--su))}
+.listen.dense .ls{padding:calc(.65*var(--su)) calc(1.4*var(--su)); min-height:calc(4.9*var(--su))}
+.listen.dense .ls .lt{font-size:calc(1.7*var(--su))}
+.listen.dense .ls .ln, .listen.dense .ls .sv{font-size:calc(1.3*var(--su))}
+@media(max-width:768px){
+  .listen, .listen.dense{grid-template-columns:1fr; grid-auto-rows:max-content; align-content:start; max-height:56vh; overflow-y:auto; gap:2vw}
+  .ls, .listen.dense .ls{padding:2.6vw 3.4vw; min-height:0; gap:3vw}
+  .ls img, .listen.dense .ls img{width:10vw; height:10vw}
+  .ls .lt, .listen.dense .ls .lt{font-size:4vw; white-space:normal}
+  .ls .ln, .ls .sv, .listen.dense .ls .ln, .listen.dense .ls .sv{font-size:2.9vw}
+  .slide{overflow-y:auto; justify-content:flex-start; padding-top:16vw; padding-bottom:22vw}
+  .slide::-webkit-scrollbar{display:none}
+  .track{grid-template-columns:minmax(0,1fr) !important}
+  .tk-l{flex-direction:column !important; align-items:center; gap:3vw; width:100%}
+  .tk-r{min-width:0; max-width:100%}
+  .tk-body, .tk-fn, .tk-metaline, .tk-album{max-width:100%}
+  .listen, .listen.dense{margin-top:6vw}
+  .pl-btn{margin-top:3.5vw; margin-bottom:1vw}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<canvas id="fx"></canvas>
+
+<div class="deck" id="deck">
+
+<!-- COVER -->
+<section class="slide">
+  <p class="kicker r">GROOVE · 클럽 연대기 · 국내편</p>
+  <h1 class="cover-min r" style="--i:1">전설이 시작된 클럽들 — 국내편</h1>
+  <p class="cover-lede r" style="--i:2">이태원 문나이트의 플로어에서 부산 오방가르드의 지하까지, 그리고 그 사이의 홍대 서른 해. 지금도 문을 여는 곳과 이미 사라진 곳 — 열아홉 개의 무대를 문을 연 순서대로 걷는다.</p>
+  <div class="clubstrip r" style="--i:3"><span>MOON NIGHT</span><span>DRUG</span><span>CLUB BBANG</span><span>ROLLING HALL</span><span>FREEBIRD</span><span>CLUB HEAVY</span><span>SPANGLE</span><span>JAMMERS</span><span>MASTER PLAN</span><span>CLUB EVANS</span><span>CLUB FF</span><span>SKUNK HELL</span><span>SALON BADABIE</span><span>SANGSANG MADANG</span><span>VELOSO</span><span>JEBIDABANG</span><span>CLUB TA</span><span>MUV HALL</span><span>OVANTGARDE</span></div>
+  <p class="cover-sub r" style="--i:4">1980s – 2018 · 열아홉 곳 · 글 비바체</p>
+</section>
+
+<!-- 01 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/01.jpg" alt="MOON NIGHT">
+      <div class="neon mini"><div class="nn">MOON NIGHT</div><div class="nc">ITAEWON · 1980s</div></div>
+      <div class="shot-credit">PHOTO · YOUTUBE · 1998 아카이브</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>01</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">ITAEWON</p>
+      <div class="tk-album r" style="--i:2">문나이트</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1980년대 – 1990년대 말 · 이태원 · 흑인음악 · 폐업</div>
+      <p class="tk-body r" style="--i:4">90년대 K팝 안무의 절반은 이 지하에서 나왔다고 해도 과장이 아니다. 이태원의 흑인음악 클럽 문나이트는 박남정과 현진영, 서태지와 아이들의 이주노·양현석, 듀스의 이현도·김성재까지 — 1세대 댄스 가수의 인명사전이다. 플로어에서 스텝을 훔치고 겨루던 밤들이 사실상 한국 댄스 음악의 사관학교였다. 원조는 90년대 말에 사라졌고, 2018년 같은 이름으로 부활했던 공간도 2021년 철거됐다.</p>
+    </div>
+  </div>
+</section>
+<!-- 02 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/02.jpg" alt="DRUG">
+      <div class="neon mini"><div class="nn">DRUG</div><div class="nc">HONGDAE · EST. 1994</div></div>
+      <div class="shot-credit">PHOTO · THE KOREA TIMES</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>02</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">드럭</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1994 – · 홍대 → 신당동 · 펑크 · DGBD로 계승</div>
+      <p class="tk-body r" style="--i:4">1994년 홍대 지하에서 &lsquo;조선펑크&rsquo;가 태어났다. 음악감상실로 출발해 1995년 커트 코베인 추모 공연을 계기로 라이브 클럽이 됐고, 크라잉넛의 &lsquo;말 달리자&rsquo;와 노브레인이 이 무대에서 나왔다 — 언니네이발관의 데뷔 무대(1995년 7월)도 여기였다. 1996년 드럭레코드를 세워 《Our Nation》 컴필레이션을 내며 클럽이 레이블이 되는 경로를 처음 보여줬다. DGBD로 이름을 바꿔 버티다 2020년 문을 닫았고, 2023년 신당동에서 다시 열었다.</p>
+    </div>
+  </div>
+</section>
+<!-- 03 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/03.jpg" alt="CLUB BBANG">
+      <div class="neon mini"><div class="nn">CLUB BBANG</div><div class="nc">HONGDAE · EST. 1994</div></div>
+      <div class="shot-credit">PHOTO · 경향신문</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>03</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">클럽 빵</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1994 – 영업 중 · 이대 앞 → 홍대 · 어쿠스틱 · 모던록</div>
+      <p class="tk-body r" style="--i:4">오디션보다 취향으로 무대를 내주는 곳. 1994년 이대 앞 복합문화공간으로 시작해 2004년 홍대로 옮기며 어쿠스틱과 모던록의 인큐베이터가 됐다. 브로콜리너마저, 장기하, 검정치마, 김사월, 실리카겔 — 지난 20년 한국 인디의 신인 명단이 곧 이 클럽의 출연자 명단이다. 지금도 영업 중이라는 사실이 홍대 신의 마지막 자존심처럼 느껴진다.</p>
+    </div>
+  </div>
+</section>
+<!-- 04 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/04.jpg" alt="ROLLING HALL">
+      <div class="neon mini"><div class="nn">ROLLING HALL</div><div class="nc">HONGDAE · EST. 1995</div></div>
+      <div class="shot-credit">PHOTO · 한국관광공사 · 공공누리</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>04</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">롤링홀</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 – 영업 중 · 신촌 → 홍대 · 라이브홀 · 2025년 30주년</div>
+      <p class="tk-body r" style="--i:4">1995년 신촌에서 &lsquo;롤링 스톤즈&rsquo;라는 이름으로 문을 열어, 2004년 홍대로 옮기며 롤링홀이 됐다. 400석 규모의 이 중형 홀은 크라잉넛과 노브레인부터 이름 없는 신인까지, 30년째 무대를 내주는 홍대의 상수다. 코로나 때는 &lsquo;26년간 홍대 인디 신을 지켜온 공연장&rsquo;의 위기가 뉴스가 됐고, 2025년 개관 30주년 공연으로 답했다. 오래 버티는 것 자체가 업적이 되는 동네에서 가장 오래 버틴 이름.</p>
+    </div>
+  </div>
+</section>
+<!-- 05 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/05.jpg" alt="FREEBIRD">
+      <div class="neon mini"><div class="nn">FREEBIRD</div><div class="nc">HONGDAE · 1995 – 2015</div></div>
+      <div class="shot-credit">PHOTO · 한국일보</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>05</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">프리버드</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 – 2015 · 홍대 · 인디 록 · 폐업</div>
+      <p class="tk-body r" style="--i:4">홍대 1세대 라이브 클럽의 표준. 델리스파이스와 자우림부터 장기하와 얼굴들, 국카스텐, 10cm까지 — 20년간 인디 록의 통과의례가 이 무대였다. 2007년 이후 임대료가 70% 넘게 뛰었고, 2015년 7월 11일 마지막 공연과 함께 문을 닫았다. 젠트리피케이션<span class="ast">*</span>이라는 단어가 홍대에서 뜻하는 바를 가장 정확히 보여준 폐업.</p>
+      <p class="tk-fn r" style="--i:5">* 젠트리피케이션 — 임대료 상승으로 원래 있던 가게와 사람들이 밀려나는 현상.</p>
+    </div>
+  </div>
+</section>
+<!-- 06 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/06.jpg" alt="CLUB HEAVY">
+      <div class="neon mini"><div class="nn">CLUB HEAVY</div><div class="nc">DAEGU · EST. 1995</div></div>
+      <div class="shot-credit">PHOTO · YOUTUBE · 클럽 헤비 LIVE</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>06</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">DAEGU</p>
+      <div class="tk-album r" style="--i:2">클럽 헤비</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1995 – 영업 중 · 대구 대명동 · 록 라이브</div>
+      <p class="tk-body r" style="--i:4">서울 바깥에서 가장 오래 버틴 라이브 클럽이다. 1995년 계명대 돌계단 앞에서 &lsquo;헤비네&rsquo;라는 이름으로 문을 열어, 30년째 대구 록 신의 본진 노릇을 하고 있다. 지역 밴드의 정기 공연과 전국 밴드의 투어 무대가 이 지하에서 교차하고, 대구에서 밴드를 시작한다는 건 오랫동안 곧 이 무대에 선다는 뜻이었다. 홍대의 클럽들이 세대마다 문을 닫고 다시 열리는 동안, 헤비는 같은 자리에서 같은 일을 계속했다.</p>
+    </div>
+  </div>
+</section>
+<!-- 07 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <div class="neon"><div class="nn">SPANGLE</div><div class="nc">HONGDAE · 1996 – 2000</div></div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>07</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">스팽글</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1996 – 2000 · 서교동 · 모던록 · 폐업</div>
+      <p class="tk-body r" style="--i:4">이름 때문에 화려한 클럽을 상상하기 쉽지만, 실제로는 1세대 모던록의 아지트였다. 1996년부터 2000년까지 허클베리핀, 코코어, 델리스파이스, 마이 앤트 메리가 이 무대를 홈그라운드로 썼다. 1999년에는 후지록 가던 길의 버나드 버틀러(전 스웨이드)가 카드게임 내기에 져서 다음 날 깜짝 공연을 했다는 일화도 남아 있다. 건물째 사라졌고, 자리는 주상복합이 됐다.</p>
+    </div>
+  </div>
+</section>
+<!-- 08 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/08.jpg" alt="JAMMERS">
+      <div class="neon mini"><div class="nn">JAMMERS</div><div class="nc">HONGDAE · 1990s</div></div>
+      <div class="shot-credit">ALBUM ART · BUGS · 《Rock 닭의 울음소리》</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>08</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">재머스</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1990년대 중반 – 말 · 홍대 · 라이브 · 폐업</div>
+      <p class="tk-body r" style="--i:4">드럭이 펑크, 스팽글이 모던록이었다면 재머스는 그 사이의 나머지 전부였다. 90년대 중반 문을 열어 팝록과 흑인음악 계열까지 받아낸 이 클럽은 1997년 자체 컴필레이션 《Rock 닭의 울음소리》를 냈다 — 드럭의 《Our Nation》과 함께, 클럽이 곧 레이블이던 시절의 기록이다. 90년대가 끝나갈 무렵 함께 사라졌다.</p>
+    </div>
+  </div>
+</section>
+<!-- 09 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/09.jpg" alt="MASTER PLAN">
+      <div class="neon mini"><div class="nn">MASTER PLAN</div><div class="nc">SINCHON · 1997 – 2001</div></div>
+      <div class="shot-credit">ALBUM ART · BUGS · 《MP Hip-Hop Project 2000》</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>09</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">SINCHON</p>
+      <div class="tk-album r" style="--i:2">마스터플랜</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">1997 – 2001 · 신촌 · 힙합 · 레이블로 전환</div>
+      <p class="tk-body r" style="--i:4">1997년 겨울, 클럽 &lsquo;푸른굴 양식장&rsquo;을 인수해 연 힙합 전용 무대. 오픈 마이크<span class="ast">*</span>에서 가리온과 주석이 자랐고, 다이나믹듀오의 최자·개코가 이 무대로 데뷔했다. 한국 언더그라운드 힙합의 형성기 4년이 이 클럽 안에서 진행됐다. 2001년 12월 &lsquo;Still-A-Live&rsquo; 공연을 끝으로 문을 닫고 레이블로 전환 — 무대는 사라졌지만 계보는 음반으로 이어졌다.</p>
+      <p class="tk-fn r" style="--i:5">* 오픈 마이크 — 신청자 누구나 무대에 오를 수 있는 자유 참여 공연.</p>
+    </div>
+  </div>
+</section>
+<!-- 10 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/10.jpg" alt="CLUB EVANS">
+      <div class="neon mini"><div class="nn">CLUB EVANS</div><div class="nc">HONGDAE · EST. 2001</div></div>
+      <div class="shot-credit">PHOTO · TIME OUT KOREA</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>10</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">클럽 에반스</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2001 – 영업 중 · 홍대 · 재즈</div>
+      <p class="tk-body r" style="--i:4">빌 에반스에서 이름을 딴 홍대의 재즈 클럽. 2001년 문을 연 이래 국내 재즈 뮤지션들의 사실상 상설 무대가 됐다 — 개장 10년 만에 연주자 연인원 1만 2천 명, 공연 3천5백 회. 아카데미와 녹음실, 레이블까지 갖춘 홍대 재즈의 거점이고, 지금도 영업 중이다.</p>
+    </div>
+  </div>
+</section>
+<!-- 11 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/11.jpg" alt="CLUB FF">
+      <div class="neon mini"><div class="nn">CLUB FF</div><div class="nc">HONGDAE · EST. 2004</div></div>
+      <div class="shot-credit">PHOTO · YOUTUBE · 13CHILDREN LIVE</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>11</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">클럽 FF</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2004 – 영업 중 · 홍대 · 라이브 + 록 디제잉</div>
+      <p class="tk-body r" style="--i:4">홍대에서 &lsquo;불금&rsquo;이라는 단어가 구체적인 주소를 갖는다면 그건 이 지하다. 2004년 문을 연 FF는 라이브 공연과 록 디제잉을 한 무대에서 잇는 형식을 홍대에 정착시켰다 — 밤 11시 이전에는 밴드, 이후에는 플로어. 크라잉넛부터 혁오, 아도이, 실리카겔까지 거쳐 갔고, 주변 공연장이 줄줄이 문 닫는 동안에도 살아남았다. 이름은 Funky Funky의 약자다.</p>
+    </div>
+  </div>
+</section>
+<!-- 12 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/12.jpg" alt="SKUNK HELL">
+      <div class="neon mini"><div class="nn">SKUNK HELL</div><div class="nc">HONGDAE · 2004 – 2009</div></div>
+      <div class="shot-credit">PHOTO · THE KOREA TIMES</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>12</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">스컹크헬</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2004 – 2009 · 옛 드럭 자리 · 조선펑크 · 폐업</div>
+      <p class="tk-body r" style="--i:4">드럭이 떠난 자리에 펑크가 다시 들어왔다. 럭스의 원종희가 2004년 옛 드럭 자리에 연 스컹크헬은 조선펑크 2세대의 본거지였다 — 스컹크 레이블 사단이 여기서 자랐다. 2009년 1월 3일 마지막 공연으로 문을 닫았고, 그 계보는 문래동 GBN 라이브하우스로 이어졌다가 2022년 수해와 함께 끝났다. 펑크의 역사는 이렇게 자리를 옮겨 가며 쓰인다.</p>
+    </div>
+  </div>
+</section>
+<!-- 13 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/13.jpg" alt="SALON BADABIE">
+      <div class="neon mini"><div class="nn">SALON BADABIE</div><div class="nc">HONGDAE · 2004 – 2015</div></div>
+      <div class="shot-credit">PHOTO · THE KOREA TIMES</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>13</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">살롱 바다비</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2004 – 2015 · 홍대 · 인디 · 폐업</div>
+      <p class="tk-body r" style="--i:4">오디션 없이, 신청만 하면 무대에 설 수 있었다. 시인 우중독보행이 2004년에 연 이 작은 살롱은 불나방스타쏘세지클럽과 갤럭시 익스프레스의 초창기를 품은 무명 밴드의 등용문이었다. 2011년 폐업 위기 때는 장기하와 10cm 등 137개 팀이 &lsquo;바다비 네버다이&rsquo; 모금 공연으로 응답했다. 그렇게 4년을 더 버티고 2015년 문을 닫았다 — 홍대에서 가장 가난하고 가장 관대했던 무대.</p>
+    </div>
+  </div>
+</section>
+<!-- 14 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/14.jpg" alt="SANGSANG MADANG">
+      <div class="neon mini"><div class="nn">SANGSANG MADANG</div><div class="nc">HONGDAE · EST. 2007</div></div>
+      <div class="shot-credit">PHOTO · 한국관광공사 · 공공누리</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>14</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">상상마당 라이브홀</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2007 – 영업 중 · 홍대 · 라이브홀</div>
+      <p class="tk-body r" style="--i:4">2007년, 대기업이 홍대 한복판에 공연장을 지었다. 부도난 극장을 KT&amp;G가 인수해 만든 이 라이브홀은 스탠딩 400명 규모에 &lsquo;홍대에서 음향이 제일 좋은 집&rsquo;이라는 평을 달고 다닌다. 신인 인큐베이팅 기획으로 상업 클럽들과는 다른 축을 맡았고, 지금도 영업 중이다. 기업 자본과 인디 신의 드문 공존 사례.</p>
+    </div>
+  </div>
+</section>
+<!-- 15 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/15.jpg" alt="VELOSO">
+      <div class="neon mini"><div class="nn">VELOSO</div><div class="nc">HONGDAE · 2008 – 2026</div></div>
+      <div class="shot-credit">PHOTO · YOUTUBE · 벨로주홍대 LIVE</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>15</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">벨로주</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2008 – 2026 · 홍대 · 포크 · 홍대점 운영 중단</div>
+      <p class="tk-body r" style="--i:4">포크와 싱어송라이터의 소극장. 2008년 작은 카페로 시작해 세 번 자리를 옮기며 18년을 버텼고, 2026년 1월 홍대 운영 중단을 알렸다. 대표 박정용이 남긴 &lsquo;5만 석 아레나보다 천 석 공연장이 필요하다&rsquo;는 말은 중소 공연장 위기론의 대표 문장이 됐다. 조용한 음악에게 무대를 내주는 곳은 언제나 가장 먼저 사라진다.</p>
+    </div>
+  </div>
+</section>
+<!-- 16 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/16.jpg" alt="JEBIDABANG">
+      <div class="neon mini"><div class="nn">JEBIDABANG</div><div class="nc">SANGSU · EST. 2012</div></div>
+      <div class="shot-credit">PHOTO · 서울시 미디어허브 · 공공누리</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>16</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">SANGSU</p>
+      <div class="tk-album r" style="--i:2">제비다방</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2012 – 영업 중 · 상수동 · 카페 + 라이브 · 자율 기부 공연</div>
+      <p class="tk-body r" style="--i:4">이상(李箱)이 종로에 열었던 다방에서 이름을 빌려왔다. 2012년 봄 상수동에 문을 연 이 공간은 낮에는 카페, 밤에는 지하 공연장이 된다 — 책으로 둘러싸인 테이블 사이에서 자율 기부<span class="ast">*</span>로 공연을 보는 형식의 국내 대표격이다. 목요일부터 일요일까지 무대가 이어지고, 지금도 영업 중이다. 다방이라는 낡은 단어가 홍대에서 가장 열린 공연 형식을 담는 그릇이 됐다.</p>
+      <p class="tk-fn r" style="--i:5">* 자율 기부 공연 — 정해진 입장료 없이 관객이 내고 싶은 만큼 내는 방식.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/17.jpg" alt="CLUB TA">
+      <div class="neon mini"><div class="nn">CLUB TA</div><div class="nc">HONGDAE · – 2012</div></div>
+      <div class="shot-credit">PHOTO · THE KOREA TIMES</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>17</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">클럽 타</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">– 2012 · 홍대 · 테이블식 라이브 · 폐업</div>
+      <p class="tk-body r" style="--i:4">홍대 클럽인데 스탠딩이 아니라 테이블에 앉아 술을 마시며 공연을 봤다. 무대와 음향은 홍대에서 큰 편에 속했고, 그 절충적인 형식 덕에 라이브 클럽과 라이브 카페 사이의 드문 좌표를 차지했다. 2012년 말 문을 닫았고 기록도 많이 남지 않았다 — 사라진 클럽은 이렇게 잊힌다.</p>
+    </div>
+  </div>
+</section>
+<!-- 18 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/18.jpg" alt="MUV HALL">
+      <div class="neon mini"><div class="nn">MUV HALL</div><div class="nc">HONGDAE · 2013 – 2020</div></div>
+      <div class="shot-credit">PHOTO · YOUTUBE · 갤럭시 익스프레스 LIVE</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>18</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">HONGDAE</p>
+      <div class="tk-album r" style="--i:2">무브홀</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2013 – 2020 · 서교동 · 라이브홀 · 무신사 개러지로</div>
+      <p class="tk-body r" style="--i:4">클럽 맨션 자리를 예스24가 고쳐 2013년에 연 400석 스탠딩 홀. 2020년, V홀·DGBD와 함께 문을 닫으며 &lsquo;홍대 공연장 줄도산&rsquo;의 상징이 됐다. 자리는 왓챠홀을 거쳐 무신사 개러지가 됐다 — 간판이 바뀔 때마다 그 시대의 물주가 누구인지 보인다.</p>
+    </div>
+  </div>
+</section>
+<!-- 19 -->
+<section class="slide">
+  <div class="track">
+    <div class="tk-l r">
+      <img class="clubshot" src="covers/clubs-kr/19.jpg" alt="OVANTGARDE">
+      <div class="neon mini"><div class="nn">OVANTGARDE</div><div class="nc">BUSAN · EST. 2018</div></div>
+      <div class="shot-credit">PHOTO · YOUTUBE · 오방가르드 LIVE</div>
+    </div>
+    <div class="tk-r">
+      <div class="tk-no r"><b>19</b> / 19</div>
+      <p class="tk-artist r" style="--i:1">BUSAN</p>
+      <div class="tk-album r" style="--i:2">오방가르드</div>
+      <div class="rule r" style="--i:3"></div>
+      <div class="tk-metaline r" style="--i:3">2018 – 영업 중 · 부산 경성대 앞 · 인디 라이브</div>
+      <p class="tk-body r" style="--i:4">부산 인디 신의 현재 좌표. &lsquo;오&rsquo;와 아방가르드를 붙인 이름처럼, 2018년 경성대 인근 지하에 문을 연 이 베뉴는 부산에서 열리는 인디 공연의 대부분을 받아낸다. 보수동쿨러가 이 무대에서 자랐고, 홍대 뮤지션의 부산 공연도 대체로 여기서 열린다. 서울 바깥에도 신이 있다는 증거 — 그것도 영업 중인 증거다.</p>
+    </div>
+  </div>
+</section>
+<!-- LISTEN -->
+<section class="slide">
+  <p class="kicker r">Listen</p>
+  <h2 class="listen-h r" style="--i:1">들으러 가기</h2>
+  <a class="pl-btn r" style="--i:2" href="https://open.spotify.com/playlist/6n5DX3SNURe1uHWhXYwvCL" target="_blank" rel="noopener">&#9654; 플레이리스트 재생 — Spotify</a>
+  <div class="listen dense r" style="--i:3">
+    <div class="ls"><img src="covers/clubs-kr/t01.jpg" alt=""><span class="ln">01</span><span class="lt"><b>현진영</b><span class="song"> — 흐린 기억 속의 그대</span></span><span class="sv am">문나이트</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t02.jpg" alt=""><span class="ln">02</span><span class="lt"><b>크라잉넛</b><span class="song"> — 말 달리자</span></span><span class="sv am">드럭</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t03.jpg" alt=""><span class="ln">03</span><span class="lt"><b>브로콜리너마저</b><span class="song"> — 앵콜요청금지</span></span><span class="sv am">클럽 빵</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t04.jpg" alt=""><span class="ln">04</span><span class="lt"><b>노브레인</b><span class="song"> — 넌 내게 반했어</span></span><span class="sv am">롤링홀</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t05.jpg" alt=""><span class="ln">05</span><span class="lt"><b>델리스파이스</b><span class="song"> — 챠우챠우</span></span><span class="sv am">프리버드</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t06.jpg" alt=""><span class="ln">06</span><span class="lt"><b>드링킹소년소녀합창단</b><span class="song"> — Keep Drinking!!</span></span><span class="sv am">클럽 헤비</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t07.jpg" alt=""><span class="ln">07</span><span class="lt"><b>허클베리핀</b><span class="song"> — 사막</span></span><span class="sv am">스팽글</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t08.jpg" alt=""><span class="ln">08</span><span class="lt"><b>언니네이발관</b><span class="song"> — 보여줄 순 없겠지</span></span><span class="sv am">재머스</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t09.jpg" alt=""><span class="ln">09</span><span class="lt"><b>가리온</b><span class="song"> — 옛 이야기</span></span><span class="sv am">마스터플랜</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t10.jpg" alt=""><span class="ln">10</span><span class="lt"><b>윤석철트리오</b><span class="song"> — 여대 앞에 사는 남자</span></span><span class="sv am">클럽 에반스</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t11.jpg" alt=""><span class="ln">11</span><span class="lt"><b>혁오</b><span class="song"> — 위잉위잉</span></span><span class="sv am">클럽 FF</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t12.jpg" alt=""><span class="ln">12</span><span class="lt"><b>갤럭시 익스프레스</b><span class="song"> — Jungle The Black</span></span><span class="sv am">스컹크헬</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t13.jpg" alt=""><span class="ln">13</span><span class="lt"><b>불나방스타쏘세지클럽</b><span class="song"> — 악어떼</span></span><span class="sv am">살롱 바다비</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t14.jpg" alt=""><span class="ln">14</span><span class="lt"><b>국카스텐</b><span class="song"> — 거울</span></span><span class="sv am">상상마당</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t15.jpg" alt=""><span class="ln">15</span><span class="lt"><b>김사월</b><span class="song"> — 누군가에게</span></span><span class="sv am">벨로주</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t16.jpg" alt=""><span class="ln">16</span><span class="lt"><b>김목인</b><span class="song"> — 음악가 자신의 노래</span></span><span class="sv am">제비다방</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t17.jpg" alt=""><span class="ln">17</span><span class="lt"><b>딕펑스</b><span class="song"> — VIVA 청춘</span></span><span class="sv am">클럽 타</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t18.jpg" alt=""><span class="ln">18</span><span class="lt"><b>새소년</b><span class="song"> — 난춘</span></span><span class="sv am">무브홀</span></div>
+    <div class="ls"><img src="covers/clubs-kr/t19.jpg" alt=""><span class="ln">19</span><span class="lt"><b>세이수미</b><span class="song"> — Old Town</span></span><span class="sv am">오방가르드</span></div>
+  </div>
+</section>
+
+</div>
+
+<div class="chrome">
+  <span class="counter"><span id="cur">1</span> / <span id="tot">0</span></span>
+  <div class="dots" id="dots"></div>
+  <span class="hint"><kbd>←</kbd><kbd>→</kbd> 또는 화면 좌/우 클릭 · 앨범 넘기기</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  var prog=document.getElementById('prog'), cur=document.getElementById('cur');
+  document.getElementById('tot').textContent=n;
+  var dots=document.getElementById('dots');
+  slides.forEach(function(_,k){var b=document.createElement('button');b.onclick=function(){go(k)};dots.appendChild(b)});
+  var dotEls=[].slice.call(dots.children);
+
+  /* ambient particle field */
+  (function particles(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c=document.getElementById('fx'), x=c.getContext('2d'), W,H,ps=[];
+    function size(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+    size(); addEventListener('resize',size);
+    var N=Math.min(56, Math.round(innerWidth/26));
+    var cols=['232,69,95','217,168,78','255,255,255'];
+    for(var k=0;k<N;k++){ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,
+      s:Math.random()*.28+.06, sway:Math.random()*Math.PI*2, sw:Math.random()*.01+.003,
+      a:Math.random()*.45+.12, col:cols[Math.random()<.68?0:(Math.random()<.6?1:2)]});}
+    function tick(){ x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
+      for(var j=0;j<ps.length;j++){var p=ps[j]; p.y-=p.s; p.sway+=p.sw; p.x+=Math.sin(p.sway)*.25;
+        if(p.y< -6){p.y=H+6; p.x=Math.random()*W;}
+        var tw=p.a*(0.6+0.4*Math.sin(p.sway*2));
+        x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle='rgba('+p.col+','+tw.toFixed(2)+')'; x.fill(); }
+      requestAnimationFrame(tick); }
+    tick();
+  })();
+
+  var deck=document.getElementById('deck');
+  function go(k){
+    var prev=i; i=(k+n)%n;
+    if(prev!==i){
+      deck.classList.toggle('camback', i<prev);
+      var old=slides[prev];
+      old.classList.remove('active'); old.classList.add('leaving');
+      setTimeout(function(){ old.classList.remove('leaving'); }, 1300);
+    }
+    var s=slides[i];
+    slides.forEach(function(x,idx){ if(idx!==i && idx!==prev) x.classList.remove('active','leaving'); });
+    s.classList.remove('leaving'); void s.offsetWidth; s.classList.add('active');
+    prog.style.width=((i+1)/n*100)+'%';
+    cur.textContent=i+1;
+    dotEls.forEach(function(d,x){d.classList.toggle('on',x===i)});
+  }
+  function next(){go(i+1)} function prev(){go(i-1)} window.__deckGo=go;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next()}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+    else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(n-1)}
+  });
+  deck.addEventListener('click',function(e){
+    if(e.target.closest('.dots')||e.target.closest('a')||e.target.closest('[data-go]'))return;
+    var x=e.clientX, w=window.innerWidth; if(x<w*0.32)prev(); else if(x>w*0.68)next();
+  });
+  document.addEventListener('click',function(e){
+    var g=e.target.closest('[data-go]'); if(g){ e.preventDefault(); go(+g.getAttribute('data-go')); }
+  });
+  var sx=0;
+  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
+  go(0);
+})();
+</script>
+
+<!-- ISSUE NAV -->
+<style>
+#nav-btn{position:fixed;top:16px;left:16px;z-index:1000;width:44px;height:44px;border:none;
+  border-radius:12px;background:rgba(24,27,38,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#F0EDE4;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.45);transition:background .2s,transform .2s}
+#nav-btn:hover{background:rgba(32,36,47,.95);transform:translateY(-1px)}
+#nav-btn svg{width:50%;height:50%}
+#nav-back{position:fixed;inset:0;z-index:999;background:rgba(4,6,12,.55);opacity:0;visibility:hidden;transition:opacity .25s}
+#nav-back.open{opacity:1;visibility:visible}
+#nav-panel{position:fixed;top:0;left:0;z-index:1001;height:100%;width:320px;max-width:84vw;
+  background:linear-gradient(180deg,#12141d,#181B26);border-right:1px solid #2A2E3B;box-shadow:10px 0 40px rgba(0,0,0,.55);
+  transform:translateX(-101%);transition:transform .3s cubic-bezier(.3,.72,.2,1);display:flex;flex-direction:column}
+#nav-panel.open{transform:none}
+#nav-panel .nv-head{padding:22px 24px 14px;border-bottom:1px solid #2A2E3B;position:relative}
+#nav-panel .nv-ey{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.16em;color:#E8455F;text-transform:uppercase}
+#nav-panel .nv-ttl{font:800 18px/1.25 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;color:#F0EDE4;margin-top:6px}
+#nav-x{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:rgba(255,255,255,.06);border-radius:8px;
+  color:#A8A69C;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
+#nav-x:hover{background:rgba(255,255,255,.12);color:#fff}
+#nav-list{overflow-y:auto;flex:1;padding:10px 12px 18px}
+.nv-item{display:flex;gap:12px;align-items:center;text-decoration:none;color:#C7CBD8;
+  font:600 15px/1.35 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  padding:12px;border-radius:11px;transition:background .15s,color .15s}
+.nv-item:hover{background:rgba(232,69,95,.13);color:#fff}
+.nv-item.on{background:rgba(232,69,95,.2);color:#fff}
+.nv-item .nv-n{font:700 12px/1 "JetBrains Mono",monospace;color:#E8455F;min-width:26px;text-align:right}
+.nv-item .nv-sub{display:block;font:500 11.5px/1.3 "JetBrains Mono",monospace;color:#6E6D66;margin-top:3px}
+.nv-item.on .nv-sub{color:#d9a0aa}
+@media(prefers-reduced-motion:reduce){#nav-panel,#nav-back{transition:none}}
+</style>
+<button id="nav-btn" aria-label="다른 호 보기" title="다른 호 보기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<div id="nav-back"></div>
+<nav id="nav-panel" aria-label="호수 목차">
+  <div class="nv-head">
+    <div class="nv-ey">GROOVE Magazine</div>
+    <div class="nv-ttl">다른 호 보기</div>
+    <button id="nav-x" aria-label="닫기">&times;</button>
+  </div>
+  <div id="nav-list">
+    <a class="nv-item" data-slug="index" href="../index.html"><span class="nv-n">&#8962;</span><span>기사 목록<span class="nv-sub">GROOVE — 비바체의 음악 노트</span></span></a>
+    <a class="nv-item" data-slug="korean-indie-new-wave" href="korean-indie-new-wave.html"><span class="nv-n">01</span><span>비바체가 골라본 2020년대 한국인디<span class="nv-sub">앨범 12장 · 2026.07</span></span></a>
+    <a class="nv-item" data-slug="arise" href="arise.html"><span class="nv-n">&#8544;</span><span>Arise - 60's to 80's<span class="nv-sub">록 3부작 · 개막 · 12곡</span></span></a>
+    <a class="nv-item" data-slug="blooming" href="blooming.html"><span class="nv-n">&#8545;</span><span>Blooming - 80's to 90's<span class="nv-sub">록 3부작 · 만개 · 11곡</span></span></a>
+    <a class="nv-item" data-slug="crown" href="crown.html"><span class="nv-n">&#8546;</span><span>Crown - 21C<span class="nv-sub">록 3부작 · 대관식 · 24곡</span></span></a>
+    <a class="nv-item" data-slug="clubs" href="clubs.html"><span class="nv-n">02</span><span>전설이 시작된 클럽들 — 해외편<span class="nv-sub">클럽 연대기 · 7곳</span></span></a>
+    <a class="nv-item" data-slug="clubs-kr" href="clubs-kr.html"><span class="nv-n">03</span><span>전설이 시작된 클럽들 — 국내편<span class="nv-sub">클럽 연대기 · 19곳</span></span></a>
+  </div>
+</nav>
+<script>
+(function(){
+  var panel=document.getElementById('nav-panel'),back=document.getElementById('nav-back'),
+      btn=document.getElementById('nav-btn'),open=false;
+  var cur=(location.pathname.split('/').pop()||'').replace('.html','');
+  document.querySelectorAll('.nv-item').forEach(function(a){
+    if(a.getAttribute('data-slug')===cur) a.classList.add('on');
+  });
+  function openMenu(){open=true;panel.classList.add('open');back.classList.add('open');}
+  function close(){open=false;panel.classList.remove('open');back.classList.remove('open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();open?close():openMenu();});
+  document.getElementById('nav-x').addEventListener('click',function(e){e.stopPropagation();close();});
+  back.addEventListener('click',close);
+  panel.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close();},true);
+})();
+</script>
+</body>
+</html>
